@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Begin : State
+public class StartGame : State
 {
-    public Begin(GameSystem gameSystem) : base(gameSystem)
+    public StartGame(GameSystem gameSystem) : base(gameSystem)
     {
     }
 
