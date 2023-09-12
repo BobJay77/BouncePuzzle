@@ -22,6 +22,7 @@ public class PlayerTurn : State
     {
         GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
         GameSystem.ghostBall.SetActive(true);
+        GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         yield break;
     }
 
@@ -31,6 +32,7 @@ public class PlayerTurn : State
         {
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("Here2");
                 initialClickPos = GameSystem.playerBall.transform.position;
 
                 Vector3 direction = GameSystem.mousePosition - initialClickPos;
@@ -39,9 +41,29 @@ public class PlayerTurn : State
                 if (Physics.Raycast(initialClickPos, direction.normalized, out hit, distance, LayerMask.GetMask("wall")))
                     return;
 
+
+
                 shootMode = true;
                 GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = true;
             }
+
+            else
+            {
+                Vector3 direction = GameSystem.mousePosition - initialClickPos;
+                float distance = direction.magnitude;
+
+                if (Physics.Raycast(initialClickPos, direction.normalized, out hit, distance, LayerMask.GetMask("redZone")))
+                {
+                    RedZone tempRedZone = hit.transform.gameObject.GetComponent<RedZone>();
+                    Color newcolor = tempRedZone.redZoneMaterial.color;
+                    Debug.Log(newcolor);
+                    tempRedZone.timer = 0;
+                    newcolor.a = 1f;
+                    tempRedZone.redZoneMaterial.color = newcolor;
+                    return;
+                }
+            }
+
 
             // When hovering with a mouse, position the ghostBall to cursor
             GameSystem.playerBall.transform.position = GameSystem.mousePosition;
@@ -62,6 +84,9 @@ public class PlayerTurn : State
                                                                Vector3.Distance(GameSystem.playerBall.transform.position, initialClickPos) *
                                                                GameSystem.multiplier *
                                                                Time.deltaTime);
+
+                GameSystem.actionText.text = "";
+
                 GameSystem.SetState(new Resolution(GameSystem));
             }
         }
@@ -76,7 +101,6 @@ public class PlayerTurn : State
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("wall")))
             return;
-
 
         if (distance > maxDragDistance)
         {
