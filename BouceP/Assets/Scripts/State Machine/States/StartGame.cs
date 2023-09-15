@@ -12,6 +12,7 @@ public class StartGame : State
     {
         yield return new WaitForSeconds(2f);
 
+        
         GameSystem.bouncesGoal = GameSystem.levelInfo.numOfBouncesToWin;
         GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
 

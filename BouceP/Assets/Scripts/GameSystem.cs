@@ -16,6 +16,7 @@ public class GameSystem : StateMachine
     
     public GameObject   playerBall;
     public GameObject   ghostBall;
+    public GameObject   barrierBall;
     public GameObject   winOrLoseParent;
 
     public TMP_Text     actionText;

@@ -22,6 +22,7 @@ public class PlayerTurn : State
     {
         GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
         GameSystem.ghostBall.SetActive(true);
+        GameSystem.barrierBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
 
@@ -36,6 +37,9 @@ public class PlayerTurn : State
             {
                 initialClickPos = GameSystem.playerBall.transform.position;
 
+                // Reset velocity
+                GameSystem.playerBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                
                 Vector3 direction = GameSystem.mousePosition - initialClickPos;
                 float distance = direction.magnitude;
 
@@ -46,6 +50,7 @@ public class PlayerTurn : State
 
                 shootMode = true;
                 GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = true;
+
             }
             else
             {
@@ -94,6 +99,13 @@ public class PlayerTurn : State
                 GameSystem.SetState(GameSystem.resolutionState);
             }
         }
+    }
+
+    public override IEnumerator OnExit()
+    {
+        GameSystem.barrierBall.SetActive(false);
+
+        yield return null;
     }
 
     public void UpdateBallPos()
