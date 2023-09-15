@@ -5,15 +5,17 @@ using UnityEngine;
 public class WinLose : State //rename to win lose
 {
     private bool won;
-    public WinLose(GameSystem gameSystem, bool winorlose = false) : base(gameSystem)
+    public WinLose(GameSystem gameSystem, bool win = false) : base(gameSystem)
     {
-        won = winorlose;
+        won = win;
         gameSystem.TurnOnNextButton(won);
     }
 
-    public void Won(bool winorlose = false)
+    public WinLose Won(bool winorlose = false)
     {
         won = winorlose;
+
+        return this;
     }
 
     public override void OnUpdate()
@@ -21,14 +23,14 @@ public class WinLose : State //rename to win lose
         if (won) 
         {
             //sceneSwitch and start game
-            GameSystem.actionText.text = "Won";
+            
         }
 
         else
         {
-            GameSystem.actionText.text = "Lost";
+            
         }
         //if we win and press next game or restart level
-        GameSystem.SetState(new StartGame(GameSystem));
+        GameSystem.SetState(GameSystem.startGameState);
     }
 }

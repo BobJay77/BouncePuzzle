@@ -11,6 +11,6 @@ public class Lose : State
     public override void OnUpdate()
     {
         //if we win and press next game or restart level
-        GameSystem.SetState(new StartGame(GameSystem));
+        GameSystem.SetState(GameSystem.startGameState);
     }
 }

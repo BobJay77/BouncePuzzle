@@ -6,8 +6,9 @@ TagManager:
   tags:
   - Holder
   - Ball
-  - wall
   - redZone
+  - Goal
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - UI
   - Ball
   - Holder
-  - wall
+  - Wall
   - redZone
-  - 
+  - Goal
   - 
   - 
   - 

@@ -15,8 +15,19 @@ public abstract class StateMachine : MonoBehaviour
 
         State = state;
 
-        Debug.Log("Current State: " + State.ToString());
+        if(State.ToString() != "WinLose")
+            Debug.Log("Current State: " + State.ToString());
 
         StartCoroutine(State.OnEnter());
+    }
+
+    public State GetState()
+    {
+        if (State != null)
+        {
+            return State;
+        }
+        else
+            return null; 
     }
 }

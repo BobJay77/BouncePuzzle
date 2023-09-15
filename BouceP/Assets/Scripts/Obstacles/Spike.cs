@@ -17,7 +17,7 @@ public class Spike : MonoBehaviour
         if (collision != null)
         {
             gameSystem.actionText.text = "Lose";
-            gameSystem.SetState(new WinLose(gameSystem));
+            gameSystem.SetState(GameSystem.instance.startGameState);
         }
     }
 }
