@@ -12,6 +12,8 @@ public class Resolution : State
 
     public override IEnumerator OnEnter()
     {
+        //yield return new WaitForSeconds(.1f);
+
         yield return null;
     }
 
@@ -35,7 +37,7 @@ public class Resolution : State
         }
         else
         {
-            if (GameSystem.currentBounces == GameSystem.levelInfo.numOfBouncesToWin)
+            if (GameSystem.currentBounces == GameSystem.levelInfo.numOfBouncesToWin && GameSystem.hitGoal)
             {
                 GameSystem.bouncesText.text = "";
                 GameSystem.actionText.text  = "You Won!";
@@ -58,7 +60,7 @@ public class Resolution : State
     {
         // Reset velocity
         GameSystem.playerBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
+        
         // Reset current number of bounces
         GameSystem.currentBounces = 0;
 

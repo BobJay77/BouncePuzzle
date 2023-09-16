@@ -33,6 +33,7 @@ public class GameSystem : StateMachine
 
     [HideInInspector]   public Vector3  mousePosition;
     [HideInInspector]   public bool     roundEnded = false;
+    [HideInInspector]   public bool     hitGoal = false;
 
     [SerializeField] public     float           multiplier;
 

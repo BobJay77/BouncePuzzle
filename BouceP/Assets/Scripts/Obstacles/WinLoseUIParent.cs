@@ -9,4 +9,9 @@ public class WinLoseUIParent : MonoBehaviour
     public Button mainMenu;
     public Button restart;
     public Button next;
+
+    public void RestartGame()
+    {
+        GameSystem.instance.SetState(GameSystem.instance.startGameState);
+    }
 }

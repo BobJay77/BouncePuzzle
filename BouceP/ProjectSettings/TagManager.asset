@@ -9,6 +9,7 @@ TagManager:
   - redZone
   - Goal
   - Wall
+  - Spike
   layers:
   - Default
   - TransparentFX

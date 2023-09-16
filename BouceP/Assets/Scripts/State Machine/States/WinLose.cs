@@ -8,13 +8,12 @@ public class WinLose : State //rename to win lose
     public WinLose(GameSystem gameSystem, bool win = false) : base(gameSystem)
     {
         won = win;
-        gameSystem.TurnOnNextButton(won);
     }
 
     public WinLose Won(bool winorlose = false)
     {
         won = winorlose;
-
+        GameSystem.TurnOnNextButton(won);
         return this;
     }
 
@@ -31,6 +30,6 @@ public class WinLose : State //rename to win lose
             
         }
         //if we win and press next game or restart level
-        GameSystem.SetState(GameSystem.startGameState);
+        //GameSystem.SetState(GameSystem.startGameState);
     }
 }

@@ -25,6 +25,7 @@ public class PlayerTurn : State
         GameSystem.barrierBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
+        GameSystem.hitGoal = false;
 
         yield break;
     }
@@ -68,8 +69,11 @@ public class PlayerTurn : State
                     tempRedZone.timer = 0;
                     newcolor.a = 1f;
                     tempRedZone.redZoneMaterial.color = newcolor;
+                    GameSystem.actionText.text = "Cannot Place the ball in the redzone";
                     return;
                 }
+
+                GameSystem.actionText.text = "Drag the ball back and let go to move it.";
             }
 
             

@@ -14,10 +14,10 @@ public class Spike : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision != null)
+        if (collision.gameObject.tag == "Ball")
         {
-            gameSystem.actionText.text = "Lose";
-            gameSystem.SetState(GameSystem.instance.startGameState);
+            gameSystem.actionText.text = "Hit Spike";
+            gameSystem.SetState(gameSystem.winLoseState.Won(false));
         }
     }
 }
