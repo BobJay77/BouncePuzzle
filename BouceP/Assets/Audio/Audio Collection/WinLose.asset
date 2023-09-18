@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34944d3c41f1b19488f4630a6cc9a646, type: 3}
+  m_Name: WinLose
+  m_EditorClassIdentifier: 
+  _audioGroup: Scene
+  _volume: 0.5
+  _spatialBlend: 0
+  _priority: 128
+  _audioClipBanks:
+  - Clips:
+    - {fileID: 8300000, guid: a27fc0336f6519149b901b3e5d72c00c, type: 3}
+    - {fileID: 8300000, guid: 584ffe5cf1e41a14db2a80934757a659, type: 3}
+    - {fileID: 8300000, guid: 5bef952fb5569914ea131e0c912b45ec, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 4e1a90925f89bc543b02512e842081b4, type: 3}

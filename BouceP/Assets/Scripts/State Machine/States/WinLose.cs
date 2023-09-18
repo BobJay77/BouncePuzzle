@@ -5,6 +5,7 @@ using UnityEngine;
 public class WinLose : State //rename to win lose
 {
     private bool won;
+
     public WinLose(GameSystem gameSystem, bool win = false) : base(gameSystem)
     {
         won = win;
@@ -15,6 +16,35 @@ public class WinLose : State //rename to win lose
         won = winorlose;
         GameSystem.TurnOnNextButton(won);
         return this;
+    }
+
+    public override IEnumerator OnEnter()
+    {
+        if (won)
+        {
+            AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
+                                                   GameSystem.winLoseSounds.audioClip,
+                                                   Camera.main.transform.position,
+                                                   GameSystem.winLoseSounds.volume,
+                                                   GameSystem.winLoseSounds.spatialBlend,
+                                                   GameSystem.winLoseSounds.priority);
+
+            yield break;
+        }
+        else
+        {
+            // Fetch a sound from bank 2
+            AudioClip clip = GameSystem.winLoseSounds[1];
+            if (clip)
+            {
+                AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
+                                                       clip,
+                                                       Camera.main.transform.position,
+                                                       GameSystem.winLoseSounds.volume,
+                                                       GameSystem.winLoseSounds.spatialBlend,
+                                                       GameSystem.winLoseSounds.priority);
+            }
+        }
     }
 
     public override void OnUpdate()

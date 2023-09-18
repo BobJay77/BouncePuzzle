@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    [SerializeField] private GameSystem gameSystem;
+    private GameSystem gameSystem;
     // Start is called before the first frame update
     void Start()
     {

@@ -25,11 +25,14 @@ public class GameSystem : StateMachine
     public int          currentBounces;
     public int          bouncesGoal;
 
-    //Game States
+    // Game States
     public StartGame    startGameState;
     public PlayerTurn   playerTurnState;
     public Resolution   resolutionState;
     public WinLose      winLoseState;
+
+    // Audio Collections
+    public AudioCollection winLoseSounds = null;
 
     [HideInInspector]   public Vector3  mousePosition;
     [HideInInspector]   public bool     roundEnded = false;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
+    [SerializeField] private AudioCollection bounceSounds = null;
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -18,7 +19,14 @@ public class BallManager : MonoBehaviour
         else if(collision.gameObject.tag == "Wall")
         {
             GameSystem.instance.currentBounces++;
-            GameSystem.instance.bouncesGoal--; 
+            GameSystem.instance.bouncesGoal--;
+
+            AudioManager.instance.PlayOneShotSound(bounceSounds.audioGroup,
+                                                   bounceSounds.audioClip, 
+                                                   transform.position,
+                                                   bounceSounds.volume,
+                                                   bounceSounds.spatialBlend,
+                                                   bounceSounds.priority);
         }
 
         else if (collision.gameObject.tag == "Spike")
