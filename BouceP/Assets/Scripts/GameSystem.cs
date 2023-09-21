@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -43,13 +44,18 @@ public class GameSystem : StateMachine
 
     private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
 
+    // Save and Load
+    private IDataService _dataService = new JSONDataService();
+    [SerializeField] public bool _encryptionEnabled;
+    private long _saveTime;
+    private long _loadTime;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
         if (instance == null)
             instance = this;
-
         else
             Destroy(gameObject);
 
@@ -77,6 +83,11 @@ public class GameSystem : StateMachine
 
         if (State != null)
             State.OnUpdate();
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            SerializeJson();
+        }
     }
 
     void ResetGameStates()
@@ -122,6 +133,36 @@ public class GameSystem : StateMachine
         string result = null;
         _gameStateDictionary.TryGetValue(key, out result);
         return result;
+    }
+
+    public void SerializeJson()
+    {
+        long startTime = DateTime.Now.Ticks;
+
+        if (_dataService.SaveData("/level-stats.json", levelInfo, _encryptionEnabled))
+        {
+            _saveTime = DateTime.Now.Ticks - startTime;
+            //actionText.text = ($"Save Time: {(_saveTime / 10000f) :N4}ms"); // CHange to save text
+
+            startTime = DateTime.Now.Ticks;
+            try
+            {
+                LevelInfo data = ScriptableObject.CreateInstance<LevelInfo>();
+                data = _dataService.LoadData<LevelInfo>("/level-stats.json", _encryptionEnabled);
+                _loadTime = DateTime.Now.Ticks - startTime;
+                //actionText.text = "Loaded from file:\r\n" + JsonConvert.SerializeObject(data, Formatting.Indented); // CHange to load text
+                //actionText.text = ($"Load Time: {(_loadTime / 10000f):N4}ms"); // CHange to load text
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Could nor read file.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not save file.");
+
+        }
     }
 
     public void TurnOnNextButton(bool on)

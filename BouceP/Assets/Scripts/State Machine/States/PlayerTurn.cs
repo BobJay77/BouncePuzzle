@@ -92,8 +92,13 @@ public class PlayerTurn : State
 
                 shootMode = false;
 
-                GameSystem.playerBall.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBall.transform.position) *
-                                                               Vector3.Distance(GameSystem.playerBall.transform.position, initialClickPos) *
+                float distance = Vector3.Distance(GameSystem.playerBall.transform.position, initialClickPos);
+
+                if (distance < 0.5)
+                    distance = 0.5f;
+
+                GameSystem.playerBall.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBall.transform.position).normalized *
+                                                               distance *
                                                                GameSystem.multiplier *
                                                                Time.deltaTime);
 

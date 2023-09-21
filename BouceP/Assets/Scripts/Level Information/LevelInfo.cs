@@ -9,4 +9,11 @@ public class LevelInfo : ScriptableObject
     public int numOfBouncesToWin = 1;
 
     [SerializeField] private List<GameState> _startingGameStates = new List<GameState>();
+
+    // Public property to access _startingGameStates
+    public List<GameState> StartingGameStates
+    {
+        get { return _startingGameStates; }
+        set { _startingGameStates = value; }
+    }
 }
