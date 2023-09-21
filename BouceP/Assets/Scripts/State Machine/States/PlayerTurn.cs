@@ -22,7 +22,6 @@ public class PlayerTurn : State
     {
         GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
         GameSystem.ghostBall.SetActive(true);
-        GameSystem.barrierBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
         GameSystem.hitGoal = false;
@@ -107,7 +106,6 @@ public class PlayerTurn : State
 
     public override IEnumerator OnExit()
     {
-        GameSystem.barrierBall.SetActive(false);
 
         yield return null;
     }

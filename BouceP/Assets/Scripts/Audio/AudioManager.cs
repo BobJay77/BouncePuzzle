@@ -54,6 +54,12 @@ public class AudioManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
+        if (_instance == null)
+            _instance = this;
+
+        else
+            Destroy(gameObject);
+
         if (!_mixer) return;
 
         // Get all the groups in the mixer

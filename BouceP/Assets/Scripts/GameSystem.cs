@@ -16,7 +16,6 @@ public class GameSystem : StateMachine
     
     public GameObject   playerBall;
     public GameObject   ghostBall;
-    public GameObject   barrierBall;
     public GameObject   winOrLoseParent;
 
     public TMP_Text     actionText;
@@ -54,13 +53,20 @@ public class GameSystem : StateMachine
         else
             Destroy(gameObject);
 
-        startGameState  = new StartGame(instance);
-        playerTurnState = new PlayerTurn(instance);
-        resolutionState = new Resolution(instance);
-        winLoseState    = new WinLose(instance);
+        if (startGameState == null)
+            startGameState = new StartGame(instance);
+
+        if (playerTurnState == null)
+            playerTurnState = new PlayerTurn(instance);
+
+        if (resolutionState == null)
+            resolutionState = new Resolution(instance);
+
+        if (winLoseState == null)
+            winLoseState = new WinLose(instance);
     }
 
-    private void Start()
+    public void StartGameState()
     {
         SetState(startGameState);
     }
@@ -68,7 +74,9 @@ public class GameSystem : StateMachine
     private void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-        State.OnUpdate();
+
+        if (State != null)
+            State.OnUpdate();
     }
 
     void ResetGameStates()

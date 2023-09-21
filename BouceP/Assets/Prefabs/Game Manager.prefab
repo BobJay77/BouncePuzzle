@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8061312506740254886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8061312506740254887}
+  - component: {fileID: 8061312506740254904}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8061312506740254887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061312506740254886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4699316, y: 0.42997974, z: 13.789203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8061312506740254904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061312506740254886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78c297c91206f042b816d91bba3e020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBall: {fileID: 0}
+  ghostBall: {fileID: 0}
+  barrierBall: {fileID: 0}
+  winOrLoseParent: {fileID: 0}
+  actionText: {fileID: 0}
+  bouncesText: {fileID: 0}
+  levelInfo: {fileID: 11400000, guid: a39d18d06e7346a4bb90aa979ce94fb1, type: 2}
+  currentBounces: 0
+  bouncesGoal: 0
+  winLoseSounds: {fileID: 11400000, guid: c4735720bf60f504bb15374238cf5341, type: 2}
+  mousePosition: {x: 0, y: 0, z: 0}
+  roundEnded: 0
+  hitGoal: 0
+  multiplier: 20000
+  _startingGameStates: []
