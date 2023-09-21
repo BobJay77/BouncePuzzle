@@ -20,7 +20,7 @@ public class PlayerTurn : State
 
     public override IEnumerator OnEnter()
     {
-        GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
+        //GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
         GameSystem.ghostBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
@@ -49,7 +49,7 @@ public class PlayerTurn : State
 
 
                 shootMode = true;
-                GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = true;
+                //GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = true;
 
             }
             else
@@ -92,10 +92,12 @@ public class PlayerTurn : State
 
                 shootMode = false;
 
+                GameSystem.TriggerVFX(GameSystem.muzzlePrefab);
+
                 float distance = Vector3.Distance(GameSystem.playerBall.transform.position, initialClickPos);
 
-                if (distance < 0.5)
-                    distance = 0.5f;
+                if (distance < 1)
+                    distance = 1f;
 
                 GameSystem.playerBall.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBall.transform.position).normalized *
                                                                distance *

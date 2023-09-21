@@ -46,16 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBall: {fileID: 0}
   ghostBall: {fileID: 0}
-  barrierBall: {fileID: 0}
   winOrLoseParent: {fileID: 0}
   actionText: {fileID: 0}
   bouncesText: {fileID: 0}
   levelInfo: {fileID: 11400000, guid: a39d18d06e7346a4bb90aa979ce94fb1, type: 2}
   currentBounces: 0
   bouncesGoal: 0
+  muzzlePrefab: {fileID: 1660946341742122, guid: f1bd374c2ada5284cb90da9a2ddcca40, type: 3}
+  hitPrefab: {fileID: 1605288786288348, guid: c26438066ba56434bb0788cd78d35adc, type: 3}
   winLoseSounds: {fileID: 11400000, guid: c4735720bf60f504bb15374238cf5341, type: 2}
   mousePosition: {x: 0, y: 0, z: 0}
   roundEnded: 0
   hitGoal: 0
   multiplier: 20000
   _startingGameStates: []
+  _encryptionEnabled: 0

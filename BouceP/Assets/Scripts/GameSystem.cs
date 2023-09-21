@@ -31,6 +31,10 @@ public class GameSystem : StateMachine
     public Resolution   resolutionState;
     public WinLose      winLoseState;
 
+    // VFX
+    public GameObject muzzlePrefab;
+    public GameObject hitPrefab;
+
     // Audio Collections
     public AudioCollection winLoseSounds = null;
 
@@ -174,4 +178,21 @@ public class GameSystem : StateMachine
             winOrLoseParent.GetComponent<WinLoseUIParent>().next.gameObject.SetActive(true);
         }
     } 
+
+    public void TriggerVFX(GameObject vfx)
+    {
+        if (vfx != null)
+        {
+            var _VFX = Instantiate(vfx, playerBall.transform.position, Quaternion.identity);
+            //_VFX.transform.forward = playerBall.transform.forward;
+            var ps = _VFX.GetComponent<ParticleSystem>();
+            if (ps != null)
+                Destroy(_VFX, ps.main.duration);
+            else
+            {
+                var psChild = _VFX.transform.GetChild(0).GetComponent<ParticleSystem>();
+                Destroy(_VFX, psChild.main.duration);
+            }
+        }
+    }
 }
