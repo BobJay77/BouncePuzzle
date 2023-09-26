@@ -16,6 +16,11 @@ public abstract class State
     {
     }
 
+    public virtual void OnFixedUpdate()
+    {
+
+    }
+
     public virtual IEnumerator OnEnter()
     {
         yield break;

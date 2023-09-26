@@ -9,6 +9,7 @@ public class PlayerTurn : State
     [SerializeField] float maxDragDistance = 3;
     public Vector3 initialClickPos;
     public bool shootMode = false;
+    bool addForce = false;
 
 
     private RaycastHit hit;
@@ -94,20 +95,30 @@ public class PlayerTurn : State
 
                 GameSystem.TriggerVFX(GameSystem.muzzlePrefab);
 
-                float distance = Vector3.Distance(GameSystem.playerBall.transform.position, initialClickPos);
-
-                if (distance < 1)
-                    distance = 1f;
-
-                GameSystem.playerBall.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBall.transform.position).normalized *
-                                                               distance *
-                                                               GameSystem.multiplier *
-                                                               Time.deltaTime);
+                addForce = true;
+                
 
                 GameSystem.actionText.text = "";
 
-                GameSystem.SetState(GameSystem.resolutionState);
+                
             }
+        }
+    }
+
+    public override void OnFixedUpdate()
+    {
+        if (addForce)
+        {
+            float distance = Vector3.Distance(GameSystem.playerBall.transform.position, initialClickPos);
+            if (distance < 1)
+                distance = 1f;
+
+            GameSystem.playerBall.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBall.transform.position).normalized *
+                                                           distance * GameSystem.multiplier, ForceMode.Impulse);
+
+            addForce = false;
+
+            GameSystem.SetState(GameSystem.resolutionState);
         }
     }
 

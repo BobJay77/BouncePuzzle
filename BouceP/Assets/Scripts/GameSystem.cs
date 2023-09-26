@@ -94,6 +94,12 @@ public class GameSystem : StateMachine
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (State != null)
+            State.OnFixedUpdate();
+    }
+
     void ResetGameStates()
     {
         _gameStateDictionary.Clear();

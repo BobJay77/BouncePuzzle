@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6b67f648893e7a54d93f507fecd95c2e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Life in Space
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d5984ccee0e66b7439e1a105d9289e28, type: 3}
+  - {fileID: 12800000, guid: da09408f4222af145bfdafa75af5489d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
