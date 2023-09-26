@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelID: 1
   numOfBouncesToWin: 2
-  _startingGameStates:
-  - Key: POWER
-    Value: TRUE
+  locked: 0
+  _startingGameStates: []

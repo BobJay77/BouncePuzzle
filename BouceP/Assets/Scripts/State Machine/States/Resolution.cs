@@ -22,7 +22,7 @@ public class Resolution : State
         if (!GameSystem.roundEnded)
         {
             // Check if the current # of bounces exceed the goal # of bounces
-            if (GameSystem.currentBounces > GameSystem.levelInfo.numOfBouncesToWin)
+            if (GameSystem.currentBounces > GameSystem.CurrentLevelInfo.numOfBouncesToWin)
             {
                 GameSystem.roundEnded = true;
                 return;
@@ -36,7 +36,7 @@ public class Resolution : State
         }
         else
         {
-            if (GameSystem.currentBounces == GameSystem.levelInfo.numOfBouncesToWin && GameSystem.hitGoal)
+            if (GameSystem.currentBounces == GameSystem.CurrentLevelInfo.numOfBouncesToWin && GameSystem.hitGoal)
             {
                 GameSystem.bouncesText.text = "";
                 GameSystem.actionText.text  = "You Won!";

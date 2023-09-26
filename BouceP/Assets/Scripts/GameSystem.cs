@@ -21,9 +21,9 @@ public class GameSystem : StateMachine
 
     public TMP_Text     actionText;
     public TMP_Text     bouncesText;
-    public LevelInfo    levelInfo;
     public int          currentBounces;
     public int          bouncesGoal;
+    public float        speedMultiplier;
 
     // Game States
     public StartGame    startGameState;
@@ -39,20 +39,52 @@ public class GameSystem : StateMachine
     public AudioCollection winLoseSounds = null;
 
     [HideInInspector]   public Vector3  mousePosition;
-    [HideInInspector]   public bool     roundEnded = false;
-    [HideInInspector]   public bool     hitGoal = false;
+    [HideInInspector]   public bool     roundEnded      = false;
+    [HideInInspector]   public bool     hitGoal         = false;
 
-    [SerializeField] public     float           multiplier;
 
-    [SerializeField] private    List<GameState> _startingGameStates     = new List<GameState>();            
+    [SerializeField] private    List<GameState> _startingGameStates     = new List<GameState>();
+    [SerializeField] public    List<LevelInfo> _levelInfos             = new List<LevelInfo>();
+    [SerializeField] private    LevelInfo       _currentLevelInfo;
+    [SerializeField] private    bool            _encryptionEnabled;
 
     private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
-
-    // Save and Load
-    private IDataService _dataService = new JSONDataService();
-    [SerializeField] public bool _encryptionEnabled;
-    private long _saveTime;
-    private long _loadTime;
+    private IDataService                        _dataService            = new JSONDataService();
+    
+    //Accessors
+    public List<LevelInfo> LevelInfos
+    {
+        get
+        {
+            return _levelInfos;
+        }
+        set
+        {
+            _levelInfos = value;
+        }
+    }
+    public LevelInfo CurrentLevelInfo
+    {
+        get
+        {
+            return _currentLevelInfo;
+        }
+        set
+        {
+            _currentLevelInfo = value;
+        }
+    }
+    public IDataService DataService
+    {
+        get
+        {
+            return _dataService;
+        }
+        set
+        {
+            _dataService = value;
+        }
+    }
 
     private void Awake()
     {
@@ -74,6 +106,16 @@ public class GameSystem : StateMachine
 
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
+        try
+        {
+            _levelInfos = _dataService.LoadData<List<LevelInfo>>("/levels.json", _encryptionEnabled);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Could not read file.");
+
+            _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, false);
+        }
     }
 
     public void StartGameState()
@@ -87,10 +129,16 @@ public class GameSystem : StateMachine
 
         if (State != null)
             State.OnUpdate();
-
+        
         if (Input.GetKeyDown(KeyCode.J))
         {
-            SerializeJson();
+            _dataService.SaveData("/level_stats.json", _levelInfos[0], _encryptionEnabled);
+            _dataService.LoadData<LevelInfo>("/level_stats.json", _encryptionEnabled);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+           // _dataService.SaveData("/sessioncount.json", Unity.player_session_count, _encryptionEnabled);
+            _dataService.LoadData<LevelInfo>("/sessioncount.json", _encryptionEnabled);
         }
     }
 
@@ -145,35 +193,35 @@ public class GameSystem : StateMachine
         return result;
     }
 
-    public void SerializeJson()
-    {
-        long startTime = DateTime.Now.Ticks;
+    //public void SerializeJson(LevelInfo levelInfo, string pathName)
+    //{
+    //    //long startTime = DateTime.Now.Ticks;
 
-        if (_dataService.SaveData("/level-stats.json", levelInfo, _encryptionEnabled))
-        {
-            _saveTime = DateTime.Now.Ticks - startTime;
-            //actionText.text = ($"Save Time: {(_saveTime / 10000f) :N4}ms"); // CHange to save text
+    //    if (_dataService.SaveData($"/{pathName}.json", levelInfo, _encryptionEnabled))
+    //    {
+    //        //_saveTime = DateTime.Now.Ticks - startTime;
+    //        ////actionText.text = ($"Save Time: {(_saveTime / 10000f) :N4}ms"); // CHange to save text
 
-            startTime = DateTime.Now.Ticks;
-            try
-            {
-                LevelInfo data = ScriptableObject.CreateInstance<LevelInfo>();
-                data = _dataService.LoadData<LevelInfo>("/level-stats.json", _encryptionEnabled);
-                _loadTime = DateTime.Now.Ticks - startTime;
-                //actionText.text = "Loaded from file:\r\n" + JsonConvert.SerializeObject(data, Formatting.Indented); // CHange to load text
-                //actionText.text = ($"Load Time: {(_loadTime / 10000f):N4}ms"); // CHange to load text
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"Could nor read file.");
-            }
-        }
-        else
-        {
-            Debug.LogError("Could not save file.");
+    //        //startTime = DateTime.Now.Ticks;
+    //        try
+    //        {
+    //            LevelInfo data = ScriptableObject.CreateInstance<LevelInfo>();
+    //            data = _dataService.LoadData<LevelInfo>($"/{pathName}.json", _encryptionEnabled);
+    //            //_loadTime = DateTime.Now.Ticks - startTime;
+    //            //actionText.text = "Loaded from file:\r\n" + JsonConvert.SerializeObject(data, Formatting.Indented); // CHange to load text
+    //            //actionText.text = ($"Load Time: {(_loadTime / 10000f):N4}ms"); // CHange to load text
+    //        }
+    //        catch (Exception e)
+    //        {
+    //            Debug.LogError($"Could nor read file.");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("Could not save file.");
 
-        }
-    }
+    //    }
+    //}
 
     public void TurnOnNextButton(bool on)
     {

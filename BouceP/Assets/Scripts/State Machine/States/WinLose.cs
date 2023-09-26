@@ -29,6 +29,13 @@ public class WinLose : State //rename to win lose
                                                    GameSystem.winLoseSounds.spatialBlend,
                                                    GameSystem.winLoseSounds.priority);
 
+            if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.CurrentLevelInfo.levelID)
+            {
+                GameSystem.instance.LevelInfos[GameSystem.instance.CurrentLevelInfo.levelID].locked = false;
+                GameSystem.instance.DataService.SaveData<List<LevelInfo>>("/levels.json", GameSystem.instance.LevelInfos, false);
+            }
+
+
             yield break;
         }
         else

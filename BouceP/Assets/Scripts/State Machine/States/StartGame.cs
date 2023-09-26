@@ -13,7 +13,7 @@ public class StartGame : State
         yield return new WaitForSeconds(2f);
 
         
-        GameSystem.bouncesGoal = GameSystem.levelInfo.numOfBouncesToWin;
+        GameSystem.bouncesGoal = GameSystem.CurrentLevelInfo.numOfBouncesToWin;
         GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
 
         GameSystem.SetState(GameSystem.playerTurnState);

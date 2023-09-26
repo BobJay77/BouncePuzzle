@@ -114,7 +114,7 @@ public class PlayerTurn : State
                 distance = 1f;
 
             GameSystem.playerBall.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBall.transform.position).normalized *
-                                                           distance * GameSystem.multiplier, ForceMode.Impulse);
+                                                           distance * GameSystem.speedMultiplier, ForceMode.Impulse);
 
             addForce = false;
 

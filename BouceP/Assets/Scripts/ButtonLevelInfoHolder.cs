@@ -5,7 +5,16 @@ using UnityEngine.UI;
 
 public class ButtonLevelInfoHolder : MonoBehaviour
 {
-    public LevelInfo LevelInfo;
+    //public LevelInfo LevelInfo;
+    [SerializeField] private int levelInfoIndex;
+    [SerializeField] GameObject lockImage;
+    [SerializeField] GameObject numberImage;
+
+    private void Update()
+    {
+        if(lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
+        if(numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
+    }
 
     public void ButtonClicked(bool mainmenu = false)
     {
@@ -14,14 +23,14 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
         else
         {
-            GameSystem.instance.levelInfo = LevelInfo;  
-            SceneSwitcher.instance.LoadGameLevel(LevelInfo.levelID);
+            GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];  
+            SceneSwitcher.instance.LoadGameLevel(GameSystem.instance.LevelInfos[levelInfoIndex].levelID);
         }
     }
 
     public void NextLevel()
     {
-        GameSystem.instance.levelInfo = LevelInfo;
+        GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];
         SceneSwitcher.instance.LoadNextGameLevel();
     }
 

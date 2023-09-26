@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 955afb884dcdd82448ad31346dcc50cc, type: 3}
-  m_Name: 2
+  m_Name: 18
   m_EditorClassIdentifier: 
-  levelID: 2
-  numOfBouncesToWin: 3
+  levelID: 0
+  numOfBouncesToWin: 1
   locked: 1
-  _startingGameStates:
-  - Key: POWER
-    Value: TRUE
+  _startingGameStates: []
