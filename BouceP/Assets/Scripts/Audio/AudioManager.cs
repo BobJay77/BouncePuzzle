@@ -72,7 +72,6 @@ public class AudioManager : MonoBehaviour
             trackInfo.Name = group.name;
             trackInfo.Group = group;
             trackInfo.TrackFader = null;
-            _tracks.Add(group.name, trackInfo);
             _tracks[group.name] = trackInfo;
         }
 
@@ -94,6 +93,18 @@ public class AudioManager : MonoBehaviour
             _pool.Add(poolItem);
 
         }
+
+        
+    }
+
+    private void Start()
+    {
+        //Set volume from account settings
+        SetTrackVolume("Master", GameSystem.instance.AccountSettings.masterVolume);
+        SetTrackVolume("Music", GameSystem.instance.AccountSettings.musicVolume);
+        SetTrackVolume("Scene", GameSystem.instance.AccountSettings.SceneVolume);
+        SetTrackVolume("Ball", GameSystem.instance.AccountSettings.BallVolume);
+        SetTrackVolume("UI", GameSystem.instance.AccountSettings.UIVolume);
     }
 
     void OnEnable()
@@ -156,7 +167,7 @@ public class AudioManager : MonoBehaviour
             if (trackInfo.TrackFader != null) StopCoroutine(trackInfo.TrackFader);
 
             if (fadeTime == 0.0f)
-                _mixer.SetFloat(track, volume);
+                _mixer.SetFloat(track, Mathf.Log10(volume) * 20);
             else
             {
                 trackInfo.TrackFader = SetTrackVolumeInternal(track, volume, fadeTime);

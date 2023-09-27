@@ -44,14 +44,27 @@ public class GameSystem : StateMachine
 
 
     [SerializeField] private    List<GameState> _startingGameStates     = new List<GameState>();
-    [SerializeField] public    List<LevelInfo> _levelInfos             = new List<LevelInfo>();
+    [SerializeField] public     List<LevelInfo> _levelInfos             = new List<LevelInfo>();
     [SerializeField] private    LevelInfo       _currentLevelInfo;
     [SerializeField] private    bool            _encryptionEnabled;
+    [SerializeField] private    AccountSettings _accountSettings;
 
     private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
     private IDataService                        _dataService            = new JSONDataService();
+    private bool firsttime = true;
     
     //Accessors
+    public AccountSettings AccountSettings
+    {
+        get
+        {
+            return _accountSettings;
+        }
+        set
+        {
+            _accountSettings = value;
+        }
+    }
     public List<LevelInfo> LevelInfos
     {
         get
@@ -106,16 +119,27 @@ public class GameSystem : StateMachine
 
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
+
         try
         {
+            //Load previous data
             _levelInfos = _dataService.LoadData<List<LevelInfo>>("/levels.json", _encryptionEnabled);
+            AccountSettings = _dataService.LoadData<AccountSettings>("/acc.json", _encryptionEnabled);
         }
         catch (Exception e)
         {
-            Debug.LogError($"Could not read file.");
+            Debug.Log($"Could not read file.");
 
+            //First time saving
             _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, _encryptionEnabled);
+            _dataService.SaveData<AccountSettings>("/acc.json", AccountSettings, _encryptionEnabled);
         }
+
+        //AudioManager.instance.SetTrackVolume("Master", AccountSettings.masterVolume);
+        //AudioManager.instance.SetTrackVolume("Music", AccountSettings.musicVolume);
+        //AudioManager.instance.SetTrackVolume("Scene", AccountSettings.SceneVolume);
+        //AudioManager.instance.SetTrackVolume("Ball", AccountSettings.BallVolume);
+        //AudioManager.instance.SetTrackVolume("UI", AccountSettings.UIVolume);
     }
 
     public void StartGameState()
@@ -130,16 +154,16 @@ public class GameSystem : StateMachine
         if (State != null)
             State.OnUpdate();
         
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            _dataService.SaveData("/level_stats.json", _levelInfos[0], _encryptionEnabled);
-            _dataService.LoadData<LevelInfo>("/level_stats.json", _encryptionEnabled);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-           // _dataService.SaveData("/sessioncount.json", Unity.player_session_count, _encryptionEnabled);
-            _dataService.LoadData<LevelInfo>("/sessioncount.json", _encryptionEnabled);
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    _dataService.SaveData("/level_stats.json", _levelInfos[0], _encryptionEnabled);
+        //    _dataService.LoadData<LevelInfo>("/level_stats.json", _encryptionEnabled);
+        //}
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //   // _dataService.SaveData("/sessioncount.json", Unity.player_session_count, _encryptionEnabled);
+        //    _dataService.LoadData<LevelInfo>("/sessioncount.json", _encryptionEnabled);
+        //}
     }
 
     private void FixedUpdate()

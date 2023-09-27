@@ -12,6 +12,10 @@ public class SettingsPopUp : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider SFXSlider;
 
+    private float prevMasterSliderValue;
+    private float prevMusicSliderValue;
+    private float prevSFXSliderValue;
+
     [SerializeField] private Button restartButton;
     [SerializeField] private Button backButton;
     [SerializeField] private Button resumeButton;
@@ -22,6 +26,16 @@ public class SettingsPopUp : MonoBehaviour
     private void Awake()
     {
         isMainMenu = SceneManager.GetActiveScene().name == "MainMenu";
+        prevMasterSliderValue = masterSlider.value;
+        prevMusicSliderValue = musicSlider.value;
+        prevSFXSliderValue = SFXSlider.value;
+    }
+
+    private void Start()
+    {
+        masterSlider.value = GameSystem.instance.AccountSettings.masterVolume;
+        musicSlider.value = GameSystem.instance.AccountSettings.musicVolume;
+        SFXSlider.value = GameSystem.instance.AccountSettings.SceneVolume;
     }
 
     private void Update()
@@ -42,21 +56,48 @@ public class SettingsPopUp : MonoBehaviour
         SetMasterVolume();
         SetMusicVolume();
         SetSFXVolume();
+
+        GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, true);
     }
 
     private void SetMasterVolume()
     {
-        AudioManager.instance.SetTrackVolume("Master", masterSlider.value);
+        if(prevMasterSliderValue != masterSlider.value)
+        {
+            prevMasterSliderValue = masterSlider.value;
+
+            AudioManager.instance.SetTrackVolume("Master", masterSlider.value);
+
+            GameSystem.instance.AccountSettings.masterVolume = masterSlider.value;
+        }
     }
 
     private void SetMusicVolume()
     {
-        //AudioManager.instance.SetTrackVolume("Music", musicSlider.value);
+        if (prevMusicSliderValue != musicSlider.value)
+        {
+            prevMusicSliderValue = musicSlider.value;
+
+            AudioManager.instance.SetTrackVolume("Music", musicSlider.value);
+
+            GameSystem.instance.AccountSettings.musicVolume = musicSlider.value;
+        }
     }
 
     private void SetSFXVolume()
     {
-        //AudioManager.instance.SetTrackVolume("SFX", SFXSlider.value);
+        if (prevSFXSliderValue != SFXSlider.value)
+        {
+            prevSFXSliderValue = SFXSlider.value;
+
+            AudioManager.instance.SetTrackVolume("UI", SFXSlider.value);
+            AudioManager.instance.SetTrackVolume("Scene", SFXSlider.value);
+            AudioManager.instance.SetTrackVolume("Ball", SFXSlider.value);
+
+            GameSystem.instance.AccountSettings.UIVolume = SFXSlider.value;
+            GameSystem.instance.AccountSettings.SceneVolume = SFXSlider.value;
+            GameSystem.instance.AccountSettings.BallVolume = SFXSlider.value;
+        }
     }
 
 }
