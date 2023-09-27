@@ -72,6 +72,7 @@ public class AudioManager : MonoBehaviour
             trackInfo.Name = group.name;
             trackInfo.Group = group;
             trackInfo.TrackFader = null;
+            _tracks.Add(group.name, trackInfo);
             _tracks[group.name] = trackInfo;
         }
 
@@ -162,7 +163,6 @@ public class AudioManager : MonoBehaviour
                 StartCoroutine(trackInfo.TrackFader);
             }
         }
-
     }
 
     //  Implement a fade between volumes of a track over time

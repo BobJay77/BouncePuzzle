@@ -114,7 +114,7 @@ public class GameSystem : StateMachine
         {
             Debug.LogError($"Could not read file.");
 
-            _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, false);
+            _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, _encryptionEnabled);
         }
     }
 

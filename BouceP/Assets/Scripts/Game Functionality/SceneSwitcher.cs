@@ -22,7 +22,6 @@ public class SceneSwitcher : MonoBehaviour
 
         else
         {
-            print("here");
             Destroy(gameObject);
         }   
     }
@@ -47,11 +46,7 @@ public class SceneSwitcher : MonoBehaviour
             GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
             GameSystem.instance.bouncesText = GameObject.Find("Bounces Required").GetComponent<TMP_Text>();
             GameSystem.instance.StartGameState();
-            
         }
-        
-        
-
 
         yield return null;
     }
