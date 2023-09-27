@@ -11,6 +11,8 @@ public class PlayerTurn : State
     public bool shootMode = false;
     bool addForce = false;
 
+    private Trajectory trajectory;
+
 
     private RaycastHit hit;
     public PlayerTurn(GameSystem gameSystem) : base(gameSystem)
@@ -22,6 +24,7 @@ public class PlayerTurn : State
     public override IEnumerator OnEnter()
     {
         //GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
+        trajectory = GameSystem.instance.ghostBall.GetComponent<Trajectory>();
         GameSystem.ghostBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
@@ -96,7 +99,8 @@ public class PlayerTurn : State
                 GameSystem.TriggerVFX(GameSystem.muzzlePrefab);
 
                 addForce = true;
-                
+
+                trajectory.ShowOrNot(false);
 
                 GameSystem.actionText.text = "";
 
@@ -141,6 +145,7 @@ public class PlayerTurn : State
         if (distance > maxDragDistance)
         {
             // Clamp to maximum distance
+            distance = maxDragDistance;
             direction = direction.normalized * maxDragDistance;
             GameSystem.playerBall.transform.position = initialClickPos + direction;
         }
@@ -152,5 +157,10 @@ public class PlayerTurn : State
 
         // The ghost ball is in the inital click position to show the center of the click
         GameSystem.ghostBall.transform.position = initialClickPos;
+
+        Vector3 linePos = GameSystem.instance.playerBall.transform.position + ((direction.normalized) * (GameSystem.instance.ghostBall.GetComponent<SphereCollider>().radius / 2));
+
+        trajectory.SimulateTrajectory(GameSystem.instance.ghostBall, linePos, - direction.normalized * distance * GameSystem.instance.speedMultiplier * 8);
+
     }
 }

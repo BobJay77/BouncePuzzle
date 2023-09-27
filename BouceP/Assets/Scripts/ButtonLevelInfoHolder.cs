@@ -14,6 +14,19 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     {
         if(lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
         if(numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
+
+        if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.LevelInfos[levelInfoIndex].levelID)
+        {
+
+            if (GameSystem.instance.LevelInfos[levelInfoIndex].locked)
+            {
+                GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                GetComponent<Button>().interactable = true;
+            }
+        }
     }
 
     public void ButtonClicked(bool mainmenu = false)
