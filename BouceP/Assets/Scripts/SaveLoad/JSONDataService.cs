@@ -42,7 +42,7 @@ public class JSONDataService : IDataService
         }
         catch (Exception e)
         {
-            Debug.LogError($"Unable to save data due to: {e.Message} {e.StackTrace}");
+            Debug.Log($"Unable to save data due to: {e.Message} {e.StackTrace}");
             return false;
         }
     }

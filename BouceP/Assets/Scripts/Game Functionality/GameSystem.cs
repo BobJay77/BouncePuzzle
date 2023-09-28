@@ -44,14 +44,13 @@ public class GameSystem : StateMachine
 
 
     [SerializeField] private    List<GameState> _startingGameStates     = new List<GameState>();
-    [SerializeField] public     List<LevelInfo> _levelInfos             = new List<LevelInfo>();
+    [SerializeField] public     List<LevelInfo> _levelInfos             =  new List<LevelInfo>();
     [SerializeField] private    LevelInfo       _currentLevelInfo;
-    [SerializeField] private    bool            _encryptionEnabled;
     [SerializeField] private    AccountSettings _accountSettings;
+    [SerializeField] private    bool            _encryptionEnabled;
 
     private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
     private IDataService                        _dataService            = new JSONDataService();
-    private bool firsttime = true;
     
     //Accessors
     public AccountSettings AccountSettings
@@ -99,6 +98,18 @@ public class GameSystem : StateMachine
         }
     }
 
+    public bool EncryptionEnabled
+    {
+        get
+        {
+            return _encryptionEnabled;
+        }
+        set
+        {
+            _encryptionEnabled = value;
+        }
+    }
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -120,6 +131,7 @@ public class GameSystem : StateMachine
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
 
+
         try
         {
             //Load previous data
@@ -134,12 +146,6 @@ public class GameSystem : StateMachine
             _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, _encryptionEnabled);
             _dataService.SaveData<AccountSettings>("/acc.json", AccountSettings, _encryptionEnabled);
         }
-
-        //AudioManager.instance.SetTrackVolume("Master", AccountSettings.masterVolume);
-        //AudioManager.instance.SetTrackVolume("Music", AccountSettings.musicVolume);
-        //AudioManager.instance.SetTrackVolume("Scene", AccountSettings.SceneVolume);
-        //AudioManager.instance.SetTrackVolume("Ball", AccountSettings.BallVolume);
-        //AudioManager.instance.SetTrackVolume("UI", AccountSettings.UIVolume);
     }
 
     public void StartGameState()

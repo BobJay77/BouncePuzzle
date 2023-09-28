@@ -99,7 +99,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //Set volume from account settings
+        //Set volume from account settings 
         SetTrackVolume("Master", GameSystem.instance.AccountSettings.masterVolume);
         SetTrackVolume("Music", GameSystem.instance.AccountSettings.musicVolume);
         SetTrackVolume("Scene", GameSystem.instance.AccountSettings.SceneVolume);

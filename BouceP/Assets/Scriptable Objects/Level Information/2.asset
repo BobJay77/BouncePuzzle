@@ -15,6 +15,4 @@ MonoBehaviour:
   levelID: 2
   numOfBouncesToWin: 3
   locked: 1
-  _startingGameStates:
-  - Key: POWER
-    Value: TRUE
+  _startingGameStates: []

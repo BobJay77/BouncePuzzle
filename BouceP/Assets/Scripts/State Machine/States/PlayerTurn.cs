@@ -9,9 +9,30 @@ public class PlayerTurn : State
     [SerializeField] float maxDragDistance = 3;
     public Vector3 initialClickPos;
     public bool shootMode = false;
-    bool addForce = false;
+    public bool addForce = false;
 
-    private Trajectory trajectory;
+    public Trajectory trajectory;
+
+    public string draggingTag = "Ball";  // Tag of objects that can be dragged.
+
+    //Double touch
+    public float doubleTouchThreshold = 0.3f; // Adjust this value as needed
+
+    private int touchCount = 0;
+    private float lastTouchTime = 0f;
+
+
+    // Variables for tracking touch input and dragging state.
+    private Vector3 dis;
+    private float posX;
+    private float posY;
+    private bool touched = false;  // Is an object currently touched?
+    private bool dragging = false; // Is an object currently being dragged?
+
+    // Variables to keep track of the object being dragged and its rigidbody.
+    private Transform toDrag;
+    private Rigidbody toDragRigidbody;
+    private Vector3 previousPosition;
 
 
     private RaycastHit hit;
@@ -35,78 +56,106 @@ public class PlayerTurn : State
 
     public override void OnUpdate()
     {
-        if (!shootMode)
+        
+
+        if (Input.touchCount != 1)
         {
-            if (Input.GetMouseButtonDown(0))
+            dragging = false;
+            touched = false;
+            if (toDragRigidbody)
             {
-                initialClickPos = GameSystem.playerBall.transform.position;
-
-                // Reset velocity
-                GameSystem.playerBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                
-                Vector3 direction = GameSystem.mousePosition - initialClickPos;
-                float distance = direction.magnitude;
-
-                if (Physics.Raycast(initialClickPos, direction.normalized, out hit, distance, LayerMask.GetMask("Wall")))
-                    return;
-
-
-
-                shootMode = true;
-                //GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = true;
-
+                SetFreeProperties(toDragRigidbody);
             }
-            else
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Wall")))
-                {
-                    return;
-                }
-
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("redZone")))
-                {
-                    RedZone tempRedZone = hit.transform.gameObject.GetComponent<RedZone>();
-                    Color newcolor = tempRedZone.redZoneMaterial.color;
-                    tempRedZone.timer = 0;
-                    newcolor.a = 1f;
-                    tempRedZone.redZoneMaterial.color = newcolor;
-                    GameSystem.actionText.text = "Cannot Place the ball in the redzone";
-                    return;
-                }
-
-                GameSystem.actionText.text = "Drag the ball back and let go to move it.";
-            }
-
-            
-
-            // When hovering with a mouse, position the ghostBall to cursor
-            GameSystem.playerBall.transform.position = GameSystem.mousePosition;
-            GameSystem.ghostBall.transform.position = GameSystem.mousePosition;
+            return;
         }
 
-        else
-        {
-            UpdateBallPos();
+        Touch touch = Input.touches[0];
+        Vector3 pos = touch.position;
 
-            if (Input.GetMouseButtonUp(0))
+        if (touch.phase == TouchPhase.Began)
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+
+            if (Physics.Raycast(ray, out hit) && hit.collider.tag == draggingTag)
+            {
+                toDrag = hit.transform;
+                previousPosition = toDrag.position;
+                toDragRigidbody = toDrag.GetComponent<Rigidbody>();
+                Debug.Log("touch detected!");
+                dis = Camera.main.WorldToScreenPoint(previousPosition);
+                posX = Input.GetTouch(0).position.x - dis.x;
+                posY = Input.GetTouch(0).position.y - dis.y;
+
+                SetDraggingProperties(toDragRigidbody);
+
+                touched = true;
+
+                float currentTime = Time.time;
+
+                if (touchCount == 1 && currentTime - lastTouchTime <= doubleTouchThreshold)
+                {
+                    // Double touch detected
+                    shootMode = true;
+                    initialClickPos = GameSystem.mousePosition;
+                    touchCount = 0; // Reset touchCount
+                }
+                else
+                {
+                    touchCount = 1;
+                }
+
+                lastTouchTime = currentTime;
+            }
+        }
+
+        if (touched && touch.phase == TouchPhase.Moved)
+        {
+
+            dragging = true;
+
+            previousPosition = toDrag.position;
+            UpdateBallPos(touch);
+        }
+
+        if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
+        {
+            dragging = false;
+            touched = false;
+            previousPosition = new Vector3(0.0f, 0.0f, 0.0f);
+            SetFreeProperties(toDragRigidbody);
+
+
+            if (shootMode)
             {
                 GameSystem.ghostBall.SetActive(false);
+                trajectory.ShowOrNot(false);
 
                 shootMode = false;
+                addForce = true;
 
                 GameSystem.TriggerVFX(GameSystem.muzzlePrefab);
 
-                addForce = true;
-
-                trajectory.ShowOrNot(false);
-
                 GameSystem.actionText.text = "";
 
-                
+
             }
         }
+
+    }
+
+    // Set properties for dragging the object.
+    private void SetDraggingProperties(Rigidbody rb)
+    {
+        rb.useGravity = false;
+        rb.drag = 3;
+    }
+
+    // Set properties for when the object is not being dragged.
+    private void SetFreeProperties(Rigidbody rb)
+    {
+        rb.useGravity = false;
+        rb.drag = 0;
     }
 
     public override void OnFixedUpdate()
@@ -132,7 +181,7 @@ public class PlayerTurn : State
         yield return null;
     }
 
-    public void UpdateBallPos()
+    public void UpdateBallPos(Touch touch)
     {
         Vector3 direction = GameSystem.mousePosition - initialClickPos;
         float distance = direction.magnitude;
@@ -142,25 +191,33 @@ public class PlayerTurn : State
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Wall")))
             return;
 
-        if (distance > maxDragDistance)
+        if (shootMode)
         {
-            // Clamp to maximum distance
-            distance = maxDragDistance;
-            direction = direction.normalized * maxDragDistance;
-            GameSystem.playerBall.transform.position = initialClickPos + direction;
+            GameSystem.ghostBall.transform.position = initialClickPos;
+            if (distance > maxDragDistance)
+            {
+                // Clamp to maximum distance
+                distance = maxDragDistance;
+                direction = direction.normalized * maxDragDistance;
+                GameSystem.playerBall.transform.position = initialClickPos + direction;
+            }
+            else
+            {
+                // Move the ball to mouse position
+                GameSystem.playerBall.transform.position = GameSystem.mousePosition;
+            }
+
+            // The ghost ball is in the inital click position to show the center of the click
+            GameSystem.ghostBall.transform.position = initialClickPos;
+
+            Vector3 linePos = GameSystem.instance.playerBall.transform.position + ((direction.normalized) * (GameSystem.instance.ghostBall.GetComponent<SphereCollider>().radius / 2));
+
+            trajectory.SimulateTrajectory(GameSystem.instance.ghostBall, linePos, -direction.normalized * distance * GameSystem.instance.speedMultiplier * 8);
         }
         else
         {
-            // Move the ball to mouse position
             GameSystem.playerBall.transform.position = GameSystem.mousePosition;
+            GameSystem.ghostBall.transform.position = GameSystem.playerBall.transform.position;
         }
-
-        // The ghost ball is in the inital click position to show the center of the click
-        GameSystem.ghostBall.transform.position = initialClickPos;
-
-        Vector3 linePos = GameSystem.instance.playerBall.transform.position + ((direction.normalized) * (GameSystem.instance.ghostBall.GetComponent<SphereCollider>().radius / 2));
-
-        trajectory.SimulateTrajectory(GameSystem.instance.ghostBall, linePos, - direction.normalized * distance * GameSystem.instance.speedMultiplier * 8);
-
     }
 }

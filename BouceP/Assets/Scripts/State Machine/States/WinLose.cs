@@ -32,7 +32,7 @@ public class WinLose : State //rename to win lose
             if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.CurrentLevelInfo.levelID)
             {
                 GameSystem.instance.LevelInfos[GameSystem.instance.CurrentLevelInfo.levelID].locked = false;
-                GameSystem.instance.DataService.SaveData<List<LevelInfo>>("/levels.json", GameSystem.instance.LevelInfos, false);
+                GameSystem.instance.DataService.SaveData<List<LevelInfo>>("/levels.json", GameSystem.instance.LevelInfos, GameSystem.instance.EncryptionEnabled);
             }
 
 
