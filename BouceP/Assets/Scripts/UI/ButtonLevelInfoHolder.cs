@@ -14,9 +14,8 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     {
         int maxLevelInfoIndex = GameSystem.instance.LevelInfos.Count;
 
-        if (maxLevelInfoIndex < levelInfoIndex)
+        if (maxLevelInfoIndex > levelInfoIndex)
         {
-            levelInfoIndex = maxLevelInfoIndex - 1;
             if (lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
             if (numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
 
@@ -32,6 +31,11 @@ public class ButtonLevelInfoHolder : MonoBehaviour
                     GetComponent<Button>().interactable = true;
                 }
             }
+        }
+        else
+        {
+            levelInfoIndex = maxLevelInfoIndex - 1;
+
         }
     }
     public void ButtonClicked(bool mainmenu = false)
@@ -60,7 +64,7 @@ public class ButtonLevelInfoHolder : MonoBehaviour
                 break;
         }
         GameSystem.instance.CurrentLevelInfo = nextLevel;
-        SceneSwitcher.instance.LoadGameLevel(nextLevel.levelID - 1);
+        SceneSwitcher.instance.LoadGameLevel(nextLevel.levelID);
 
     }
 

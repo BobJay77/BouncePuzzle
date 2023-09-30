@@ -86,7 +86,7 @@ public class JSONDataService : IDataService
         }
         catch(Exception e)
         {
-            Debug.LogError($"Failed to load data due to: {e.Message} {e.StackTrace}");
+            Debug.Log($"Failed to load data due to: {e.Message} {e.StackTrace}");
             throw e;
         }
     }
