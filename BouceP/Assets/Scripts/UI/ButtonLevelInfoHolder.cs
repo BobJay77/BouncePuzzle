@@ -12,23 +12,30 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
     private void Update()
     {
-        if(lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
-        if(numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
+        int maxLevelInfoIndex = GameSystem.instance.LevelInfos.Count;
 
-        if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.LevelInfos[levelInfoIndex].levelID)
+        
+
+        if (maxLevelInfoIndex < levelInfoIndex)
         {
+            levelInfoIndex = maxLevelInfoIndex - 1;
+            if (lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
+            if (numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
 
-            if (GameSystem.instance.LevelInfos[levelInfoIndex].locked)
+            if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.LevelInfos[levelInfoIndex].levelID)
             {
-                GetComponent<Button>().interactable = false;
-            }
-            else
-            {
-                GetComponent<Button>().interactable = true;
+
+                if (GameSystem.instance.LevelInfos[levelInfoIndex].locked)
+                {
+                    GetComponent<Button>().interactable = false;
+                }
+                else
+                {
+                    GetComponent<Button>().interactable = true;
+                }
             }
         }
     }
-
     public void ButtonClicked(bool mainmenu = false)
     {
         if (mainmenu)
