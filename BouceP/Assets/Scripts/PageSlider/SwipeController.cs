@@ -14,6 +14,12 @@ public class SwipeController : MonoBehaviour
     [SerializeField] float tweenTime;
     [SerializeField] LeanTweenType tweenType;
 
+    private void Awake()
+    {
+        currentPage = 1;
+        targetPosition = levelPagesRect.localPosition;
+    }
+
     public void Next()
     {
         if (currentPage < maxPage)
