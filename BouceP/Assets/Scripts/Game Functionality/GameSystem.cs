@@ -17,6 +17,8 @@ public class GameSystem : StateMachine
     
     public GameObject   playerBall;
     public GameObject   ghostBall;
+    public GameObject   playerBallSceneCopy;
+    public GameObject   ghostBallSceneCopy;
     public GameObject   winOrLoseParent;
 
     public TMP_Text     actionText;

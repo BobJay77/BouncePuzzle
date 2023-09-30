@@ -58,7 +58,7 @@ public class Resolution : State
     public override IEnumerator OnExit()
     {
         // Reset velocity
-        GameSystem.playerBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GameSystem.playerBallSceneCopy.GetComponent<Rigidbody>().velocity = Vector3.zero;
         
         // Reset current number of bounces
         GameSystem.currentBounces = 0;
