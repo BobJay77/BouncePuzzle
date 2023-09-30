@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Trajectory : MonoBehaviour
 {
     private Rigidbody rb;
-    private Scene simulationScene;
+    [SerializeField] private Scene simulationScene;
     private PhysicsScene physicsScene;
     [SerializeField] private LineRenderer line;
     [SerializeField] private int maxPhysicsFrameIterations = 3;
@@ -37,7 +36,10 @@ public class Trajectory : MonoBehaviour
 
         var ghostObj = Instantiate(ball, pos, Quaternion.identity);
         ghostObj.GetComponent<Renderer>().enabled = false; //doing this since we can see the new spawned objects in the simulation scene
+        //ghostObj.GetComponent<LineRenderer>().enabled = false;
         SceneManager.MoveGameObjectToScene(ghostObj, simulationScene);
+
+        Debug.Log("Here 1");
 
         rb = ghostObj.AddComponent<Rigidbody>();
         rb.useGravity = false;
@@ -70,7 +72,6 @@ public class Trajectory : MonoBehaviour
             point.transform.position = line.GetPosition(0) + velocity.normalized * currentPercentage * totalLength;
             currentPercentage += 0.25f;
         }
-
         Destroy(ghostObj);
     }
 

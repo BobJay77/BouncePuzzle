@@ -46,7 +46,7 @@ public class PlayerTurn : State
     {
         trajectory = GameSystem.instance.ghostBall.GetComponent<Trajectory>();
         GameSystem.ghostBall.transform.position = GameSystem.playerBall.transform.position;
-        GameSystem.ghostBall.SetActive(false);
+        //GameSystem.ghostBall.SetActive(false);
         //GameSystem.playerBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
