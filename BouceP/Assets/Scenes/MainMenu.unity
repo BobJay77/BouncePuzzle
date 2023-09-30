@@ -5239,7 +5239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24.123047, y: -43.227356}
+  m_AnchoredPosition: {x: 24.123047, y: -43.227295}
   m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &670446708
@@ -7882,6 +7882,7 @@ GameObject:
   - component: {fileID: 909373916}
   - component: {fileID: 909373915}
   - component: {fileID: 909373914}
+  - component: {fileID: 909373917}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -7953,7 +7954,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909373915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 909373917}
+        m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
+        m_MethodName: PlayButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &909373915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7992,6 +8005,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909373912}
   m_CullTransparentMesh: 1
+--- !u!114 &909373917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909373912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
 --- !u!1 &910398144
 GameObject:
   m_ObjectHideFlags: 0
@@ -13146,7 +13174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.36914, y: -43.227356}
+  m_AnchoredPosition: {x: 72.36914, y: -43.227295}
   m_SizeDelta: {x: 25, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1446666626
@@ -17238,7 +17266,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9cfd13efa5b22a241b595c7df72202ab, type: 2}
     - target: {fileID: 8061312506740254904, guid: 71b38fc51e3f7be46a7d51f2932d0323, type: 3}
       propertyPath: _encryptionEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8061312506740254904, guid: 71b38fc51e3f7be46a7d51f2932d0323, type: 3}
       propertyPath: _levelInfos.Array.size

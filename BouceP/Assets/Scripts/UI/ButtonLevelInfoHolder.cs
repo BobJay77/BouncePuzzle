@@ -14,8 +14,6 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     {
         int maxLevelInfoIndex = GameSystem.instance.LevelInfos.Count;
 
-        
-
         if (maxLevelInfoIndex < levelInfoIndex)
         {
             levelInfoIndex = maxLevelInfoIndex - 1;
@@ -46,6 +44,24 @@ public class ButtonLevelInfoHolder : MonoBehaviour
             GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];  
             SceneSwitcher.instance.LoadGameLevel(GameSystem.instance.LevelInfos[levelInfoIndex].levelID);
         }
+    }
+
+    public void PlayButton()
+    {
+        LevelInfo nextLevel = null;
+
+        foreach (var level in GameSystem.instance.LevelInfos)
+        {
+            if (!level.locked)
+            {
+                nextLevel = level;
+            }
+            else
+                break;
+        }
+        GameSystem.instance.CurrentLevelInfo = nextLevel;
+        SceneSwitcher.instance.LoadGameLevel(nextLevel.levelID - 1);
+
     }
 
     public void NextLevel()
