@@ -20,7 +20,6 @@ public class WinLose : State //rename to win lose
 
     public override IEnumerator OnEnter()
     {
-        //GameSystem.ghostBallSceneCopy.GetComponent<Trajectory>().DestroyScene();
         GameSystem.DestroyPrefab(GameSystem.playerBallSceneCopy);
         GameSystem.DestroyPrefab(GameSystem.ghostBallSceneCopy);
 

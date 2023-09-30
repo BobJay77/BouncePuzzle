@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Trajectory : MonoBehaviour
 {
     private Rigidbody rb;
+    private static string simulationSceneName = "Simulation";
     [SerializeField] private Scene simulationScene;
     private PhysicsScene physicsScene;
     [SerializeField] private LineRenderer line;
@@ -15,12 +16,13 @@ public class Trajectory : MonoBehaviour
 
     private void Start()
     {
-        CreatePhysicsScene(); 
-    }
+        Scene temp = SceneManager.GetSceneByName(simulationSceneName);
 
-    public void DestroyScene()
-    {
-        SceneManager.UnloadSceneAsync(simulationScene);
+        if (temp.name != simulationSceneName)
+            CreatePhysicsScene();
+
+        else
+            SetPhysicsScene(temp);
     }
 
     private void CreatePhysicsScene()
@@ -30,9 +32,20 @@ public class Trajectory : MonoBehaviour
         line = gameObject.GetComponent<LineRenderer>();
 
         //Creating a simulation scene on top and giving it the physics of the current scene
-        simulationScene = SceneManager.CreateScene("Simulation", new CreateSceneParameters(LocalPhysicsMode.Physics3D));
+        simulationScene = SceneManager.CreateScene(simulationSceneName, new CreateSceneParameters(LocalPhysicsMode.Physics3D));
         physicsScene = simulationScene.GetPhysicsScene();
     }
+
+    public void SetPhysicsScene(Scene scene)
+    {
+        ShowOrNot(false);
+
+        line = gameObject.GetComponent<LineRenderer>();
+
+        simulationScene = scene;
+        physicsScene = simulationScene.GetPhysicsScene();
+    }
+
 
     public void SimulateTrajectory(GameObject ball, Vector3 pos, Vector3 velocity)
     {

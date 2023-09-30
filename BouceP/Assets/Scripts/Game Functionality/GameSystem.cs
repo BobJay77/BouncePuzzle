@@ -238,7 +238,7 @@ public class GameSystem : StateMachine
     {
         if (vfx != null)
         {
-            var _VFX = Instantiate(vfx, playerBall.transform.position, Quaternion.identity);
+            var _VFX = Instantiate(vfx, playerBallSceneCopy.transform.position, Quaternion.identity);
             var ps = _VFX.GetComponent<ParticleSystem>();
             if (ps != null)
                 Destroy(_VFX, ps.main.duration);
