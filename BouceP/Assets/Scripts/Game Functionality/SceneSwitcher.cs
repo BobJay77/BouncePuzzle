@@ -38,9 +38,9 @@ public class SceneSwitcher : MonoBehaviour
 
         if (loadOperation.isDone && worldSceneIndex > 0)  
         {
-            GameSystem.instance.ghostBall = GameObject.Find("Ghost Ball");
-            GameSystem.instance.ghostBall.SetActive(false);
-            GameSystem.instance.playerBall = GameObject.FindObjectOfType<BallManager>().gameObject;
+            //GameSystem.instance.ghostBall = GameObject.FindGameObjectWithTag("Ghost Ball");
+            //GameSystem.instance.ghostBall.SetActive(false);
+            //GameSystem.instance.playerBall = GameObject.FindObjectOfType<BallManager>().gameObject;
             GameSystem.instance.winOrLoseParent = GameObject.FindObjectOfType<WinLoseUIParent>().gameObject;
             GameSystem.instance.winOrLoseParent.SetActive(false);
             GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();

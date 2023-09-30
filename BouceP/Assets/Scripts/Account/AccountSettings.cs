@@ -10,4 +10,6 @@ public class AccountSettings : ScriptableObject
     public float UIVolume       = 5;
     public float SceneVolume    = 5;
     public float BallVolume     = 5;
+
+    public List<GameObject> playableBalls;
 }

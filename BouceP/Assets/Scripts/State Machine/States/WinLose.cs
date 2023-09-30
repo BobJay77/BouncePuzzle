@@ -20,6 +20,9 @@ public class WinLose : State //rename to win lose
 
     public override IEnumerator OnEnter()
     {
+        GameSystem.DestroyPrefab(GameSystem.playerBall);
+        GameSystem.DestroyPrefab(GameSystem.ghostBall);
+
         if (won)
         {
             AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,

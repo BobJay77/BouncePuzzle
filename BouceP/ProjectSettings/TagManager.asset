@@ -12,6 +12,8 @@ TagManager:
   - Spike
   - AudioManager
   - Canvas
+  - StartingPosition
+  - Ghost Ball
   layers:
   - Default
   - TransparentFX

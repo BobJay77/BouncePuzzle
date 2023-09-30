@@ -148,6 +148,16 @@ public class GameSystem : StateMachine
         }
     }
 
+    public GameObject SpawnPrefab(GameObject prefab)
+    {
+        return Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
+    }
+
+    public void DestroyPrefab(GameObject prefab)
+    {
+        Destroy(prefab);
+    }
+
     public void StartGameState()
     {
         SetState(startGameState);
@@ -159,17 +169,6 @@ public class GameSystem : StateMachine
 
         if (State != null)
             State.OnUpdate();
-        
-        //if (Input.GetKeyDown(KeyCode.J))
-        //{
-        //    _dataService.SaveData("/level_stats.json", _levelInfos[0], _encryptionEnabled);
-        //    _dataService.LoadData<LevelInfo>("/level_stats.json", _encryptionEnabled);
-        //}
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //   // _dataService.SaveData("/sessioncount.json", Unity.player_session_count, _encryptionEnabled);
-        //    _dataService.LoadData<LevelInfo>("/sessioncount.json", _encryptionEnabled);
-        //}
     }
 
     private void FixedUpdate()
@@ -223,36 +222,6 @@ public class GameSystem : StateMachine
         return result;
     }
 
-    //public void SerializeJson(LevelInfo levelInfo, string pathName)
-    //{
-    //    //long startTime = DateTime.Now.Ticks;
-
-    //    if (_dataService.SaveData($"/{pathName}.json", levelInfo, _encryptionEnabled))
-    //    {
-    //        //_saveTime = DateTime.Now.Ticks - startTime;
-    //        ////actionText.text = ($"Save Time: {(_saveTime / 10000f) :N4}ms"); // CHange to save text
-
-    //        //startTime = DateTime.Now.Ticks;
-    //        try
-    //        {
-    //            LevelInfo data = ScriptableObject.CreateInstance<LevelInfo>();
-    //            data = _dataService.LoadData<LevelInfo>($"/{pathName}.json", _encryptionEnabled);
-    //            //_loadTime = DateTime.Now.Ticks - startTime;
-    //            //actionText.text = "Loaded from file:\r\n" + JsonConvert.SerializeObject(data, Formatting.Indented); // CHange to load text
-    //            //actionText.text = ($"Load Time: {(_loadTime / 10000f):N4}ms"); // CHange to load text
-    //        }
-    //        catch (Exception e)
-    //        {
-    //            Debug.LogError($"Could nor read file.");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Could not save file.");
-
-    //    }
-    //}
-
     public void TurnOnNextButton(bool on)
     {
         winOrLoseParent.SetActive(true);
@@ -268,7 +237,6 @@ public class GameSystem : StateMachine
         if (vfx != null)
         {
             var _VFX = Instantiate(vfx, playerBall.transform.position, Quaternion.identity);
-            //_VFX.transform.forward = playerBall.transform.forward;
             var ps = _VFX.GetComponent<ParticleSystem>();
             if (ps != null)
                 Destroy(_VFX, ps.main.duration);

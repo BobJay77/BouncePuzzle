@@ -44,9 +44,10 @@ public class PlayerTurn : State
 
     public override IEnumerator OnEnter()
     {
-        //GameSystem.playerBall.GetComponent<MeshRenderer>().enabled = false;
         trajectory = GameSystem.instance.ghostBall.GetComponent<Trajectory>();
-        GameSystem.ghostBall.SetActive(true);
+        GameSystem.ghostBall.transform.position = GameSystem.playerBall.transform.position;
+        GameSystem.ghostBall.SetActive(false);
+        //GameSystem.playerBall.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
         GameSystem.hitGoal = false;
@@ -56,8 +57,7 @@ public class PlayerTurn : State
 
     public override void OnUpdate()
     {
-        
-
+        // Check if touch does not equal 1
         if (Input.touchCount != 1)
         {
             dragging = false;
@@ -72,6 +72,7 @@ public class PlayerTurn : State
         Touch touch = Input.touches[0];
         Vector3 pos = touch.position;
 
+        // Touch begins
         if (touch.phase == TouchPhase.Began)
         {
             RaycastHit hit;
@@ -97,6 +98,7 @@ public class PlayerTurn : State
                 {
                     // Double touch detected
                     shootMode = true;
+                    GameSystem.ghostBall.SetActive(true);
                     initialClickPos = GameSystem.mousePosition;
                     touchCount = 0; // Reset touchCount
                 }
@@ -108,7 +110,8 @@ public class PlayerTurn : State
                 lastTouchTime = currentTime;
             }
         }
-
+        
+        // Touch has been moved/dragged
         if (touched && touch.phase == TouchPhase.Moved)
         {
 
@@ -118,6 +121,7 @@ public class PlayerTurn : State
             UpdateBallPos(touch);
         }
 
+        //Touch has ended
         if (dragging && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
         {
             dragging = false;
@@ -210,9 +214,9 @@ public class PlayerTurn : State
             // The ghost ball is in the inital click position to show the center of the click
             GameSystem.ghostBall.transform.position = initialClickPos;
 
-            Vector3 linePos = GameSystem.instance.playerBall.transform.position + ((direction.normalized) * (GameSystem.instance.ghostBall.GetComponent<SphereCollider>().radius / 2));
+            Vector3 linePos = GameSystem.playerBall.transform.position + ((direction.normalized) * (GameSystem.ghostBall.GetComponent<SphereCollider>().radius / 2));
 
-            trajectory.SimulateTrajectory(GameSystem.instance.ghostBall, linePos, -direction.normalized * distance * GameSystem.instance.speedMultiplier * 8);
+            trajectory.SimulateTrajectory(GameSystem.ghostBall, linePos, -direction.normalized * distance * GameSystem.instance.speedMultiplier * 8);
         }
         else
         {
