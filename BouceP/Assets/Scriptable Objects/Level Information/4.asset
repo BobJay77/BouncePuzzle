@@ -15,4 +15,5 @@ MonoBehaviour:
   levelID: 0
   numOfBouncesToWin: 1
   locked: 1
+  unlockSkinOnLevel: 3
   _startingGameStates: []

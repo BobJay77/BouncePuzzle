@@ -12,8 +12,6 @@ public class SkinSelection : MonoBehaviour
     [SerializeField] private GameObject lockSkinIcon;
     [SerializeField] private int currentSkinIndex = 0;
 
-
-
     private void OnEnable()
     {
         maxSize = GameSystem.instance.AccountSettings.Skins.Count;

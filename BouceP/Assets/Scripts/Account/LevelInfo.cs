@@ -8,6 +8,7 @@ public class LevelInfo : ScriptableObject
     public int  levelID             = 0;
     public int  numOfBouncesToWin   = 1;
     public bool locked              = true;
+    public int unlockSkinOnLevel    = 0;
 
     [SerializeField] private List<GameState> _startingGameStates = new List<GameState>();
 

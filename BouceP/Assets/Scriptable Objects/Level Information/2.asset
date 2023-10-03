@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelID: 2
   numOfBouncesToWin: 3
-  locked: 1
+  locked: 0
+  unlockSkinOnLevel: 2
   _startingGameStates: []
