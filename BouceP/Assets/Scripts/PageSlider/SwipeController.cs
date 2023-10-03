@@ -6,20 +6,21 @@ using UnityEngine.UI;
 
 public class SwipeController : MonoBehaviour, IEndDragHandler
 {
+    public  float   dragThreshold;
+    private Vector3 targetPosition;
+    
     [SerializeField] int currentPage;
     [SerializeField] int maxPage;
-    Vector3 targetPosition;
 
-    [SerializeField] Vector3 pageStep;
-    [SerializeField] RectTransform levelPagesRect;
+    [SerializeField] Vector3        pageStep;
+    [SerializeField] RectTransform  levelPagesRect;
 
-    [SerializeField] float tweenTime;
-    [SerializeField] LeanTweenType tweenType;
-    public float dragThreshold;
+    [SerializeField] float          tweenTime;
+    [SerializeField] LeanTweenType  tweenType;
 
-    [SerializeField] Image[] barImage;
-    [SerializeField] Sprite barClosed, barOpen;
-    [SerializeField] Button previousBtn, nextBtn;
+    [SerializeField] Image[]        barImage;
+    [SerializeField] Sprite         barClosed,   barOpen;
+    [SerializeField] Button         previousBtn, nextBtn;
 
     private void Awake()
     {

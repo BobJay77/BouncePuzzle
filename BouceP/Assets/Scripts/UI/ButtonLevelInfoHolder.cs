@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ButtonLevelInfoHolder : MonoBehaviour
 {
     //public LevelInfo LevelInfo;
-    [SerializeField] private int levelInfoIndex;
-    [SerializeField] GameObject lockImage;
-    [SerializeField] GameObject numberImage;
+    [SerializeField] private int    levelInfoIndex;
+    [SerializeField] GameObject     lockImage;
+    [SerializeField] GameObject     numberImage;
 
     private void Update()
     {
@@ -21,7 +21,6 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
             if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.LevelInfos[levelInfoIndex].levelID)
             {
-
                 if (GameSystem.instance.LevelInfos[levelInfoIndex].locked)
                 {
                     GetComponent<Button>().interactable = false;
@@ -40,9 +39,9 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     }
     public void ButtonClicked(bool mainmenu = false)
     {
+        // Loading level
         if (mainmenu)
             SceneSwitcher.instance.LoadGameLevel(0);
-
         else
         {
             GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];  
@@ -50,7 +49,8 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         }
     }
 
-    public void PlayButton()
+    // Player last unlocked level
+    public void PlayButton() 
     {
         LevelInfo nextLevel = null;
 

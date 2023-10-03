@@ -16,16 +16,16 @@ public class StartGame : State
         GameSystem.bouncesGoal = GameSystem.CurrentLevelInfo.numOfBouncesToWin;
         GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
 
+        // Instantiate projectile prefab
         GameSystem.projectilePrefabSceneCopy = GameSystem.SpawnPrefab(GameSystem.loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
         GameSystem.projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
 
-        //GameSystem.playerBallSceneCopy = GameSystem.SpawnPrefab(GameSystem.playerBall, GameObject.FindGameObjectWithTag("StartingPosition").transform.position);
+        // Instantiate ghost ball prefab
         GameSystem.ghostBallSceneCopy = GameSystem.SpawnPrefab(GameSystem.ghostBall, GameObject.FindGameObjectWithTag("Ball").transform.position);
         GameSystem.ghostBallSceneCopy.transform.position = GameObject.FindGameObjectWithTag("Ball").transform.position;
         //GameSystem.ghostBall.SetActive(false);
 
+        // Change state to player turn state
         GameSystem.SetState(GameSystem.playerTurnState);
-
-        
     }
 }

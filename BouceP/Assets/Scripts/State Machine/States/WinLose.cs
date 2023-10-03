@@ -20,11 +20,14 @@ public class WinLose : State //rename to win lose
 
     public override IEnumerator OnEnter()
     {
+        // Destroy the prefab copies
         GameSystem.DestroyPrefab(GameSystem.projectilePrefabSceneCopy);
         GameSystem.DestroyPrefab(GameSystem.ghostBallSceneCopy);
 
+        // Check if the round is won or last
         if (won)
         {
+            // Play audio from the Win bank
             AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
                                                    GameSystem.winLoseSounds.audioClip,
                                                    Camera.main.transform.position,
@@ -32,6 +35,7 @@ public class WinLose : State //rename to win lose
                                                    GameSystem.winLoseSounds.spatialBlend,
                                                    GameSystem.winLoseSounds.priority);
 
+            // Unlock next level and save the data in the Account settings
             if (GameSystem.LevelInfos.Count >= GameSystem.CurrentLevelInfo.levelID)
             {
                 GameSystem.LevelInfos[GameSystem.CurrentLevelInfo.levelID].locked = false;
@@ -51,8 +55,10 @@ public class WinLose : State //rename to win lose
         {
             // Fetch a sound from bank 2
             AudioClip clip = GameSystem.winLoseSounds[1];
+
             if (clip)
             {
+                // Play audio from the Lost bank
                 AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
                                                        clip,
                                                        Camera.main.transform.position,

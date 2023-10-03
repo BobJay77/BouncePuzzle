@@ -45,9 +45,12 @@ public class SettingsPopUp : MonoBehaviour
 
     public void BackButton()
     {
+        GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, GameSystem.instance.EncryptionEnabled);
+
         if (isMainMenu)
         {
-            Application.Quit();
+            
+            //Application.Quit();
         }
     }
 
@@ -69,7 +72,6 @@ public class SettingsPopUp : MonoBehaviour
             AudioManager.instance.SetTrackVolume("Master", masterSlider.value);
 
             GameSystem.instance.AccountSettings.masterVolume = masterSlider.value;
-            GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, GameSystem.instance.EncryptionEnabled);
         }
     }
 
@@ -82,7 +84,6 @@ public class SettingsPopUp : MonoBehaviour
             AudioManager.instance.SetTrackVolume("Music", musicSlider.value);
 
             GameSystem.instance.AccountSettings.musicVolume = musicSlider.value;
-            GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, GameSystem.instance.EncryptionEnabled);
         }
     }
 
@@ -99,7 +100,6 @@ public class SettingsPopUp : MonoBehaviour
             GameSystem.instance.AccountSettings.UIVolume = SFXSlider.value;
             GameSystem.instance.AccountSettings.SceneVolume = SFXSlider.value;
             GameSystem.instance.AccountSettings.BallVolume = SFXSlider.value;
-            GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, GameSystem.instance.EncryptionEnabled);
         }
     }
 

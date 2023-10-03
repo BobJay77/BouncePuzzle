@@ -15,24 +15,6 @@ public class GameSystem : StateMachine
 {
     public static GameSystem instance = null;
     
-    //public GameObject   playerBall;
-    public GameObject   ghostBall;
-    //public GameObject   playerBallSceneCopy;
-    public GameObject   ghostBallSceneCopy;
-    public GameObject   winOrLoseParent;
-
-    public TMP_Text     actionText;
-    public TMP_Text     bouncesText;
-    public int          currentBounces;
-    public int          bouncesGoal;
-    public float        speedMultiplier;
-
-    // Game States
-    public StartGame    startGameState;
-    public PlayerTurn   playerTurnState;
-    public Resolution   resolutionState;
-    public WinLose      winLoseState;
-
     // VFX
     public GameObject loadedProjectilePrefab;
     public GameObject loadedMuzzlePrefab;
@@ -41,10 +23,29 @@ public class GameSystem : StateMachine
     public GameObject muzzlePrefabSceneCopy;
     public GameObject hitPrefabSceneCopy;
 
+    public GameObject   ghostBall;          
+    public GameObject   ghostBallSceneCopy;
+    public float        speedMultiplier;
+
+    // UI variables
+    public GameObject   winOrLoseParent;
+    public TMP_Text     actionText;
+    public TMP_Text     bouncesText;
+    public int          currentBounces;
+    public int          bouncesGoal;
+
+    // Game States
+    public StartGame    startGameState;
+    public PlayerTurn   playerTurnState;
+    public Resolution   resolutionState;
+    public WinLose      winLoseState;
+
+
     // Audio Collections
     public AudioCollection winLoseSounds = null;
 
     [HideInInspector]   public Vector3  mousePosition;
+
     [HideInInspector]   public bool     roundEnded      = false;
     [HideInInspector]   public bool     hitGoal         = false;
 
@@ -55,10 +56,13 @@ public class GameSystem : StateMachine
     [SerializeField] private    AccountSettings _accountSettings;
     [SerializeField] private    bool            _encryptionEnabled;
 
+    // Game states
     private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
+
+    // Serializing
     private IDataService                        _dataService            = new JSONDataService();
     
-    //Accessors
+    // Properties
     public AccountSettings AccountSettings
     {
         get
@@ -103,7 +107,6 @@ public class GameSystem : StateMachine
             _dataService = value;
         }
     }
-
     public bool EncryptionEnabled
     {
         get
@@ -125,6 +128,7 @@ public class GameSystem : StateMachine
         else
             Destroy(gameObject);
 
+        // Initialize the game states
         if (startGameState == null)
             startGameState = new StartGame(instance);
 
@@ -137,7 +141,7 @@ public class GameSystem : StateMachine
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
 
-
+        // Accessing data or writing new one if it is the first time
         try
         {
             //Load previous data

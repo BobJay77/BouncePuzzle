@@ -11,8 +11,6 @@ public class Resolution : State
 
     public override IEnumerator OnEnter()
     {
-        //yield return new WaitForSeconds(.1f);
-
         yield return null;
     }
 
@@ -28,20 +26,24 @@ public class Resolution : State
                 return;
             }
 
+            // Updating UI text for number of bounces
             if (GameSystem.bouncesText.text != GameSystem.bouncesGoal.ToString())
                 GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
 
+            // If the number of bounces are achieved the goal is ready for the win condition
             if (GameSystem.bouncesGoal == 0)
                 GameSystem.bouncesText.text = "Goal Ready";
         }
         else
         {
+            // Number of bounces condition must be met exactly not over or under to win, otherwise it is a loss
             if (GameSystem.currentBounces == GameSystem.CurrentLevelInfo.numOfBouncesToWin && GameSystem.hitGoal)
             {
                 GameSystem.bouncesText.text = "";
                 GameSystem.actionText.text  = "You Won!";
                 Debug.Log("You Won!");
 
+                // Change to winLose state
                 GameSystem.SetState(GameSystem.winLoseState.Won(true));
             }
             else
@@ -50,6 +52,7 @@ public class Resolution : State
                 GameSystem.actionText.text  = "You Lost!";
                 Debug.Log("You Lost!");
 
+                // Change to winLose state
                 GameSystem.SetState(GameSystem.winLoseState.Won(false));
             }  
         }

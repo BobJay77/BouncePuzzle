@@ -10,6 +10,7 @@ public class RedZone : MonoBehaviour
 
     [SerializeField] private float maxTimer = 3f;
     [SerializeField] private float fadeAwayMultiplyer = 10f;
+
     // Start is called before the first frame update
     void Start()
     {

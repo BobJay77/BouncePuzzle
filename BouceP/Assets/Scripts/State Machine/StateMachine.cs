@@ -6,6 +6,7 @@ public abstract class StateMachine : MonoBehaviour
 {
     protected State State = null;
 
+    // Setting state to the desired state
     public void SetState(State state)
     {
         if (State != null)
@@ -21,6 +22,7 @@ public abstract class StateMachine : MonoBehaviour
         StartCoroutine(State.OnEnter());
     }
 
+    // Get the current game state
     public State GetState()
     {
         if (State != null)

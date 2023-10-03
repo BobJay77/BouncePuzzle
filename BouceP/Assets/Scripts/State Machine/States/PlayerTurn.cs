@@ -8,40 +8,34 @@ public class PlayerTurn : State
 {
 
     [SerializeField] float maxDragDistance = 3;
-    public Vector3 initialClickPos;
-    public bool shootMode = false;
-    public bool addForce = false;
+
+    public Vector3  initialClickPos;
+    public bool     shootMode       = false;
+    public bool     addForce        = false;
 
     public Trajectory trajectory;
 
-    public string draggingTag = "Projectile";  // Tag of objects that can be dragged.
-
-    //Double touch
-    public float doubleTouchThreshold = 0.3f; // Adjust this value as needed
-
-    private int touchCount = 0;
-    private float lastTouchTime = 0f;
-
-
     // Variables for tracking touch input and dragging state.
-    private Vector3 dis;
-    private float posX;
-    private float posY;
-    private bool touched = false;  // Is an object currently touched?
-    private bool dragging = false; // Is an object currently being dragged?
+    public  string   draggingTag              = "Projectile";  // Tag of objects that can be dragged.
+    public  float    doubleTouchThreshold     = 0.3f;          // Adjust this value as needed
+    private bool     dragging                 = false;         // Is an object currently being dragged?
+    private bool     touched                  = false;         // Is an object currently touched?
+    private int      touchCount               = 0;
+    private float    lastTouchTime            = 0f;
+    private Vector3  dis;
+    private float    posX;
+    private float    posY;
 
     // Variables to keep track of the object being dragged and its rigidbody.
-    private Transform toDrag;
-    private Rigidbody toDragRigidbody;
-    private Vector3 previousPosition;
-
+    private Transform   toDrag;
+    private Rigidbody   toDragRigidbody;
+    private Vector3     previousPosition;
 
     private RaycastHit hit;
     public PlayerTurn(GameSystem gameSystem) : base(gameSystem)
     {
 
     }
-
 
     public override IEnumerator OnEnter()
     {
@@ -115,7 +109,6 @@ public class PlayerTurn : State
         // Touch has been moved/dragged
         if (touched && touch.phase == TouchPhase.Moved)
         {
-
             dragging = true;
 
             previousPosition = toDrag.position;
@@ -142,8 +135,6 @@ public class PlayerTurn : State
                 GameSystem.TriggerVFX(GameSystem.loadedMuzzlePrefab);
 
                 GameSystem.actionText.text = "";
-
-
             }
         }
 
@@ -165,6 +156,7 @@ public class PlayerTurn : State
 
     public override void OnFixedUpdate()
     {
+        // Add a force impulse to player when addForce is true
         if (addForce)
         {
             float distance = Vector3.Distance(GameSystem.projectilePrefabSceneCopy.transform.position, initialClickPos);
@@ -176,13 +168,13 @@ public class PlayerTurn : State
 
             addForce = false;
 
+            // Change to resolution state
             GameSystem.SetState(GameSystem.resolutionState);
         }
     }
 
     public override IEnumerator OnExit()
     {
-
         yield return null;
     }
 

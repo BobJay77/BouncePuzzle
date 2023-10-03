@@ -9,7 +9,8 @@ using TMPro;
 public class SceneSwitcher : MonoBehaviour
 {
     public static SceneSwitcher instance;
-    [SerializeField]int worldSceneIndex = 1;
+
+    [SerializeField] int worldSceneIndex = 1;
 
     private void Awake()
     {

@@ -6,5 +6,5 @@ public class Skin
     public string projectileVfx;
     public string muzzleVfx;
     public string hitVfx;
-    public bool isLocked = true;
+    public bool   isLocked = true;
 }

@@ -11,7 +11,6 @@ public class Spike : MonoBehaviour
         gameSystem = GameSystem.instance;
     }
 
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ball")

@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Trajectory : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody       rb;
+    private PhysicsScene    physicsScene;
+
     private static string simulationSceneName = "Simulation";
-    [SerializeField] private Scene simulationScene;
-    private PhysicsScene physicsScene;
-    [SerializeField] private LineRenderer line;
-    [SerializeField] private int maxPhysicsFrameIterations = 3;
-    [SerializeField] private GameObject[] points;
+    
+    [SerializeField] private Scene          simulationScene;
+    [SerializeField] private LineRenderer   line;
+    [SerializeField] private int            maxPhysicsFrameIterations = 3;
+    [SerializeField] private GameObject[]   points;
 
 
     private void Start()
