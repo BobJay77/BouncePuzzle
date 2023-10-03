@@ -14,6 +14,8 @@ TagManager:
   - Canvas
   - StartingPosition
   - Ghost Ball
+  - Bullet
+  - Projectile
   layers:
   - Default
   - TransparentFX

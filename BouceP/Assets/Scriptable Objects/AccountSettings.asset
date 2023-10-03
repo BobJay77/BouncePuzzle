@@ -12,9 +12,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33460fcbff49f9f42b66a53a2c011ff1, type: 3}
   m_Name: AccountSettings
   m_EditorClassIdentifier: 
-  masterVolume: 5
-  musicVolume: 5
+  masterVolume: 0.000001
+  musicVolume: 1.8475734
   UIVolume: 5
   SceneVolume: 5
   BallVolume: 5
-  playableBalls: []
+  _skins:
+  - projectileVfx: 1ProjectileOrb06Blue
+    muzzleVfx: 1MuzzleOrb06Blue
+    hitVfx: 1HitOrb06Blue
+    isLocked: 0
+  - projectileVfx: 2ProjectileTrail04Orange
+    muzzleVfx: 2MuzzleTrail04Orange
+    hitVfx: 2HitTrail04Orange
+    isLocked: 0
+  - projectileVfx: 3ProjectileOrb04Yellow
+    muzzleVfx: 3MuzzleOrb04Yellow
+    hitVfx: 3HitOrb04Yellow
+    isLocked: 1
+  - projectileVfx: 4ProjectileTrail03Red
+    muzzleVfx: 4MuzzleTrail03Red
+    hitVfx: 4HitTrail03Red
+    isLocked: 1
+  - projectileVfx: 5ProjectileOrb03Blue
+    muzzleVfx: 5MuzzleOrb03Blue
+    hitVfx: 5HitOrb03Blue
+    isLocked: 1
+  - projectileVfx: 6ProjectileOrb02Green
+    muzzleVfx: 6MuzzleOrb02Green
+    hitVfx: 6HitOrb02Green
+    isLocked: 1
+  - projectileVfx: 7ProjectileOrb05Orange
+    muzzleVfx: 7MuzzleOrb05Orange
+    hitVfx: 7HitOrb05Orange
+    isLocked: 1
+  - projectileVfx: 8ProjectileWaterBall01Blue
+    muzzleVfx: 8MuzzleWaterBall01Blue
+    hitVfx: 8HitWaterBall01Blue
+    isLocked: 1
+  - projectileVfx: 9ProjectileOrb01Red
+    muzzleVfx: 9MuzzleOrb01Red
+    hitVfx: 9HitOrb01Red
+    isLocked: 1
+  - projectileVfx: 10ProjectileBlackHole01Purple
+    muzzleVfx: 10MuzzleBlackHole01Purple
+    hitVfx: 10HitBlackHole01Purple
+    isLocked: 1
+  _activeSkin:
+    projectileVfx: 10ProjectileBlackHole01Purple
+    muzzleVfx: 10MuzzleBlackHole01Purple
+    hitVfx: 10HitBlackHole01Purple
+    isLocked: 1

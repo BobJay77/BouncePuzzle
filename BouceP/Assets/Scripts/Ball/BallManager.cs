@@ -29,21 +29,7 @@ public class BallManager : MonoBehaviour
                                                    bounceSounds.priority);
 
 
-            GameSystem.instance.TriggerVFX(GameSystem.instance.hitPrefab);
-
-            //if (GameSystem.instance.hitPrefab != null)
-            //{
-            //    var hitVFX = Instantiate(GameSystem.instance.hitPrefab, GameSystem.instance.playerBall.transform.position, Quaternion.identity) as GameObject;
-
-            //    var ps = hitVFX.GetComponent<ParticleSystem>();
-            //    if (ps == null)
-            //    {
-            //        var psChild = hitVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
-            //        Destroy(hitVFX, psChild.main.duration);
-            //    }
-            //    else
-            //        Destroy(hitVFX, ps.main.duration);
-            //}
+            GameSystem.instance.TriggerVFX(GameSystem.instance.loadedHitPrefab);
         }
 
         else if (collision.gameObject.tag == "Spike")

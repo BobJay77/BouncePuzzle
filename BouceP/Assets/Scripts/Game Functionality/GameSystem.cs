@@ -15,9 +15,9 @@ public class GameSystem : StateMachine
 {
     public static GameSystem instance = null;
     
-    public GameObject   playerBall;
+    //public GameObject   playerBall;
     public GameObject   ghostBall;
-    public GameObject   playerBallSceneCopy;
+    //public GameObject   playerBallSceneCopy;
     public GameObject   ghostBallSceneCopy;
     public GameObject   winOrLoseParent;
 
@@ -34,8 +34,12 @@ public class GameSystem : StateMachine
     public WinLose      winLoseState;
 
     // VFX
-    public GameObject muzzlePrefab;
-    public GameObject hitPrefab;
+    public GameObject loadedProjectilePrefab;
+    public GameObject loadedMuzzlePrefab;
+    public GameObject loadedHitPrefab;
+    public GameObject projectilePrefabSceneCopy;
+    public GameObject muzzlePrefabSceneCopy;
+    public GameObject hitPrefabSceneCopy;
 
     // Audio Collections
     public AudioCollection winLoseSounds = null;
@@ -145,14 +149,27 @@ public class GameSystem : StateMachine
             Debug.Log($"Could not read file.");
 
             //First time saving
+            AccountSettings.ActiveSkin = AccountSettings.Skins[0];
             _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, _encryptionEnabled);
             _dataService.SaveData<AccountSettings>("/acc.json", AccountSettings, _encryptionEnabled);
         }
     }
 
-    public GameObject SpawnPrefab(GameObject prefab)
+    private void Start()
     {
-        return Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
+        // Load last active skin from Resources folder
+        loadedProjectilePrefab = (GameObject)Resources.Load("Prefabs/Projectiles/" + AccountSettings.ActiveSkin.projectileVfx);
+        loadedMuzzlePrefab = (GameObject)Resources.Load("Prefabs/Muzzles/" + AccountSettings.ActiveSkin.muzzleVfx);
+        loadedHitPrefab = (GameObject)Resources.Load("Prefabs/Hits/" + AccountSettings.ActiveSkin.hitVfx);
+
+        // Copy to scene prefab
+        projectilePrefabSceneCopy = SpawnPrefab(loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
+        projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
+    }
+
+    public GameObject SpawnPrefab(GameObject prefab, Vector3 pos)
+    {
+        return Instantiate(prefab, pos, Quaternion.identity) as GameObject;
     }
 
     public void DestroyPrefab(GameObject prefab)
@@ -238,7 +255,7 @@ public class GameSystem : StateMachine
     {
         if (vfx != null)
         {
-            var _VFX = Instantiate(vfx, playerBallSceneCopy.transform.position, Quaternion.identity);
+            var _VFX = Instantiate(vfx, projectilePrefabSceneCopy.transform.position, Quaternion.identity);
             var ps = _VFX.GetComponent<ParticleSystem>();
             if (ps != null)
                 Destroy(_VFX, ps.main.duration);

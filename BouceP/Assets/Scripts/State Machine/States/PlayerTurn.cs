@@ -14,7 +14,7 @@ public class PlayerTurn : State
 
     public Trajectory trajectory;
 
-    public string draggingTag = "Ball";  // Tag of objects that can be dragged.
+    public string draggingTag = "Projectile";  // Tag of objects that can be dragged.
 
     //Double touch
     public float doubleTouchThreshold = 0.3f; // Adjust this value as needed
@@ -46,9 +46,9 @@ public class PlayerTurn : State
     public override IEnumerator OnEnter()
     {
         trajectory = GameSystem.instance.ghostBallSceneCopy.GetComponent<Trajectory>();
-        GameSystem.ghostBallSceneCopy.transform.position = GameSystem.playerBallSceneCopy.transform.position;
+        GameSystem.ghostBallSceneCopy.transform.position = GameSystem.projectilePrefabSceneCopy.transform.position;
         GameSystem.ghostBallSceneCopy.SetActive(false);
-        GameSystem.playerBallSceneCopy.SetActive(true);
+        GameSystem.projectilePrefabSceneCopy.SetActive(true);
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
         GameSystem.hitGoal = false;
@@ -84,7 +84,7 @@ public class PlayerTurn : State
                 toDrag = hit.transform;
                 previousPosition = toDrag.position;
                 toDragRigidbody = toDrag.GetComponent<Rigidbody>();
-                Debug.Log("touch detected!");
+
                 dis = Camera.main.WorldToScreenPoint(previousPosition);
                 posX = Input.GetTouch(0).position.x - dis.x;
                 posY = Input.GetTouch(0).position.y - dis.y;
@@ -139,7 +139,7 @@ public class PlayerTurn : State
                 shootMode = false;
                 addForce = true;
 
-                GameSystem.TriggerVFX(GameSystem.muzzlePrefab);
+                GameSystem.TriggerVFX(GameSystem.loadedMuzzlePrefab);
 
                 GameSystem.actionText.text = "";
 
@@ -167,11 +167,11 @@ public class PlayerTurn : State
     {
         if (addForce)
         {
-            float distance = Vector3.Distance(GameSystem.playerBallSceneCopy.transform.position, initialClickPos);
+            float distance = Vector3.Distance(GameSystem.projectilePrefabSceneCopy.transform.position, initialClickPos);
             if (distance < 1)
                 distance = 1f;
 
-            GameSystem.playerBallSceneCopy.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.playerBallSceneCopy.transform.position).normalized *
+            GameSystem.projectilePrefabSceneCopy.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.projectilePrefabSceneCopy.transform.position).normalized *
                                                            distance * GameSystem.speedMultiplier, ForceMode.Impulse);
 
             addForce = false;
@@ -204,25 +204,25 @@ public class PlayerTurn : State
                 // Clamp to maximum distance
                 distance = maxDragDistance;
                 direction = direction.normalized * maxDragDistance;
-                GameSystem.playerBallSceneCopy.transform.position = initialClickPos + direction;
+                GameSystem.projectilePrefabSceneCopy.transform.position = initialClickPos + direction;
             }
             else
             {
                 // Move the ball to mouse position
-                GameSystem.playerBallSceneCopy.transform.position = GameSystem.mousePosition;
+                GameSystem.projectilePrefabSceneCopy.transform.position = GameSystem.mousePosition;
             }
 
             // The ghost ball is in the inital click position to show the center of the click
             GameSystem.ghostBallSceneCopy.transform.position = initialClickPos;
 
-            Vector3 linePos = GameSystem.playerBallSceneCopy.transform.position + ((direction.normalized) * (GameSystem.ghostBallSceneCopy.GetComponent<SphereCollider>().radius / 2));
+            Vector3 linePos = GameSystem.projectilePrefabSceneCopy.transform.position + ((direction.normalized) * (GameSystem.ghostBallSceneCopy.GetComponent<SphereCollider>().radius / 2));
 
             trajectory.SimulateTrajectory(GameSystem.ghostBallSceneCopy, linePos, -direction.normalized * distance * GameSystem.instance.speedMultiplier * 8);
         }
         else
         {
-            GameSystem.playerBallSceneCopy.transform.position = GameSystem.mousePosition;
-            GameSystem.ghostBallSceneCopy.transform.position = GameSystem.playerBallSceneCopy.transform.position;
+            GameSystem.projectilePrefabSceneCopy.transform.position = GameSystem.mousePosition;
+            GameSystem.ghostBallSceneCopy.transform.position = GameSystem.projectilePrefabSceneCopy.transform.position;
         }
     }
 }
