@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkinSelection : MonoBehaviour
 {
     int maxSize;    
     private GameObject skinObjectLoad;
     private GameObject skinObjectCopy;
+    [SerializeField] private Button closeSkinSelection;
+    [SerializeField] private GameObject lockSkinIcon;
     [SerializeField] private int currentSkinIndex = 0;
-    [SerializeField] private int currentUnlockedSkinIndex = 0;
+
 
 
     private void OnEnable()
@@ -26,11 +29,22 @@ public class SkinSelection : MonoBehaviour
                 skinObjectCopy = GameSystem.instance.SpawnPrefab(skinObjectLoad, GameObject.FindGameObjectWithTag("Ball").transform.position);
                 skinObjectCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
 
+                if (skin.isLocked)
+                {
+                    lockSkinIcon.SetActive(true);
+                    closeSkinSelection.interactable = false;
+                }
+                else
+                {
+                    lockSkinIcon.SetActive(false);
+                    closeSkinSelection.interactable = true;
+                    GameSystem.instance.AccountSettings.ActiveSkin = GameSystem.instance.AccountSettings.Skins[currentSkinIndex];
+                }
+
                 break;
             }
 
             currentSkinIndex++;
-            currentUnlockedSkinIndex = currentSkinIndex;
         }
     }
     public void NextSkin()
@@ -47,10 +61,13 @@ public class SkinSelection : MonoBehaviour
         // Check if skin is unlocked
         if (GameSystem.instance.AccountSettings.Skins[currentSkinIndex].isLocked)
         {
-            // Update Screen Text
+            lockSkinIcon.SetActive(true);
+            closeSkinSelection.interactable = false;
         }
         else
         {
+            lockSkinIcon.SetActive(false);
+            closeSkinSelection.interactable = true;
             GameSystem.instance.AccountSettings.ActiveSkin = GameSystem.instance.AccountSettings.Skins[currentSkinIndex];
         }
 
@@ -68,10 +85,13 @@ public class SkinSelection : MonoBehaviour
         // Check if skin is unlocked
         if (GameSystem.instance.AccountSettings.Skins[currentSkinIndex].isLocked)
         {
-            // Update Screen Text
+            lockSkinIcon.SetActive(true);
+            closeSkinSelection.interactable = false;
         }
         else
         {
+            lockSkinIcon.SetActive(false);
+            closeSkinSelection.interactable = true;
             GameSystem.instance.AccountSettings.ActiveSkin = GameSystem.instance.AccountSettings.Skins[currentSkinIndex];
         }
     }
