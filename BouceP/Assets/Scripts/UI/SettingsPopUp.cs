@@ -46,11 +46,14 @@ public class SettingsPopUp : MonoBehaviour
     public void BackButton()
     {
         GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, GameSystem.instance.EncryptionEnabled);
+    }
 
+
+    public void QuitButton()
+    {
         if (isMainMenu)
         {
-            
-            //Application.Quit();
+            Application.Quit();
         }
     }
 

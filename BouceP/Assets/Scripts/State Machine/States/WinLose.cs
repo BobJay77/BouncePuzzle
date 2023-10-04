@@ -27,6 +27,7 @@ public class WinLose : State //rename to win lose
         // Check if the round is won or last
         if (won)
         {
+            GameSystem.winOrLoseParent.GetComponent<WinLoseUIParent>().winLoseText.text = "Won!";
             // Play audio from the Win bank
             AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
                                                    GameSystem.winLoseSounds.audioClip,
@@ -55,6 +56,9 @@ public class WinLose : State //rename to win lose
         {
             // Fetch a sound from bank 2
             AudioClip clip = GameSystem.winLoseSounds[1];
+
+
+            GameSystem.winOrLoseParent.GetComponent<WinLoseUIParent>().winLoseText.text = "Lost!";
 
             if (clip)
             {
