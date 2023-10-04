@@ -29671,9 +29671,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4029858719757474}
   - component: {fileID: 114118656238239372}
-  - component: {fileID: 5311516694346436379}
   - component: {fileID: -8082291118018026654}
+  - component: {fileID: 5311516694346436379}
   - component: {fileID: 1771097613222853529}
+  - component: {fileID: 6320639480213368518}
   m_Layer: 0
   m_Name: 1ProjectileOrb06Blue
   m_TagString: Projectile
@@ -29736,6 +29737,19 @@ MonoBehaviour:
   - {fileID: 1085029366297644}
   - {fileID: 1103111561871940}
   ActiveParticleSystems: 0101010101010101
+--- !u!135 &-8082291118018026654
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787684039401618}
+  m_Material: {fileID: 13400000, guid: 741ec868be9adfb4a82903b1530ef31e, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5311516694346436379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29752,19 +29766,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &-8082291118018026654
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787684039401618}
-  m_Material: {fileID: 13400000, guid: 741ec868be9adfb4a82903b1530ef31e, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1771097613222853529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29778,3 +29779,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSounds: {fileID: 11400000, guid: a9e64d5e628f5f741b1f7c7e0af0f989, type: 2}
+--- !u!114 &6320639480213368518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787684039401618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthPercentage: 0.05

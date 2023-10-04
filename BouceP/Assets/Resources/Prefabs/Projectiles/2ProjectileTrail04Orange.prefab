@@ -4975,8 +4975,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4016409599703422}
   - component: {fileID: 54133485720643496}
-  - component: {fileID: -1948169672937950223}
   - component: {fileID: -3830065301881823330}
+  - component: {fileID: 5344262508569380310}
+  - component: {fileID: -1948169672937950223}
+  - component: {fileID: 6644874017553976949}
   m_Layer: 0
   m_Name: 2ProjectileTrail04Orange
   m_TagString: Projectile
@@ -5021,19 +5023,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &-1948169672937950223
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157586579680520}
-  m_Material: {fileID: 13400000, guid: 741ec868be9adfb4a82903b1530ef31e, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3830065301881823330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5047,6 +5036,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceSounds: {fileID: 11400000, guid: a9e64d5e628f5f741b1f7c7e0af0f989, type: 2}
+--- !u!114 &5344262508569380310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157586579680520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthPercentage: 0.05
+--- !u!135 &-1948169672937950223
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157586579680520}
+  m_Material: {fileID: 13400000, guid: 741ec868be9adfb4a82903b1530ef31e, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6644874017553976949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157586579680520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89245c7f16405fa45a2e311ed1458558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceSounds: {fileID: 0}
 --- !u!1 &1215255286565562
 GameObject:
   m_ObjectHideFlags: 0
