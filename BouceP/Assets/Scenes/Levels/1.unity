@@ -2439,6 +2439,22 @@ PrefabInstance:
       propertyPath: widthPercentage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1440001646333772684, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
+      propertyPath: posOffset.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440001646333772685, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
+      propertyPath: posOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440001646333772722, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
+      propertyPath: posOffset.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440001646333772723, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
+      propertyPath: posOffset.x
+      value: -0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6843146633305708124, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
       propertyPath: m_Name
       value: Walls
