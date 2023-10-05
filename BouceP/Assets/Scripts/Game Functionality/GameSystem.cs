@@ -29,6 +29,7 @@ public class GameSystem : StateMachine
 
     // UI variables
     public GameObject   winOrLoseParent;
+    public GameObject   actionTextParent;
     public TMP_Text     actionText;
     public TMP_Text     bouncesText;
     public int          currentBounces;
