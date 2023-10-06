@@ -106,4 +106,9 @@ public class SettingsPopUp : MonoBehaviour
         }
     }
 
+
+    public void Pause(float pause)
+    {
+        Time.timeScale = pause;
+    }
 }

@@ -219,6 +219,17 @@ public class PlayerTurn : State
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Wall")))
             return;
 
+        if (!shootMode && Physics.Raycast(initialClickPos, direction.normalized, out hit, distance, LayerMask.GetMask("redZone")))
+        {
+            RedZone tempRedZone = hit.transform.gameObject.GetComponent<RedZone>();
+            Color newcolor = tempRedZone.redZoneMaterial.color;
+            Debug.Log(newcolor);
+            tempRedZone.timer = 0;
+            newcolor.a = 1f;
+            tempRedZone.redZoneMaterial.color = newcolor;
+            return;
+        }
+
         if (shootMode)
         {
             GameSystem.ghostBallSceneCopy.transform.position = initialClickPos;
