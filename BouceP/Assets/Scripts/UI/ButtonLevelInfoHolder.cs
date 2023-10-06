@@ -73,4 +73,8 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         SceneSwitcher.instance.LoadNextGameLevel();
     }
 
+    public void PlayButtonClickSound(AudioClip clip)
+    {
+        AudioManager.instance.GetComponents<AudioSource>()[1].PlayOneShot(clip);
+    }
 }
