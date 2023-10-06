@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
     // Collection of bounce sounds
-    [SerializeField] private AudioCollection bounceSounds = null;
+    //[SerializeField] private AudioCollection bounceSounds = null;
     
     // Control what happens when the player ball collides with something
     private void OnCollisionEnter(Collision collision)
@@ -23,13 +23,16 @@ public class BallManager : MonoBehaviour
             GameSystem.instance.currentBounces++;
             GameSystem.instance.bouncesGoal--;
 
-            // Play sound from bounces collection when colliding with a wall
-            AudioManager.instance.PlayOneShotSound(bounceSounds.audioGroup,
-                                                   bounceSounds.audioClip, 
-                                                   transform.position,
-                                                   bounceSounds.volume,
-                                                   bounceSounds.spatialBlend,
-                                                   bounceSounds.priority);
+            AudioClip clip = AudioManager.instance.hitsSFX[GameSystem.instance.CurrentSkinIndex];
+
+            if (clip == null) return;
+
+            AudioManager.instance.PlayOneShotSound(AudioManager.instance.hitsSFX.audioGroup,
+                                                   clip,
+                                                   Camera.main.transform.position,
+                                                   AudioManager.instance.hitsSFX.volume,
+                                                   AudioManager.instance.hitsSFX.spatialBlend,
+                                                   AudioManager.instance.hitsSFX.priority);
 
             // Trigger Hit VFX when colliding with a wall
             GameSystem.instance.TriggerVFX(GameSystem.instance.loadedHitPrefab);

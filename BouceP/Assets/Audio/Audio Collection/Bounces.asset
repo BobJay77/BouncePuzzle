@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bounces
   m_EditorClassIdentifier: 
   _audioGroup: Ball
-  _volume: 0.5
+  _volume: 0.3
   _spatialBlend: 0
   _priority: 128
   _audioClipBanks:

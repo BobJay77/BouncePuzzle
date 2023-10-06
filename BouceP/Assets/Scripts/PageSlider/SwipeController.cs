@@ -67,6 +67,14 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
                 Previous();
             else
                 Next();
+
+            // Play swipe sounds
+            AudioManager.instance.PlayOneShotSound(AudioManager.instance.swipeSounds.audioGroup,
+                                                   AudioManager.instance.swipeSounds.audioClip,
+                                                   Camera.main.transform.position,
+                                                   AudioManager.instance.swipeSounds.volume,
+                                                   AudioManager.instance.swipeSounds.spatialBlend,
+                                                   AudioManager.instance.swipeSounds.priority);
         }
         //else
         //    MovePage();

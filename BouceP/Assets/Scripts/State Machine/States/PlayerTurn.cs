@@ -135,6 +135,17 @@ public class PlayerTurn : State
                 GameSystem.TriggerVFX(GameSystem.loadedMuzzlePrefab);
 
                 GameSystem.actionText.text = "";
+
+                AudioClip clip = AudioManager.instance.muzzlesSFX[GameSystem.instance.CurrentSkinIndex];
+
+                if (clip == null) return;
+
+                AudioManager.instance.PlayOneShotSound(AudioManager.instance.muzzlesSFX.audioGroup,
+                                                       clip,
+                                                       Camera.main.transform.position,
+                                                       AudioManager.instance.muzzlesSFX.volume,
+                                                       AudioManager.instance.muzzlesSFX.spatialBlend,
+                                                       AudioManager.instance.muzzlesSFX.priority);
             }
         }
 

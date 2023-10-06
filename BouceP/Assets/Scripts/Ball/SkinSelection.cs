@@ -13,8 +13,20 @@ public class SkinSelection : MonoBehaviour
     [SerializeField] private GameObject lockSkinIcon;
     [SerializeField] private int        currentSkinIndex    = 0;
 
+    [SerializeField] private AudioSource[] audioSource;
+    [SerializeField] private AudioSource ballSFXSource;
+
     private void OnEnable()
     {
+        // Find loop audio sources in Audio Manager
+        audioSource = GameObject.FindGameObjectWithTag("AudioManager").GetComponents<AudioSource>();
+
+        if (audioSource.Length >= 3)
+        {
+            // Access the ball Audio Source (index 2 in the array)
+            ballSFXSource = audioSource[2];
+        }
+
         maxSize = GameSystem.instance.AccountSettings.Skins.Count;
         currentSkinIndex = 0;
 
@@ -46,7 +58,12 @@ public class SkinSelection : MonoBehaviour
             }
 
             currentSkinIndex++;
+            GameSystem.instance.CurrentSkinIndex = currentSkinIndex;
         }
+
+        // Play Active skin SFX
+        PlaySkinLoopSFX(currentSkinIndex);
+        PlayOneShotSkinSFX(currentSkinIndex, AudioManager.instance.muzzlesSFX);
     }
 
     // View next skin in the list
@@ -76,6 +93,9 @@ public class SkinSelection : MonoBehaviour
             GameSystem.instance.AccountSettings.ActiveSkin = GameSystem.instance.AccountSettings.Skins[currentSkinIndex];
         }
 
+        // Play skin SFX
+        PlaySkinLoopSFX(currentSkinIndex);
+        PlayOneShotSkinSFX(currentSkinIndex, AudioManager.instance.muzzlesSFX);
     }
 
     // View previous skin in the list
@@ -104,6 +124,39 @@ public class SkinSelection : MonoBehaviour
             closeSkinSelection.interactable = true;
             GameSystem.instance.AccountSettings.ActiveSkin = GameSystem.instance.AccountSettings.Skins[currentSkinIndex];
         }
+
+        // Play skin SFX
+        PlaySkinLoopSFX(currentSkinIndex);
+        PlayOneShotSkinSFX(currentSkinIndex, AudioManager.instance.muzzlesSFX);
+    }
+    
+
+    public void PlayOneShotSkinSFX(int currentSkinIndex, AudioCollection collection)
+    {
+        AudioClip clip = collection[currentSkinIndex];
+
+        if (clip == null) return;
+
+        AudioManager.instance.PlayOneShotSound(collection.audioGroup,
+                                               clip,
+                                               Camera.main.transform.position,
+                                               collection.volume,
+                                               collection.spatialBlend,
+                                               collection.priority);
+    }
+
+    public void PlaySkinLoopSFX(int currentSkinIndex)
+    {
+        ballSFXSource.clip = AudioManager.instance.projectilesLoopSFX[currentSkinIndex];
+
+        if (ballSFXSource.clip == null) return;
+
+        ballSFXSource.Play();
+    }
+
+    public void StopSkinLoopSFX()
+    {
+        ballSFXSource.Stop();
     }
 
     public void UpdateScreenSkin()

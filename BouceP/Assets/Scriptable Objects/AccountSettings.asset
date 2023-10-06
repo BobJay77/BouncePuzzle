@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33460fcbff49f9f42b66a53a2c011ff1, type: 3}
   m_Name: AccountSettings
   m_EditorClassIdentifier: 
-  masterVolume: 0.14070283
-  musicVolume: 1.8475734
+  masterVolume: 5
+  musicVolume: 5
   UIVolume: 5
   SceneVolume: 5
   BallVolume: 5

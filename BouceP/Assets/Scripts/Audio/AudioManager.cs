@@ -36,6 +36,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Audio Collections
+    public AudioCollection winLoseSounds        = null;
+    public AudioCollection bounceSounds         = null;
+    public AudioCollection swipeSounds          = null;
+    public AudioCollection projectilesLoopSFX   = null;
+    public AudioCollection muzzlesSFX           = null;
+    public AudioCollection hitsSFX              = null;
+
+
 
     // Inspector Assigned Variables
     [SerializeField] AudioMixer _mixer      = null;

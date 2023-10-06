@@ -21,7 +21,7 @@ public class ScaleToScreenSize : MonoBehaviour
         //float newScaleY = screenHeight * heightPercentage / 100f;
 
         // Apply the new scale to the GameObject
-        transform.localScale = new Vector3(newScaleX, newScaleX, transform.localScale.z);
+        transform.localScale = new Vector3(newScaleX, newScaleX, newScaleX);
 
         if(startPosition != null)
         {

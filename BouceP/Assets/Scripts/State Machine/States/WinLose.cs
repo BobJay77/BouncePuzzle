@@ -29,12 +29,12 @@ public class WinLose : State //rename to win lose
         {
             GameSystem.winOrLoseParent.GetComponent<WinLoseUIParent>().winLoseText.text = "Won!";
             // Play audio from the Win bank
-            AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
-                                                   GameSystem.winLoseSounds.audioClip,
+            AudioManager.instance.PlayOneShotSound(AudioManager.instance.winLoseSounds.audioGroup,
+                                                   AudioManager.instance.winLoseSounds.audioClip,
                                                    Camera.main.transform.position,
-                                                   GameSystem.winLoseSounds.volume,
-                                                   GameSystem.winLoseSounds.spatialBlend,
-                                                   GameSystem.winLoseSounds.priority);
+                                                   AudioManager.instance.winLoseSounds.volume,
+                                                   AudioManager.instance.winLoseSounds.spatialBlend,
+                                                   AudioManager.instance.winLoseSounds.priority);
 
             // Unlock next level and save the data in the Account settings
             if (GameSystem.LevelInfos.Count >= GameSystem.CurrentLevelInfo.levelID)
@@ -55,7 +55,7 @@ public class WinLose : State //rename to win lose
         else
         {
             // Fetch a sound from bank 2
-            AudioClip clip = GameSystem.winLoseSounds[1];
+            AudioClip clip = AudioManager.instance.winLoseSounds[1];
 
 
             GameSystem.winOrLoseParent.GetComponent<WinLoseUIParent>().winLoseText.text = "Lost!";
@@ -63,12 +63,12 @@ public class WinLose : State //rename to win lose
             if (clip)
             {
                 // Play audio from the Lost bank
-                AudioManager.instance.PlayOneShotSound(GameSystem.winLoseSounds.audioGroup,
+                AudioManager.instance.PlayOneShotSound(AudioManager.instance.winLoseSounds.audioGroup,
                                                        clip,
                                                        Camera.main.transform.position,
-                                                       GameSystem.winLoseSounds.volume,
-                                                       GameSystem.winLoseSounds.spatialBlend,
-                                                       GameSystem.winLoseSounds.priority);
+                                                       AudioManager.instance.winLoseSounds.volume,
+                                                       AudioManager.instance.winLoseSounds.spatialBlend,
+                                                       AudioManager.instance.winLoseSounds.priority);
             }
         }
     }

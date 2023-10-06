@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 [System.Serializable]
 public class GameState
@@ -43,7 +44,7 @@ public class GameSystem : StateMachine
 
 
     // Audio Collections
-    public AudioCollection winLoseSounds = null;
+    //public AudioCollection winLoseSounds = null;
 
     [HideInInspector]   public Vector3  mousePosition;
 
@@ -56,6 +57,7 @@ public class GameSystem : StateMachine
     [SerializeField] private    LevelInfo       _currentLevelInfo;
     [SerializeField] private    AccountSettings _accountSettings;
     [SerializeField] private    bool            _encryptionEnabled;
+    [SerializeField] private    int             _currentSkinIndex;
 
     // Game states
     private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
@@ -119,6 +121,17 @@ public class GameSystem : StateMachine
             _encryptionEnabled = value;
         }
     }
+    public int CurrentSkinIndex
+    {
+        get
+        {
+            return _currentSkinIndex;
+        }
+        set
+        {
+            _currentSkinIndex = value;
+        }
+    }
 
     private void Awake()
     {
@@ -170,6 +183,20 @@ public class GameSystem : StateMachine
         // Copy to scene prefab
         projectilePrefabSceneCopy = SpawnPrefab(loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
         projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
+
+        CurrentSkinIndex = 0;
+
+        // Iterate through the List of skins to find the current one being used
+        foreach (Skin skin in GameSystem.instance.AccountSettings.Skins)
+        {
+            // Last skin selected
+            if (skin.projectileVfx == GameSystem.instance.AccountSettings.ActiveSkin.projectileVfx)
+            {
+                break;
+            }
+
+            CurrentSkinIndex++;
+        }
     }
 
     public GameObject SpawnPrefab(GameObject prefab, Vector3 pos)

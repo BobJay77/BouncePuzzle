@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34944d3c41f1b19488f4630a6cc9a646, type: 3}
+  m_Name: ProjectilesLoopSFX
+  m_EditorClassIdentifier: 
+  _audioGroup: Ball
+  _volume: 1
+  _spatialBlend: 1
+  _priority: 128
+  _audioClipBanks:
+  - Clips:
+    - {fileID: 8300000, guid: 76ba0cdf011eb2a4191a2a2371f6aeab, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 353f07bdf3a9d294883cdc9a34ada9f5, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 493af8090b60c7f4ea4c8370cd116b7d, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 8db5e766d5237334caf555b60760f094, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: da0f50205c2ddee489bb8b07077bf916, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: c151e7e523b6e884eae2be2dcf83ea49, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: d16ed4f197ed33c4abc04496a7d17c10, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: c02ece7e6e668b74a8dadc9f5ae01e27, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 41a9fc4a61b5a4d40abb817a65ac2f74, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 08d58e5e1c1d76d41b944bc9f94e778d, type: 3}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34944d3c41f1b19488f4630a6cc9a646, type: 3}
+  m_Name: HitsLoopSFX
+  m_EditorClassIdentifier: 
+  _audioGroup: Ball
+  _volume: 0.03
+  _spatialBlend: 1
+  _priority: 128
+  _audioClipBanks:
+  - Clips:
+    - {fileID: 8300000, guid: a964d9838e19b984ca4dae10b582eff6, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: c55ca4d206871a846a3f8b95930d2493, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 95992cefbef867b4ea33cf47f0033aec, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: d86cf3634d980764b873c91e8edfddb4, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: c1746bac3613156448d21e51fd4579ee, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: a207abad44af3a34fb0d37bd3a6adaaa, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 9f7e29d10bab78246857e20ac7908f1a, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 8423ac655e661a74db0502a4e6f40ae7, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 5b9dc0eaeff035a47ace4ac31a2a516d, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: d12f1e07ffba6e74682f34f1cb4eb841, type: 3}

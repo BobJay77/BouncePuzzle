@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34944d3c41f1b19488f4630a6cc9a646, type: 3}
+  m_Name: Swipe Sound
+  m_EditorClassIdentifier: 
+  _audioGroup: UI
+  _volume: 0.01
+  _spatialBlend: 1
+  _priority: 128
+  _audioClipBanks:
+  - Clips:
+    - {fileID: 8300000, guid: 659e913c93883c4418666d7a1e70ea0f, type: 3}
+    - {fileID: 8300000, guid: 6bfe7ff9f018d5647921cc935817c0df, type: 3}
+    - {fileID: 8300000, guid: 4753b6c9076f5cd4b8f954fa1bc9cd49, type: 3}
+    - {fileID: 8300000, guid: e611e52e674b2ce4d830d7d26921de33, type: 3}
+    - {fileID: 8300000, guid: 00734efe42e86e34a8e5123ab8a7b512, type: 3}
+    - {fileID: 8300000, guid: 38db16baa2e44244aa777e64ae038c20, type: 3}
+    - {fileID: 8300000, guid: bc058e092f293f64b9c35a5bd379284d, type: 3}
