@@ -7,15 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BarrierShader_Hex_Blue
-  m_Shader: {fileID: -6465566751694194690, guid: a8958e5ccacecdf45a544c9376ea7f65, type: 3}
+  m_Name: 1barrier_hori
+  m_Shader: {fileID: -6465566751694194690, guid: 9466d1c9a928eb348beb0604eef96881, type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2980
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -42,34 +42,31 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Blend: 0
+    - _Blend: 2
     - _CastShadows: 1
     - _Cull: 2
-    - _DotsNoiseScale: 30
-    - _DstBlend: 10
-    - _HexEdgeWidth: 0.4
-    - _HexNoiseScale: 30
-    - _HexScale: 1
-    - _IntersectionDepth: 0.4
-    - _MaskMultiplier: 0.54
-    - _MaskPower: 2.5
-    - _NoiseScale: 12
+    - _DstBlend: 1
+    - _IntersectionDepth: 0.5
+    - _MaskMultiplier: 1.5
+    - _MaskPower: 0
+    - _NoiseScale: 2
     - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueOffset: -20
     - _SrcBlend: 5
     - _Surface: 1
+    - _TruchetNoiseScale: 12.8
+    - _TruchetRepetition: 0
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BorderColor: {r: 0.39497763, g: 1.5671693, b: 3.2490096, a: 1}
-    - _DotsColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HexColor: {r: 0, g: 2.7248738, b: 22.627415, a: 1}
-    - _HexTiling: {r: 15, g: 10, b: 0, a: 0}
-    - _IntersectionColor: {r: 1.2231566, g: 4.739732, b: 9.734288, a: 1}
-    - _NoiseSpeed: {r: 0, g: 0.2, b: 0, a: 0}
+    - _BorderColor: {r: 0.0007314645, g: 0.00037913604, b: 0.00037913604, a: 0.36078432}
+    - _IntersectionColor: {r: 0.43137255, g: 0.0627451, b: 0.06666667, a: 0.79607844}
+    - _NoiseSpeed: {r: -0.1, g: 0.1, b: 0, a: 0}
+    - _TruchetColor: {r: 0.11764706, g: 0.08235294, b: 0.14117648, a: 1}
+    - _TruchetTiling: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &613972554323167539
+--- !u!114 &7160225219168823025
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

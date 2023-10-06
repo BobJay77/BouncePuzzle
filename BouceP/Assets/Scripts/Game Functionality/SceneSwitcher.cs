@@ -37,18 +37,27 @@ public class SceneSwitcher : MonoBehaviour
             yield return null;
         }
 
-        if (loadOperation.isDone && worldSceneIndex > 0)  
+        if (loadOperation.isDone)  
         {
-            //GameSystem.instance.ghostBall = GameObject.FindGameObjectWithTag("Ghost Ball");
-            //GameSystem.instance.ghostBall.SetActive(false);
-            //GameSystem.instance.playerBall = GameObject.FindObjectOfType<BallManager>().gameObject;
-            GameSystem.instance.winOrLoseParent = GameObject.FindObjectOfType<WinLoseUIParent>().gameObject;
-            GameSystem.instance.winOrLoseParent.SetActive(false);
-            GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
-            GameSystem.instance.actionTextParent = GameSystem.instance.actionText.transform.parent.gameObject;
-            GameSystem.instance.actionTextParent.SetActive(false);
-            GameSystem.instance.bouncesText = GameObject.Find("Bounces Required Text").GetComponent<TMP_Text>();
-            GameSystem.instance.StartGameState();
+            if (worldSceneIndex > 0)
+            {
+                //GameSystem.instance.ghostBall = GameObject.FindGameObjectWithTag("Ghost Ball");
+                //GameSystem.instance.ghostBall.SetActive(false);
+                //GameSystem.instance.playerBall = GameObject.FindObjectOfType<BallManager>().gameObject;
+                GameSystem.instance.winOrLoseParent = GameObject.FindObjectOfType<WinLoseUIParent>().gameObject;
+                GameSystem.instance.winOrLoseParent.SetActive(false);
+                GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
+                GameSystem.instance.actionTextParent = GameSystem.instance.actionText.transform.parent.gameObject;
+                GameSystem.instance.actionTextParent.SetActive(false);
+                GameSystem.instance.bouncesText = GameObject.Find("Bounces Required Text").GetComponent<TMP_Text>();
+                GameSystem.instance.StartGameState();
+            }
+
+            else
+            {
+                GameSystem.instance.SpawnProjectileInScene();
+            }
+           
         }
 
         yield return null;

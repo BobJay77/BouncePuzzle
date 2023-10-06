@@ -14623,7 +14623,6 @@ GameObject:
   - component: {fileID: 9178658663508782721}
   - component: {fileID: 4883883271434854481}
   - component: {fileID: 3894797273503433147}
-  - component: {fileID: 3914672409987614564}
   m_Layer: 0
   m_Name: 4ProjectileTrail03Red
   m_TagString: Projectile
@@ -14693,18 +14692,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89245c7f16405fa45a2e311ed1458558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3914672409987614564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573301267260194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   widthPercentage: 0.05

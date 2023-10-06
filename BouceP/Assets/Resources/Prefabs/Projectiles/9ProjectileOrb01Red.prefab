@@ -43957,7 +43957,6 @@ GameObject:
   - component: {fileID: -6250196835838808893}
   - component: {fileID: 2400294498035506054}
   - component: {fileID: -977357111504721266}
-  - component: {fileID: 8248668961003279507}
   m_Layer: 0
   m_Name: 9ProjectileOrb01Red
   m_TagString: Projectile
@@ -44063,19 +44062,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89245c7f16405fa45a2e311ed1458558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceSounds: {fileID: 11400000, guid: a9e64d5e628f5f741b1f7c7e0af0f989, type: 2}
---- !u!114 &8248668961003279507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929353877246504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   widthPercentage: 0.05

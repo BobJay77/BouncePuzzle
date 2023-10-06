@@ -77,4 +77,9 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     {
         AudioManager.instance.GetComponents<AudioSource>()[1].PlayOneShot(clip);
     }
+
+    public void RestartGame()
+    {
+        GameSystem.instance.DeleteBallsInGameScene();
+    }
 }

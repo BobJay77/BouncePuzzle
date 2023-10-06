@@ -15,7 +15,7 @@ public class GameState
 public class GameSystem : StateMachine
 {
     public static GameSystem instance = null;
-    
+
     // VFX
     public GameObject loadedProjectilePrefab;
     public GameObject loadedMuzzlePrefab;
@@ -24,47 +24,47 @@ public class GameSystem : StateMachine
     public GameObject muzzlePrefabSceneCopy;
     public GameObject hitPrefabSceneCopy;
 
-    public GameObject   ghostBall;          
-    public GameObject   ghostBallSceneCopy;
-    public float        speedMultiplier;
+    public GameObject ghostBall;
+    public GameObject ghostBallSceneCopy;
+    public float speedMultiplier;
 
     // UI variables
-    public GameObject   winOrLoseParent;
-    public GameObject   actionTextParent;
-    public TMP_Text     actionText;
-    public TMP_Text     bouncesText;
-    public int          currentBounces;
-    public int          bouncesGoal;
+    public GameObject winOrLoseParent;
+    public GameObject actionTextParent;
+    public TMP_Text actionText;
+    public TMP_Text bouncesText;
+    public int currentBounces;
+    public int bouncesGoal;
 
     // Game States
-    public StartGame    startGameState;
-    public PlayerTurn   playerTurnState;
-    public Resolution   resolutionState;
-    public WinLose      winLoseState;
+    public StartGame startGameState;
+    public PlayerTurn playerTurnState;
+    public Resolution resolutionState;
+    public WinLose winLoseState;
 
 
     // Audio Collections
     //public AudioCollection winLoseSounds = null;
 
-    [HideInInspector]   public Vector3  mousePosition;
+    [HideInInspector] public Vector3 mousePosition;
 
-    [HideInInspector]   public bool     roundEnded      = false;
-    [HideInInspector]   public bool     hitGoal         = false;
+    [HideInInspector] public bool roundEnded = false;
+    [HideInInspector] public bool hitGoal = false;
 
 
-    [SerializeField] private    List<GameState> _startingGameStates     = new List<GameState>();
-    [SerializeField] public     List<LevelInfo> _levelInfos             =  new List<LevelInfo>();
-    [SerializeField] private    LevelInfo       _currentLevelInfo;
-    [SerializeField] private    AccountSettings _accountSettings;
-    [SerializeField] private    bool            _encryptionEnabled;
-    [SerializeField] private    int             _currentSkinIndex;
+    [SerializeField] private List<GameState> _startingGameStates = new List<GameState>();
+    [SerializeField] public List<LevelInfo> _levelInfos = new List<LevelInfo>();
+    [SerializeField] private LevelInfo _currentLevelInfo;
+    [SerializeField] private AccountSettings _accountSettings;
+    [SerializeField] private bool _encryptionEnabled;
+    [SerializeField] private int _currentSkinIndex;
 
     // Game states
-    private Dictionary<string, string>          _gameStateDictionary    = new Dictionary<string, string>();
+    private Dictionary<string, string> _gameStateDictionary = new Dictionary<string, string>();
 
     // Serializing
-    private IDataService                        _dataService            = new JSONDataService();
-    
+    private IDataService _dataService = new JSONDataService();
+
     // Properties
     public AccountSettings AccountSettings
     {
@@ -175,14 +175,7 @@ public class GameSystem : StateMachine
 
     private void Start()
     {
-        // Load last active skin from Resources folder
-        loadedProjectilePrefab = (GameObject)Resources.Load("Prefabs/Projectiles/" + AccountSettings.ActiveSkin.projectileVfx);
-        loadedMuzzlePrefab = (GameObject)Resources.Load("Prefabs/Muzzles/" + AccountSettings.ActiveSkin.muzzleVfx);
-        loadedHitPrefab = (GameObject)Resources.Load("Prefabs/Hits/" + AccountSettings.ActiveSkin.hitVfx);
-
-        // Copy to scene prefab
-        projectilePrefabSceneCopy = SpawnPrefab(loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
-        projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
+        SpawnProjectileInScene();
 
         CurrentSkinIndex = 0;
 
@@ -238,6 +231,24 @@ public class GameSystem : StateMachine
             GameState gs = _startingGameStates[i];
             _gameStateDictionary[gs.Key] = gs.Value;
         }
+    }
+
+    public void DeleteBallsInGameScene()
+    {
+       DestroyPrefab(projectilePrefabSceneCopy);
+       DestroyPrefab(ghostBallSceneCopy);
+    }
+
+    public void SpawnProjectileInScene()
+    {
+        // Load last active skin from Resources folder
+        loadedProjectilePrefab = (GameObject)Resources.Load("Prefabs/Projectiles/" + AccountSettings.ActiveSkin.projectileVfx);
+        loadedMuzzlePrefab = (GameObject)Resources.Load("Prefabs/Muzzles/" + AccountSettings.ActiveSkin.muzzleVfx);
+        loadedHitPrefab = (GameObject)Resources.Load("Prefabs/Hits/" + AccountSettings.ActiveSkin.hitVfx);
+
+        // Copy to scene prefab
+        projectilePrefabSceneCopy = SpawnPrefab(loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
+        projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
     }
 
     public bool AreStatesSet(List<GameState> requiredStates)

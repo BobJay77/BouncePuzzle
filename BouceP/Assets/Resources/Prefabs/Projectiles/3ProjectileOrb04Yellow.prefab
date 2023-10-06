@@ -4835,9 +4835,7 @@ GameObject:
   - component: {fileID: 4193668720780606}
   - component: {fileID: 1468046842559399677}
   - component: {fileID: -1360379102142732534}
-  - component: {fileID: -6748944831696554363}
   - component: {fileID: 604627202506388003}
-  - component: {fileID: 7040959873031451989}
   m_Layer: 0
   m_Name: 3ProjectileOrb04Yellow
   m_TagString: Projectile
@@ -4895,19 +4893,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89245c7f16405fa45a2e311ed1458558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSounds: {fileID: 11400000, guid: a9e64d5e628f5f741b1f7c7e0af0f989, type: 2}
---- !u!114 &-6748944831696554363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114006854955694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   widthPercentage: 0.05
 --- !u!135 &604627202506388003
 SphereCollider:
@@ -4922,19 +4907,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7040959873031451989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114006854955694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89245c7f16405fa45a2e311ed1458558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceSounds: {fileID: 0}
 --- !u!1 &1132258359880016
 GameObject:
   m_ObjectHideFlags: 0

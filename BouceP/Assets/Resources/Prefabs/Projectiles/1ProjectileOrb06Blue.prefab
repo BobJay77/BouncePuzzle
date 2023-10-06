@@ -29671,7 +29671,6 @@ GameObject:
   - component: {fileID: -8082291118018026654}
   - component: {fileID: 5311516694346436379}
   - component: {fileID: 1771097613222853529}
-  - component: {fileID: 6320639480213368518}
   m_Layer: 0
   m_Name: 1ProjectileOrb06Blue
   m_TagString: Projectile
@@ -29773,19 +29772,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89245c7f16405fa45a2e311ed1458558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceSounds: {fileID: 11400000, guid: a9e64d5e628f5f741b1f7c7e0af0f989, type: 2}
---- !u!114 &6320639480213368518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787684039401618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   widthPercentage: 0.05

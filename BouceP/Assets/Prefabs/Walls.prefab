@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1553314664}
-  - component: {fileID: 1553314665}
   m_Layer: 0
   m_Name: StartPosition
   m_TagString: Ball
@@ -32,20 +31,6 @@ Transform:
   m_Father: {fileID: 6843146633305708125}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1553314665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553314663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercentage: 0.2
-  startPosition: {fileID: 1553314663}
 --- !u!1 &6843146632809293687
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +94,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc3cec7bf63ec714a85185392e81336c, type: 2}
+  - {fileID: 2100000, guid: dfd0582ae71429f4d82613687edbec88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallToConfigure: 3
-  posOffset: {x: 0.5, y: 0, z: 0}
-  scalingOffset: {x: 1, y: 1, z: 1}
+  posOffset: {x: 0.6, y: 0.32, z: 0}
+  scalingOffset: {x: 1, y: 0.88, z: 1}
 --- !u!1 &6843146633109266575
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +207,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc3cec7bf63ec714a85185392e81336c, type: 2}
+  - {fileID: 2100000, guid: dfd0582ae71429f4d82613687edbec88, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -270,8 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallToConfigure: 2
-  posOffset: {x: -0.5, y: 0, z: 0}
-  scalingOffset: {x: 1, y: 1, z: 1}
+  posOffset: {x: -0.6, y: 0.32, z: 0}
+  scalingOffset: {x: 1, y: 0.88, z: 1}
 --- !u!1 &6843146633249020919
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +320,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc3cec7bf63ec714a85185392e81336c, type: 2}
+  - {fileID: 2100000, guid: feaeca43def39c64d9ecc5d3d4304066, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,8 +368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallToConfigure: 1
-  posOffset: {x: 0, y: -0.5, z: 0}
-  scalingOffset: {x: 1, y: 1, z: 1}
+  posOffset: {x: 0, y: 0, z: 0}
+  scalingOffset: {x: 0.95, y: 1, z: 1}
 --- !u!1 &6843146633305708124
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +395,7 @@ Transform:
   m_GameObject: {fileID: 6843146633305708124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 18.1196, y: 18.1196, z: 18.1196}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6843146633507612872}
@@ -484,7 +469,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc3cec7bf63ec714a85185392e81336c, type: 2}
+  - {fileID: 2100000, guid: feaeca43def39c64d9ecc5d3d4304066, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -532,5 +517,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallToConfigure: 0
-  posOffset: {x: 0, y: 0.5, z: 0}
-  scalingOffset: {x: 1, y: 1, z: 1}
+  posOffset: {x: 0, y: 0.6, z: 0}
+  scalingOffset: {x: 0.95, y: 1, z: 1}

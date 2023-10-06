@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BarrierShader_Truchet_BlueOrange02
+  m_Name: 1barrier_vert
   m_Shader: {fileID: -6465566751694194690, guid: 9466d1c9a928eb348beb0604eef96881, type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
@@ -15,7 +15,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -42,34 +42,31 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Blend: 0
+    - _Blend: 2
     - _CastShadows: 1
     - _Cull: 2
-    - _DstBlend: 10
-    - _HexEdgeWidth: 0.9
-    - _HexNoiseScale: 30
-    - _IntersectionDepth: 0.25
-    - _MaskMultiplier: 1
-    - _MaskPower: 2.5
-    - _NoiseScale: 3
+    - _DstBlend: 1
+    - _IntersectionDepth: 0.5
+    - _MaskMultiplier: 1.5
+    - _MaskPower: 0
+    - _NoiseScale: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
     - _Surface: 1
-    - _TruchetNoiseScale: 30
-    - _TruchetRepetition: 1
-    - _TruchetScale: 1
+    - _TruchetNoiseScale: 12.8
+    - _TruchetRepetition: 0
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BorderColor: {r: 11.313708, g: 1.7177882, b: 0, a: 1}
-    - _IntersectionColor: {r: 8.574187, g: 1.2777221, b: 0, a: 1}
-    - _NoiseSpeed: {r: 0.05, g: 0.3, b: 0, a: 0}
-    - _TruchetColor: {r: 0, g: 0.992518, b: 9.849154, a: 1}
-    - _TruchetTiling: {r: 1, g: 10, b: 0, a: 0}
+    - _BorderColor: {r: 0.0007314645, g: 0.00037913604, b: 0.00037913604, a: 0.36078432}
+    - _IntersectionColor: {r: 0.43137255, g: 0.0627451, b: 0.06666667, a: 0.79607844}
+    - _NoiseSpeed: {r: -0.1, g: 0.1, b: 0, a: 0}
+    - _TruchetColor: {r: 0.11764706, g: 0.08235294, b: 0.14117648, a: 1}
+    - _TruchetTiling: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &2339654578123582975
+--- !u!114 &7160225219168823025
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
