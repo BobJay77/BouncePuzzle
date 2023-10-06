@@ -111,7 +111,8 @@ public class PlayerTurn : State
         {
             dragging = true;
 
-            previousPosition = toDrag.position;
+            previousPosition = new Vector3(toDrag.position.x, toDrag.position.y, 0);
+            
             UpdateBallPos(touch);
         }
 
@@ -149,6 +150,12 @@ public class PlayerTurn : State
             }
         }
 
+
+        // Set player projectiles local z position to 0
+        GameSystem.projectilePrefabSceneCopy.transform.localPosition = new Vector3(
+                    GameSystem.projectilePrefabSceneCopy.transform.localPosition.x,
+                    GameSystem.projectilePrefabSceneCopy.transform.localPosition.y,
+                    0);
     }
 
     // Set properties for dragging the object.
@@ -207,6 +214,8 @@ public class PlayerTurn : State
                 // Clamp to maximum distance
                 distance = maxDragDistance;
                 direction = direction.normalized * maxDragDistance;
+                initialClickPos.z = 0f;
+                direction.z = 0f;
                 GameSystem.projectilePrefabSceneCopy.transform.position = initialClickPos + direction;
             }
             else
