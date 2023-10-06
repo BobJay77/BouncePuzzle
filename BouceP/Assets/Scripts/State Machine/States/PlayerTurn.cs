@@ -31,6 +31,8 @@ public class PlayerTurn : State
     private Rigidbody   toDragRigidbody;
     private Vector3     previousPosition;
 
+    
+
     private RaycastHit hit;
     public PlayerTurn(GameSystem gameSystem) : base(gameSystem)
     {
@@ -46,6 +48,15 @@ public class PlayerTurn : State
         GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
         GameSystem.hitGoal = false;
+
+        // Play projectile loop sfx
+        var ballSFX = AudioManager.instance.ballSFXSource;
+        ballSFX.clip = AudioManager.instance.projectilesLoopSFX[GameSystem.CurrentSkinIndex];
+        if (ballSFX.clip != null) 
+            ballSFX.Play();
+
+        
+
 
         yield break;
     }
@@ -111,7 +122,7 @@ public class PlayerTurn : State
         {
             dragging = true;
 
-            previousPosition = new Vector3(toDrag.position.x, toDrag.position.y, 0);
+            previousPosition = toDrag.position;
             
             UpdateBallPos(touch);
         }
@@ -181,7 +192,9 @@ public class PlayerTurn : State
             if (distance < 1)
                 distance = 1f;
 
-            GameSystem.projectilePrefabSceneCopy.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.projectilePrefabSceneCopy.transform.position).normalized *
+           
+
+            GameSystem.projectilePrefabSceneCopy.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.projectilePrefabSceneCopy.transform.localPosition).normalized *
                                                            distance * GameSystem.speedMultiplier, ForceMode.Impulse);
 
             addForce = false;

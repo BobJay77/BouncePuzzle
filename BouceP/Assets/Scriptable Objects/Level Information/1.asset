@@ -16,4 +16,5 @@ MonoBehaviour:
   numOfBouncesToWin: 2
   locked: 0
   unlockSkinOnLevel: 0
+  backgroundMusicIndex: 1
   _startingGameStates: []

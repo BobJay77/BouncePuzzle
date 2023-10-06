@@ -43,9 +43,15 @@ public class AudioManager : MonoBehaviour
     public AudioCollection projectilesLoopSFX   = null;
     public AudioCollection muzzlesSFX           = null;
     public AudioCollection hitsSFX              = null;
+    public AudioCollection backgroundMusic      = null;
+
+    // Audio Sources
+    public AudioSource[]   audioSources         = null;
+    public AudioSource     bgmSource            = null;
+    public AudioSource     ballSFXSource        = null;
 
 
-
+     
     // Inspector Assigned Variables
     [SerializeField] AudioMixer _mixer      = null;
     [SerializeField] int        _maxSounds  = 10;
@@ -114,6 +120,18 @@ public class AudioManager : MonoBehaviour
         SetTrackVolume("Scene", GameSystem.instance.AccountSettings.SceneVolume);
         SetTrackVolume("Ball", GameSystem.instance.AccountSettings.BallVolume);
         SetTrackVolume("UI", GameSystem.instance.AccountSettings.UIVolume);
+
+        // Find loop audio sources in Audio Manager
+        audioSources = GameObject.FindGameObjectWithTag("AudioManager").GetComponents<AudioSource>();
+
+        if (audioSources.Length >= 3)
+        {
+            // Access the bgm Audio Source 
+            bgmSource = audioSources[0];
+            
+            // Access the ball Audio Source
+            ballSFXSource = audioSources[2];
+        }
     }
 
     void OnEnable()

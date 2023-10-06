@@ -20,6 +20,8 @@ public class WinLose : State //rename to win lose
 
     public override IEnumerator OnEnter()
     {
+        AudioManager.instance.ballSFXSource.Stop();
+
         // Destroy the prefab copies
         GameSystem.DestroyPrefab(GameSystem.projectilePrefabSceneCopy);
         GameSystem.DestroyPrefab(GameSystem.ghostBallSceneCopy);
@@ -71,6 +73,8 @@ public class WinLose : State //rename to win lose
                                                        AudioManager.instance.winLoseSounds.priority);
             }
         }
+
+
     }
 
     public override void OnUpdate()

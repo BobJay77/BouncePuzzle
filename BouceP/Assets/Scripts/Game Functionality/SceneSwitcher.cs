@@ -39,11 +39,9 @@ public class SceneSwitcher : MonoBehaviour
 
         if (loadOperation.isDone)  
         {
+            // Not main menu switch
             if (worldSceneIndex > 0)
             {
-                //GameSystem.instance.ghostBall = GameObject.FindGameObjectWithTag("Ghost Ball");
-                //GameSystem.instance.ghostBall.SetActive(false);
-                //GameSystem.instance.playerBall = GameObject.FindObjectOfType<BallManager>().gameObject;
                 GameSystem.instance.winOrLoseParent = GameObject.FindObjectOfType<WinLoseUIParent>().gameObject;
                 GameSystem.instance.winOrLoseParent.SetActive(false);
                 GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
@@ -52,9 +50,17 @@ public class SceneSwitcher : MonoBehaviour
                 GameSystem.instance.bouncesText = GameObject.Find("Bounces Required Text").GetComponent<TMP_Text>();
                 GameSystem.instance.StartGameState();
             }
-
+            // Main menu switch
             else
             {
+                // Play bgm music
+                var bgm = AudioManager.instance.bgmSource;
+
+                bgm.clip = AudioManager.instance.backgroundMusic[0];
+
+                if (bgm.clip != null)
+                    bgm.Play();
+
                 GameSystem.instance.SpawnProjectileInScene();
             }
            
