@@ -7,6 +7,8 @@ public class ScaleToScreenSize : MonoBehaviour
     [SerializeField] private float depthScale = 1f;   // Percentage of screen height
     [SerializeField] private float xPosPercentage = 0.5f; // Percentage of screen width for X position
     [SerializeField] private float yPosPercentage = 0.5f; // Percentage of screen height for Y position
+    [SerializeField] private bool  onlyPosition = false;
+
     void Update()
     {
         float distanceToWalls = Mathf.Abs(transform.position.z - Camera.main.transform.position.z);
@@ -17,8 +19,11 @@ public class ScaleToScreenSize : MonoBehaviour
         float newScaleX = screenWidth * widthPercentage / 100f;
         float newScaleY = screenHeight * heightPercentage / 100f;
 
-        // Apply the new scale to the GameObject
-        transform.localScale = new Vector3(newScaleX, newScaleY, depthScale);
+        if(!onlyPosition)
+        {
+            // Apply the new scale to the GameObject
+            transform.localScale = new Vector3(newScaleX, newScaleY, depthScale);
+        }
 
         // Calculate the new position based on screen percentages
         float newXPos = screenWidth * xPosPercentage / 100f - (screenWidth / 2f);

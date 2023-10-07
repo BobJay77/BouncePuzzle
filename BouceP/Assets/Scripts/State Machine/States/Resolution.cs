@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Resolution : State
 {
@@ -32,7 +33,10 @@ public class Resolution : State
 
             // If the number of bounces are achieved the goal is ready for the win condition
             if (GameSystem.bouncesGoal == 0)
+            {
+                GameObject.FindGameObjectWithTag("Goal").GetComponentInChildren<VisualEffect>().enabled = true;
                 GameSystem.bouncesText.text = "Goal Ready";
+            }
         }
         else
         {
