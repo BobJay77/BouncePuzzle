@@ -4240,12 +4240,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5024609054814729527, guid: 8af0822d8705219438b504b68dd57315, type: 3}
+      propertyPath: xPosPercentage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024609054814729527, guid: 8af0822d8705219438b504b68dd57315, type: 3}
+      propertyPath: yPosPercentage
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024609054814729527, guid: 8af0822d8705219438b504b68dd57315, type: 3}
       propertyPath: widthPercentage
-      value: 0.52
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 5024609054814729527, guid: 8af0822d8705219438b504b68dd57315, type: 3}
       propertyPath: heightPercentage
-      value: 0.08
+      value: 21.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af0822d8705219438b504b68dd57315, type: 3}
