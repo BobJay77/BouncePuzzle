@@ -193,8 +193,8 @@ public class PlayerTurn : State
                 distance = 1f;
 
            
-
-            GameSystem.projectilePrefabSceneCopy.GetComponent<Rigidbody>().AddForce((initialClickPos - GameSystem.projectilePrefabSceneCopy.transform.localPosition).normalized *
+            Debug.Log((GameSystem.ghostBallSceneCopy.transform.position - GameSystem.projectilePrefabSceneCopy.transform.position).normalized);
+            GameSystem.projectilePrefabSceneCopy.GetComponent<Rigidbody>().AddForce((GameSystem.ghostBallSceneCopy.transform.position - GameSystem.projectilePrefabSceneCopy.transform.position).normalized *
                                                            distance * GameSystem.speedMultiplier, ForceMode.Impulse);
 
             addForce = false;
