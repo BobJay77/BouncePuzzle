@@ -18,8 +18,12 @@ public class StartGame : State
         if (bgm.clip != null)
             bgm.Play();
 
+        GameSystem.actionTextParent.SetActive(true);
+
         yield return new WaitForSeconds(2f);
-        
+
+        GameSystem.actionTextParent.SetActive(false);
+
         GameSystem.bouncesGoal = GameSystem.CurrentLevelInfo.numOfBouncesToWin;
         GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
 

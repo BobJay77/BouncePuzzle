@@ -46,7 +46,7 @@ public class BallManager : MonoBehaviour
             GameSystem.instance.roundEnded = true;
             GameSystem.instance.hitGoal = true;
         }
-        else if(collision.gameObject.tag == "Wall") // Wall colllision
+        else if (collision.gameObject.tag == "Wall") // Wall colllision
         {
             GameSystem.instance.currentBounces++;
             GameSystem.instance.bouncesGoal--;
@@ -67,7 +67,6 @@ public class BallManager : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Spike") // Collide with one of the obstacles tagged as "Spike"
         {
-            GameSystem.instance.actionText.text = "Hit Spike";
             GameSystem.instance.roundEnded = true;
         }
     }

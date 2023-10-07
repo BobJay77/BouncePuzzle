@@ -45,7 +45,6 @@ public class PlayerTurn : State
         GameSystem.ghostBallSceneCopy.transform.position = GameSystem.projectilePrefabSceneCopy.transform.position;
         GameSystem.ghostBallSceneCopy.SetActive(false);
         GameSystem.projectilePrefabSceneCopy.SetActive(true);
-        GameSystem.actionText.text = "Drag the ball back and let go to move it.";
         GameSystem.roundEnded = false;
         GameSystem.hitGoal = false;
 
@@ -145,8 +144,6 @@ public class PlayerTurn : State
                 addForce = true;
 
                 GameSystem.TriggerVFX(GameSystem.loadedMuzzlePrefab);
-
-                GameSystem.actionText.text = "";
 
                 AudioClip clip = AudioManager.instance.muzzlesSFX[GameSystem.instance.CurrentSkinIndex];
 

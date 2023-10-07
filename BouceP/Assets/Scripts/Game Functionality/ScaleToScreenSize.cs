@@ -6,13 +6,8 @@ public class ScaleToScreenSize : MonoBehaviour
     [SerializeField] private float heightPercentage = 0.5f; // Percentage of screen height
     [SerializeField] private float depthScale       = 1f; // Percentage of screen height
 
-    private GameObject startPosition;
-
     void Start()
     {
-        startPosition = GameObject.FindGameObjectWithTag("Projectile");
-
-
         // Get the screen width and height
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
@@ -23,11 +18,5 @@ public class ScaleToScreenSize : MonoBehaviour
 
         // Apply the new scale to the GameObject
         transform.localScale = new Vector3(newScaleX, newScaleY, depthScale);
-
-        if (startPosition != null)
-        {
-            transform.position = startPosition.transform.position;
-        }
-
     }
 }

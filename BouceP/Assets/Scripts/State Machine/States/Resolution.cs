@@ -39,19 +39,15 @@ public class Resolution : State
             // Number of bounces condition must be met exactly not over or under to win, otherwise it is a loss
             if (GameSystem.currentBounces == GameSystem.CurrentLevelInfo.numOfBouncesToWin && GameSystem.hitGoal)
             {
-                GameSystem.bouncesText.text = "";
-                GameSystem.actionText.text  = "You Won!";
-                Debug.Log("You Won!");
+                GameSystem.bouncesText.text = "You Won!";
 
                 // Change to winLose state
                 GameSystem.SetState(GameSystem.winLoseState.Won(true));
             }
             else
             {
-                GameSystem.bouncesText.text = "";
-                GameSystem.actionText.text  = "You Lost!";
-                Debug.Log("You Lost!");
-
+                GameSystem.bouncesText.text = "You Lost!";
+          
                 // Change to winLose state
                 GameSystem.SetState(GameSystem.winLoseState.Won(false));
             }  
