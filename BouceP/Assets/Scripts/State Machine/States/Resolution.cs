@@ -34,7 +34,7 @@ public class Resolution : State
             // If the number of bounces are achieved the goal is ready for the win condition
             if (GameSystem.bouncesGoal == 0)
             {
-                GameObject.FindGameObjectWithTag("Goal").GetComponentInChildren<VisualEffect>().enabled = true;
+                GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", true);
                 GameSystem.bouncesText.text = "Goal Ready";
             }
         }
@@ -54,7 +54,7 @@ public class Resolution : State
           
                 // Change to winLose state
                 GameSystem.SetState(GameSystem.winLoseState.Won(false));
-            }  
+            }
         }
     }
 
