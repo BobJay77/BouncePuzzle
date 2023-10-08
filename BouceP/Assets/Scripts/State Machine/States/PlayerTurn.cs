@@ -171,6 +171,7 @@ public class PlayerTurn : State
     {
         rb.useGravity = false;
         rb.drag = 3;
+        rb.angularDrag = 0;
     }
 
     // Set properties for when the object is not being dragged.
@@ -178,6 +179,7 @@ public class PlayerTurn : State
     {
         rb.useGravity = false;
         rb.drag = 0;
+        rb.angularDrag = 0;
     }
 
     public override void OnFixedUpdate()

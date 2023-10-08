@@ -4411,6 +4411,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1306581069}
     m_Modifications:
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.76600003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.87100005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.19679177
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.6061645
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.039978027
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880126610038790888, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506550000982938774, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
+      propertyPath: amplitude
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4852248629869761970, guid: 5aeaa3e50ee80f642a37ad12ffe1d5c3, type: 3}
       propertyPath: m_Name
       value: Parallax
