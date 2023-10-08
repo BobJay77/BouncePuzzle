@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   levelID: 2
-  numOfBouncesToWin: 3
+  numOfBouncesToWin: 2
   locked: 0
   unlockSkinOnLevel: 2
-  backgroundMusic: 1
+  backgroundMusicIndex: 0
   _startingGameStates: []

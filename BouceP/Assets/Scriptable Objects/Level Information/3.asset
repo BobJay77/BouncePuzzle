@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955afb884dcdd82448ad31346dcc50cc, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  levelID: 0
-  numOfBouncesToWin: 1
+  levelID: 3
+  numOfBouncesToWin: 2
   locked: 1
   unlockSkinOnLevel: 0
-  backgroundMusic: 1
+  backgroundMusicIndex: 0
+  hasTutorial: 0
   _startingGameStates: []

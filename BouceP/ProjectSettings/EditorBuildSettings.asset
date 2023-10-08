@@ -13,59 +13,11 @@ EditorBuildSettings:
     guid: dbeb11759d8a9774a8bcd704876a9873
   - enabled: 1
     path: Assets/Scenes/Levels/2.unity
-    guid: 3f8a99a8b14a81048a77465b41e0bf4d
+    guid: 9d1742832beed8745928859a568e3b03
   - enabled: 1
     path: Assets/Scenes/Levels/3.unity
-    guid: 19e9dc94311c45640a36125b1972e091
+    guid: 4929d9add57b52f43a6d2b5e09728637
   - enabled: 1
     path: Assets/Scenes/Levels/4.unity
-    guid: 27c113dafa22b254fa7bcd1fc04e184a
-  - enabled: 1
-    path: Assets/Scenes/Levels/5.unity
-    guid: a457caad56b09db4a975b351b8562cf6
-  - enabled: 1
-    path: Assets/Scenes/Levels/6.unity
-    guid: d285b5e4c3657794197eb9c7fc9fa8d5
-  - enabled: 1
-    path: Assets/Scenes/Levels/7.unity
-    guid: e5149eab2d785ba4584f40344f646a8f
-  - enabled: 1
-    path: Assets/Scenes/Levels/8.unity
-    guid: 60d1bc790445b384c98c65a5e3e0a5f0
-  - enabled: 1
-    path: Assets/Scenes/Levels/9.unity
-    guid: 2bdc0da4cfaa84d4e97e9f8ca1483bfa
-  - enabled: 1
-    path: Assets/Scenes/Levels/10.unity
-    guid: 7c678660962daa14082273af71d189b6
-  - enabled: 1
-    path: Assets/Scenes/Levels/11.unity
-    guid: e4cebe72dd1e6a647a1ca88ed7b915d4
-  - enabled: 1
-    path: Assets/Scenes/Levels/12.unity
-    guid: 30324a1fea8748649994917a50f19028
-  - enabled: 1
-    path: Assets/Scenes/Levels/13.unity
-    guid: bf2bd664b3945e74d9c0e319d4317604
-  - enabled: 1
-    path: Assets/Scenes/Levels/14.unity
-    guid: 3ac9c3f86a4729e43aec295b2bc27047
-  - enabled: 1
-    path: Assets/Scenes/Levels/15.unity
-    guid: ec2494e38144c904c9f0ef8b8ab48f79
-  - enabled: 1
-    path: Assets/Scenes/Levels/16.unity
-    guid: eec78275241ec264abe63081b4bde60d
-  - enabled: 1
-    path: Assets/Scenes/Levels/17.unity
-    guid: 17c409fa197332342adbb47b7a4e7e55
-  - enabled: 1
-    path: Assets/Scenes/Levels/18.unity
-    guid: a0a11066015355f449cd08785e77ad23
-  - enabled: 1
-    path: Assets/Scenes/Levels/19.unity
-    guid: 75e062bbd4563194a95c92d68cee3883
-  - enabled: 1
-    path: Assets/Scenes/Levels/20.unity
-    guid: aeeba4866d68adf4899ed6b3cf1bf8c4
+    guid: 3f8a99a8b14a81048a77465b41e0bf4d
   m_configObjects: {}

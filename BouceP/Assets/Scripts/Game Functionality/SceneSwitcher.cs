@@ -44,9 +44,14 @@ public class SceneSwitcher : MonoBehaviour
             {
                 GameSystem.instance.winOrLoseParent = GameObject.FindObjectOfType<WinLoseUIParent>().gameObject;
                 GameSystem.instance.winOrLoseParent.SetActive(false);
-                GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
-                GameSystem.instance.actionTextParent = GameSystem.instance.actionText.transform.parent.gameObject;
-                GameSystem.instance.actionTextParent.SetActive(false);
+
+                if (GameSystem.instance.CurrentLevelInfo.hasTutorial)
+                {
+                    Debug.Log(GameSystem.instance.CurrentLevelInfo.levelID);
+                    GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
+                    GameSystem.instance.actionTextParent = GameSystem.instance.actionText.transform.parent.gameObject;
+                    GameSystem.instance.actionTextParent.SetActive(false);
+                }
                 GameSystem.instance.bouncesText = GameObject.Find("Bounces Required Text").GetComponent<TMP_Text>();
                 GameSystem.instance.StartGameState();
             }

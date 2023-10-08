@@ -16,6 +16,7 @@ TagManager:
   - Ghost Ball
   - Bullet
   - Projectile
+  - Tutorial
   layers:
   - Default
   - TransparentFX

@@ -69,7 +69,7 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
     public void NextLevel()
     {
-        GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];
+        GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[GameSystem.instance.CurrentLevelInfo.levelID];
         SceneSwitcher.instance.LoadNextGameLevel();
     }
 

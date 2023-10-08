@@ -10,6 +10,7 @@ public class LevelInfo : ScriptableObject
     public bool locked              = true; // Determine is level is locked
     public int  unlockSkinOnLevel   = 0;    // Set to 0 if no skin is unlocked at from the level
     public int  backgroundMusicIndex;
+    public bool hasTutorial         = false;
 
     // List of game states related to the level
     [SerializeField] private List<GameState> _startingGameStates = new List<GameState>(); 

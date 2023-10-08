@@ -12,6 +12,7 @@ public class WinLoseUIParent : MonoBehaviour
     public TMP_Text winLoseText;
     public void RestartGame()
     {
+        GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);
         GameSystem.instance.SetState(GameSystem.instance.startGameState);
     }
 }
