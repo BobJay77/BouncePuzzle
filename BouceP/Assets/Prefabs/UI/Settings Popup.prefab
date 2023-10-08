@@ -322,7 +322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.3348814}
-  m_AnchoredPosition: {x: 0.49987793, y: 77.80175}
+  m_AnchoredPosition: {x: 0.5, y: 77.80176}
   m_SizeDelta: {x: -1, y: -57.070038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9085653863991958081
@@ -413,6 +413,9 @@ GameObject:
   - component: {fileID: 9085653864154972150}
   - component: {fileID: 9085653864154972153}
   - component: {fileID: 9085653864154972152}
+  - component: {fileID: 1171007190}
+  - component: {fileID: 6273757133661846556}
+  - component: {fileID: 276865190166404514}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -438,7 +441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.127, y: 0.07259913}
   m_AnchorMax: {x: 0.3163725, y: 0.155}
-  m_AnchoredPosition: {x: 0, y: -4.8398438}
+  m_AnchoredPosition: {x: 0, y: -4.838623}
   m_SizeDelta: {x: 2.2299805, y: 9.680054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9085653864154972150
@@ -523,6 +526,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 9085653864223819480}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -547,6 +562,75 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 276865190166404514}
+        m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 9085653864223819476}
+        m_TargetAssemblyTypeName: SettingsPopUp, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1171007190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085653864154972154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
+--- !u!114 &6273757133661846556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085653864154972154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
+--- !u!114 &276865190166404514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085653864154972154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
 --- !u!1 &9085653864160561855
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +643,9 @@ GameObject:
   - component: {fileID: 9085653864160561851}
   - component: {fileID: 9085653864160561850}
   - component: {fileID: 9085653864160561853}
+  - component: {fileID: 1171007188}
+  - component: {fileID: 4597192300191954271}
+  - component: {fileID: 1111239391298606433}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -584,7 +671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.42000002, y: 0.07259913}
   m_AnchorMax: {x: 0.61010605, y: 0.155}
-  m_AnchoredPosition: {x: -1, y: -4.8398438}
+  m_AnchoredPosition: {x: -1, y: -4.838623}
   m_SizeDelta: {x: 2.2299805, y: 9.680054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9085653864160561851
@@ -669,18 +756,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 9085653864223819480}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -693,6 +768,75 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1111239391298606433}
+        m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
+        m_MethodName: ButtonClicked
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 9085653864223819476}
+        m_TargetAssemblyTypeName: SettingsPopUp, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1171007188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085653864160561855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
+--- !u!114 &4597192300191954271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085653864160561855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
+--- !u!114 &1111239391298606433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085653864160561855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelInfoIndex: 0
+  lockImage: {fileID: 0}
+  numberImage: {fileID: 0}
 --- !u!1 &9085653864223819480
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +863,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9085653864223819480}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1117,7 +1261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.70062757, y: 0.07259913}
   m_AnchorMax: {x: 0.8914786, y: 0.155}
-  m_AnchoredPosition: {x: -1.5, y: -5.3398438}
+  m_AnchoredPosition: {x: -1.5, y: -5.338623}
   m_SizeDelta: {x: 1.2299805, y: 10.680054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9085653864713280884
@@ -1202,6 +1346,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 9085653864223819476}
+        m_TargetAssemblyTypeName: SettingsPopUp, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 9085653864223819480}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1378,7 +1534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23143679}
   m_AnchorMax: {x: 1, y: 0.86700004}
-  m_AnchoredPosition: {x: -0.00012207031, y: 43.930176}
+  m_AnchoredPosition: {x: 0, y: 43.930176}
   m_SizeDelta: {x: 0, y: -78.67999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9085653865326298796

@@ -66,6 +66,11 @@ public class SceneSwitcher : MonoBehaviour
                 if (bgm.clip != null)
                     bgm.Play();
 
+                // Play bgm music
+                var projectileLoopSource = AudioManager.instance.ballSFXSource;
+
+                projectileLoopSource.Stop();
+
                 GameSystem.instance.SpawnProjectileInScene();
             }
            

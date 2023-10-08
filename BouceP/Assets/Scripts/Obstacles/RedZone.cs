@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,22 +23,33 @@ public class RedZone : MonoBehaviour
     {
         if (timer <= maxTimer)
         {
-            Color newcolor = redZoneMaterial.color;
-            
+            Color newcolor = redZoneMaterial.GetColor("_BorderColor");
+
             timer += Time.deltaTime;
-            
+
             newcolor.a = newcolor.a - (Time.deltaTime * fadeAwayMultiplyer * newcolor.a * (timer / maxTimer));
-            redZoneMaterial.color = newcolor;
+            //redZoneMaterial.color = newcolor;
+            redZoneMaterial.SetColor("_BorderColor", newcolor);
+            redZoneMaterial.SetColor("_HexColor", newcolor);
         }
+    }
 
-        //else
-        //{
-        //    timer = 0;
-            
-        //    Color newcolor = redZoneMaterial.color;
-        //    newcolor.a = 1f;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Projectile")
+        {
+            ResetRedZone();
+        }
+    }
 
-        //    redZoneMaterial.color = newcolor;
-        //}
+    public void ResetRedZone()
+    {
+        GetComponent<BoxCollider>().isTrigger = false;
+        RedZone tempRedZone = GetComponent<RedZone>();
+        Color newcolor = tempRedZone.redZoneMaterial.GetColor("_BorderColor");
+        tempRedZone.timer = 0;
+        newcolor.a = 1f;
+        tempRedZone.redZoneMaterial.SetColor("_BorderColor", newcolor);
+        tempRedZone.redZoneMaterial.SetColor("_HexColor", newcolor);
     }
 }
