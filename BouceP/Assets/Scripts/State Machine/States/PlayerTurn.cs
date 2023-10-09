@@ -162,7 +162,7 @@ public class PlayerTurn : State
     private void SetDraggingProperties(Rigidbody rb)
     {
         rb.useGravity = false;
-        rb.drag = 3;
+        rb.drag = 10;
         rb.angularDrag = 0;
     }
 
