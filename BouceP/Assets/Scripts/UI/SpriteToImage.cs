@@ -5,21 +5,29 @@ using UnityEngine.UI;
 
 public class SpriteToImage : MonoBehaviour
 {
+    public bool onCanvas = true;
     void OnEnable()
     {
-        GetComponent<Animator>().SetBool("activated", true);
+        if(onCanvas)
+            GetComponent<Animator>().SetBool("activated", true);
 
     }
 
     private void OnDisable()
     {
-        GetComponent<Animator>().SetBool("activated", false);
+        if(onCanvas)
+            GetComponent<Animator>().SetBool("activated", false);
     }
 
     private void OnAnimatorMove()
     {
-        GetComponent<Image>().sprite = GetComponent<SpriteRenderer>().sprite;
+        if(onCanvas)
+            GetComponent<Image>().sprite = GetComponent<SpriteRenderer>().sprite;
     }
      
-   
+    public void ActivateGifAnim(bool activated)
+    {
+        GetComponent<Animator>().SetBool("activated", activated);
+    }
+
 }
