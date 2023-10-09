@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1860,8 +1860,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1077655347}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+        m_TargetAssemblyTypeName: SpriteToImage, Assembly-CSharp
+        m_MethodName: ActivateGifAnim
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2246,14 +2246,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PurplePortal
       objectReference: {fileID: 0}
-    - target: {fileID: 6778374608186313184, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
-      propertyPath: m_TagString
-      value: Goal
-      objectReference: {fileID: 0}
-    - target: {fileID: 6778374608186313185, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6778374608186313191, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2300,11 +2292,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
---- !u!95 &1077655347 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6778374608186313185, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
+--- !u!114 &1077655347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1697544600, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
   m_PrefabInstance: {fileID: 1077655346}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac76dc02578679143b3d2a1af05c7d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1082646232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,42 +3512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78f46b47d9ca8240a777bac77c9d969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1697544594 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6778374608186313184, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
-  m_PrefabInstance: {fileID: 1077655346}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1697544595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697544594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthPercentage: 2.4
-  heightPercentage: 1.2
-  depthScale: 1
-  xPosPercentage: 50
-  yPosPercentage: 92.7
-  onlyPosition: 0
---- !u!65 &1697544599
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697544594}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.61, y: 4.68, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1703800619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,7 +3813,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 108.45
+  m_fontSize: 105.35
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
