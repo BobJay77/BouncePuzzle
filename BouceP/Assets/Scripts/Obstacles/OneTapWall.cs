@@ -18,11 +18,16 @@ public class OneTapWall : MonoBehaviour
 
     public void MakeActive()
     {
-        if (!isActive)
+        var oneTapWalls = GameObject.FindObjectsOfType<OneTapWall>();
+        foreach (var oneTapWall in oneTapWalls)
         {
-            // Activate the object
-            gameObject.SetActive(true);
-            isActive = true;
+            if (!oneTapWall.isActive)
+            {
+
+                // Activate the object
+                oneTapWall.gameObject.SetActive(true);
+                oneTapWall.isActive = true;
+            }
         }
     }
 }

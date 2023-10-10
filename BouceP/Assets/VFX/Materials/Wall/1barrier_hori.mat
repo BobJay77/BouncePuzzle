@@ -63,7 +63,7 @@ Material:
     - _BorderColor: {r: 0.0007314645, g: 0.00037913604, b: 0.00037913604, a: 0.36078432}
     - _IntersectionColor: {r: 0.43137255, g: 0.0627451, b: 0.06666667, a: 0.79607844}
     - _NoiseSpeed: {r: -0.1, g: 0.1, b: 0, a: 0}
-    - _TruchetColor: {r: 0.11764706, g: 0.08235294, b: 0.14117648, a: 1}
+    - _TruchetColor: {r: 0.23529412, g: 0.16470589, b: 0.28235295, a: 1}
     - _TruchetTiling: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7160225219168823025

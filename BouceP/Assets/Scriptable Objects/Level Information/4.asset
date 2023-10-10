@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelID: 4
   numOfBouncesToWin: 1
-  locked: 1
+  locked: 0
   unlockSkinOnLevel: 3
   backgroundMusicIndex: 0
   hasTutorial: 1

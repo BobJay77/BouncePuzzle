@@ -53,6 +53,15 @@ public class SceneSwitcher : MonoBehaviour
                     GameSystem.instance.actionTextParent.SetActive(false);
                 }
                 GameSystem.instance.bouncesText = GameObject.Find("Bounces Required Text").GetComponent<TMP_Text>();
+
+                // Play bgm music
+                var bgm = AudioManager.instance.bgmSource;
+
+                bgm.clip = AudioManager.instance.backgroundMusic[GameSystem.instance.CurrentLevelInfo.backgroundMusicIndex];
+
+                if (bgm.clip != null)
+                    bgm.Play();
+
                 GameSystem.instance.StartGameState();
             }
             // Main menu switch

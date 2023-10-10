@@ -10,14 +10,6 @@ public class StartGame : State
 
     public override IEnumerator OnEnter()
     {
-        // Play bgm music
-        var bgm = AudioManager.instance.bgmSource;
-
-        bgm.clip = AudioManager.instance.backgroundMusic[GameSystem.CurrentLevelInfo.backgroundMusicIndex];
-
-        if (bgm.clip != null)
-            bgm.Play();
-
         if (GameSystem.CurrentLevelInfo.hasTutorial)
             GameSystem.actionTextParent.SetActive(true);
 
