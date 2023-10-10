@@ -8,10 +8,12 @@ public class RotateObject : MonoBehaviour
 
     private bool isRotating = true; // Indicates whether rotation is enabled
     private float currentRotationSpeed;
+    private Quaternion startRotation;
 
     void Start()
     {
         currentRotationSpeed = rotateClockwise ? -rotationSpeed : rotationSpeed;
+        startRotation = transform.rotation;
     }
 
     void Update()
@@ -47,5 +49,15 @@ public class RotateObject : MonoBehaviour
     {
         rotateClockwise = !rotateClockwise;
         currentRotationSpeed = rotateClockwise ? -rotationSpeed : rotationSpeed;
+    }
+
+    public void ResetWalls()
+    {
+        var rotatingwalls = GameObject.FindObjectsOfType<RotateObject>();
+
+        foreach (var wall in rotatingwalls)
+        {
+            wall.transform.rotation = wall.GetComponent<RotateObject>().startRotation;
+        }
     }
 }
