@@ -249,6 +249,10 @@ public class GameSystem : StateMachine
         // Copy to scene prefab
         projectilePrefabSceneCopy = SpawnPrefab(loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
         projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
+
+        projectilePrefabSceneCopy.transform.LeanSetPosY(5);
+        LeanTween.moveLocalX(projectilePrefabSceneCopy, 0, 1).setDelay(0.2f).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.moveLocalY(projectilePrefabSceneCopy, 0, 1).setDelay(0.2f).setEase(LeanTweenType.easeOutElastic);
     }
 
     public bool AreStatesSet(List<GameState> requiredStates)

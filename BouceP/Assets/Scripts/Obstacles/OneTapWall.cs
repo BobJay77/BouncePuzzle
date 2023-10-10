@@ -5,6 +5,12 @@ using UnityEngine;
 public class OneTapWall : MonoBehaviour
 {
     private bool isActive = true;
+    private OneTapWall[] oneTapWalls;
+
+    private void Start()
+    {
+        oneTapWalls = GameObject.FindObjectsOfType<OneTapWall>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -18,7 +24,6 @@ public class OneTapWall : MonoBehaviour
 
     public void MakeActive()
     {
-        var oneTapWalls = GameObject.FindObjectsOfType<OneTapWall>();
         foreach (var oneTapWall in oneTapWalls)
         {
             if (!oneTapWall.isActive)

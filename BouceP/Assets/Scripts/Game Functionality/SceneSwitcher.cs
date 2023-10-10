@@ -5,12 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
+using static UnityEngine.Rendering.DebugUI;
 
 public class SceneSwitcher : MonoBehaviour
 {
     public static SceneSwitcher instance;
 
     [SerializeField] int worldSceneIndex = 1;
+
+    public int WorldSceneIndex { get { return worldSceneIndex; } }
 
     private void Awake()
     {
@@ -47,7 +50,6 @@ public class SceneSwitcher : MonoBehaviour
 
                 if (GameSystem.instance.CurrentLevelInfo.hasTutorial)
                 {
-                    Debug.Log(GameSystem.instance.CurrentLevelInfo.levelID);
                     GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();
                     GameSystem.instance.actionTextParent = GameSystem.instance.actionText.transform.parent.gameObject;
                     GameSystem.instance.actionTextParent.SetActive(false);

@@ -17,6 +17,9 @@ TagManager:
   - Bullet
   - Projectile
   - Tutorial
+  - LeftButton
+  - RightButton
+  - Popup
   layers:
   - Default
   - TransparentFX

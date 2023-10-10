@@ -13,7 +13,19 @@ public class StartGame : State
         if (GameSystem.CurrentLevelInfo.hasTutorial)
             GameSystem.actionTextParent.SetActive(true);
 
+        GameObject go = GameObject.FindGameObjectWithTag("Popup");
+        if(go != null)
+        {
+            go.transform.LeanSetPosY(5000);
+            LeanTween.moveLocalY(go, 0, 0.2f).setEase(LeanTweenType.linear);
+        }
+        
+
         yield return new WaitForSeconds(2f);
+
+        //TODO: if exit diring yield wait you will have 2 projectiles in main screen
+        if (SceneSwitcher.instance.WorldSceneIndex == 0)
+            yield break;
 
         if (GameSystem.CurrentLevelInfo.hasTutorial)
             GameSystem.actionTextParent.SetActive(false);
@@ -28,8 +40,7 @@ public class StartGame : State
         // Instantiate ghost ball prefab
         GameSystem.ghostBallSceneCopy = GameSystem.SpawnPrefab(GameSystem.ghostBall, GameObject.FindGameObjectWithTag("Ball").transform.position);
         GameSystem.ghostBallSceneCopy.transform.position = GameObject.FindGameObjectWithTag("Ball").transform.position;
-        //GameSystem.ghostBall.SetActive(false);
-
+        GameSystem.ghostBall.SetActive(false);
         // Change state to player turn state
         GameSystem.SetState(GameSystem.playerTurnState);
     }

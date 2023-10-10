@@ -41,6 +41,10 @@ public class SkinSelection : MonoBehaviour
                 skinObjectCopy = GameSystem.instance.SpawnPrefab(skinObjectLoad, GameObject.FindGameObjectWithTag("Ball").transform.position);
                 skinObjectCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
 
+                skinObjectCopy.transform.LeanSetPosY(5);
+                LeanTween.moveLocalX(skinObjectCopy, 0, 2).setEase(LeanTweenType.easeOutElastic);
+                LeanTween.moveLocalY(skinObjectCopy, 0, 2).setEase(LeanTweenType.easeOutElastic);
+
                 // Update UI for locked/unlocked skins
                 if (skin.isLocked)
                 {
@@ -80,6 +84,14 @@ public class SkinSelection : MonoBehaviour
         skinObjectCopy = GameSystem.instance.SpawnPrefab(skinObjectLoad, GameObject.FindGameObjectWithTag("Ball").transform.position);
         skinObjectCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
 
+        skinObjectCopy.transform.LeanSetPosY(5);
+        LeanTween.moveLocalX(skinObjectCopy, 0, 2).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.moveLocalY(skinObjectCopy, 0, 2).setEase(LeanTweenType.easeOutElastic);
+
+        LeanTween.scale(GameObject.FindGameObjectWithTag("RightButton"), new Vector3(1.5f, 1.5f, 1.5f), 0.1f).setEase(LeanTweenType.linear).setOnComplete(
+            delegate () { LeanTween.scale(GameObject.FindGameObjectWithTag("RightButton"), new Vector3(1f, 1f, 1f), 0.1f).setEase(LeanTweenType.linear); });
+        
+
         // Check if skin is unlocked
         if (GameSystem.instance.AccountSettings.Skins[currentSkinIndex].isLocked)
         {
@@ -111,6 +123,13 @@ public class SkinSelection : MonoBehaviour
         skinObjectLoad = (GameObject)Resources.Load("Prefabs/Projectiles/" + GameSystem.instance.AccountSettings.Skins[currentSkinIndex].projectileVfx);
         skinObjectCopy = GameSystem.instance.SpawnPrefab(skinObjectLoad, GameObject.FindGameObjectWithTag("Ball").transform.position);
         skinObjectCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
+
+        skinObjectCopy.transform.LeanSetPosY(5);
+        LeanTween.moveLocalX(skinObjectCopy, 0, 2).setEase(LeanTweenType.easeOutElastic);
+        LeanTween.moveLocalY(skinObjectCopy, 0, 2).setEase(LeanTweenType.easeOutElastic);
+
+        LeanTween.scale(GameObject.FindGameObjectWithTag("LeftButton"), new Vector3(1.5f, 1.5f, 1.5f), 0.1f).setEase(LeanTweenType.linear).setOnComplete(
+            delegate () { LeanTween.scale(GameObject.FindGameObjectWithTag("LeftButton"), new Vector3(1f, 1f, 1f), 0.1f).setEase(LeanTweenType.linear); });
 
         // Check if skin is unlocked
         if (GameSystem.instance.AccountSettings.Skins[currentSkinIndex].isLocked)
@@ -161,6 +180,8 @@ public class SkinSelection : MonoBehaviour
 
     public void UpdateScreenSkin()
     {
+        GameSystem.instance.CurrentSkinIndex = currentSkinIndex;
+
         // Destroy viewed skin 
         Destroy(skinObjectCopy);    
         Destroy(GameSystem.instance.projectilePrefabSceneCopy);

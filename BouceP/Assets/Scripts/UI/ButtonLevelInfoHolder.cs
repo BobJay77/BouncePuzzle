@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,11 +42,13 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     {
         // Loading level
         if (mainmenu)
+        {
             SceneSwitcher.instance.LoadGameLevel(0);
+        }
         else
         {
             GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];  
-            SceneSwitcher.instance.LoadGameLevel(GameSystem.instance.LevelInfos[levelInfoIndex].levelID);
+            LeanTween.moveLocalY(gameObject, 5000, 0.5f).setEase(LeanTweenType.easeInOutQuint).setOnComplete(delegate() { SceneSwitcher.instance.LoadGameLevel(GameSystem.instance.LevelInfos[levelInfoIndex].levelID); });
         }
     }
 

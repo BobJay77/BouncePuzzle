@@ -29,6 +29,21 @@ public class SettingsPopUp : MonoBehaviour
         prevMasterSliderValue = masterSlider.value;
         prevMusicSliderValue = musicSlider.value;
         prevSFXSliderValue = SFXSlider.value;
+
+        
+        
+    }
+
+    private void OnEnable()
+    {
+        if (!isMainMenu)
+        {
+            LeanTween.scale(gameObject, new Vector3(0, 0, 0), 0).setOnComplete(
+           delegate () {
+               LeanTween.scale(gameObject, new Vector3(1, 1, 1), 0.2f).setEase(LeanTweenType.linear).setOnComplete(
+           delegate () { Pause(0); });
+           });
+        }
     }
 
     private void Start()

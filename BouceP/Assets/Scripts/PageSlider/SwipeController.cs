@@ -39,6 +39,9 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
             currentPage++;
             targetPosition += pageStep;
             MovePage();
+
+            LeanTween.scale(GameObject.FindGameObjectWithTag("RightButton"), new Vector3(1.5f, 1.5f, 1.5f), 0.1f).setEase(LeanTweenType.linear).setOnComplete(
+           delegate () { LeanTween.scale(GameObject.FindGameObjectWithTag("RightButton"), new Vector3(1f, 1f, 1f), 0.1f).setEase(LeanTweenType.linear); });
         }
     }
 
@@ -49,6 +52,9 @@ public class SwipeController : MonoBehaviour, IEndDragHandler
             currentPage--;
             targetPosition -= pageStep;
             MovePage();
+
+            LeanTween.scale(GameObject.FindGameObjectWithTag("LeftButton"), new Vector3(1.5f, 1.5f, 1.5f), 0.1f).setEase(LeanTweenType.linear).setOnComplete(
+            delegate () { LeanTween.scale(GameObject.FindGameObjectWithTag("LeftButton"), new Vector3(1f, 1f, 1f), 0.1f).setEase(LeanTweenType.linear); });
         }
     }
 

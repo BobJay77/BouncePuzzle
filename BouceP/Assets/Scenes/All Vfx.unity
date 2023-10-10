@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 10ProjectileBlackHole01Purple
       objectReference: {fileID: 0}
+    - target: {fileID: 1056940179976286, guid: 48170cd4873b8e34faf44e654a111506, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4957639187562794, guid: 48170cd4873b8e34faf44e654a111506, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -549,6 +553,10 @@ PrefabInstance:
     - target: {fileID: 1787684039401618, guid: 4c99146be1bdbb641a69edad56153f69, type: 3}
       propertyPath: m_Name
       value: 1ProjectileOrb06Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787684039401618, guid: 4c99146be1bdbb641a69edad56153f69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4029858719757474, guid: 4c99146be1bdbb641a69edad56153f69, type: 3}
       propertyPath: m_RootOrder
