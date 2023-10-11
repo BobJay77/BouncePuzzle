@@ -80,17 +80,18 @@ public class PlayerTurn : State
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(pos);
 
-            if (Physics.Raycast(ray, out hit) && hit.collider.tag == draggingTag)
+            if (Physics.Raycast(ray, out hit) && hit.collider.tag == draggingTag) 
             {
-                toDrag = hit.transform;
-                previousPosition = toDrag.position;
-                toDragRigidbody = toDrag.GetComponent<Rigidbody>();
+                    toDrag = hit.transform;
+                    previousPosition = toDrag.position;
+                    toDragRigidbody = toDrag.GetComponent<Rigidbody>();
 
-                dis = Camera.main.WorldToScreenPoint(previousPosition);
-                posX = Input.GetTouch(0).position.x - dis.x;
-                posY = Input.GetTouch(0).position.y - dis.y;
+                    dis = Camera.main.WorldToScreenPoint(previousPosition);
+                    posX = Input.GetTouch(0).position.x - dis.x;
+                    posY = Input.GetTouch(0).position.y - dis.y;
 
-                SetDraggingProperties(toDragRigidbody);
+                    SetDraggingProperties(toDragRigidbody);
+                
 
                 touched = true;
 
@@ -179,7 +180,7 @@ public class PlayerTurn : State
         // Add a force impulse to player when addForce is true
         if (addForce)
         {
-
+            GameSystem.blackHoleShot = false;
             var redzones = GameObject.FindObjectsOfType<RedZone>();
 
             foreach (var r in redzones)
@@ -251,7 +252,7 @@ public class PlayerTurn : State
 
             trajectory.SimulateTrajectory(GameSystem.ghostBallSceneCopy, linePos, newDir.normalized * newDir.magnitude * GameSystem.instance.speedMultiplier * 8);
         }
-        else
+        else if(!GameSystem.blackHoleShot && !shootMode)
         {
             GameSystem.projectilePrefabSceneCopy.GetComponent<Rigidbody>().velocity = (mouseToPlayerBallDirection) * 10;
             GameSystem.ghostBallSceneCopy.transform.position = GameSystem.projectilePrefabSceneCopy.transform.position;

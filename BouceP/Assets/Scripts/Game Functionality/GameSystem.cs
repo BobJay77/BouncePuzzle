@@ -50,6 +50,7 @@ public class GameSystem : StateMachine
 
     [HideInInspector] public bool roundEnded = false;
     [HideInInspector] public bool hitGoal = false;
+    [HideInInspector] public bool blackHoleShot = false;
 
 
     [SerializeField] private List<GameState> _startingGameStates = new List<GameState>();
