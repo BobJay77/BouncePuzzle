@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class RedZone : MonoBehaviour
 {
-    public Material redZoneMaterial;
+    private Material redZoneMaterial;
     public float    timer = 0f;
 
     [SerializeField] private float maxTimer = 3f;
