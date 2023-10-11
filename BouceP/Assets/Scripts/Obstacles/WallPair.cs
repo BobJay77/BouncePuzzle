@@ -7,6 +7,7 @@ public class WallPair : MonoBehaviour
     [SerializeField] private WallPair otherWall;
     public Material wallMaterial = null;
     [SerializeField] private float isOn = 1f;
+    [SerializeField] private bool isFirst = true;
 
 
 
@@ -23,7 +24,20 @@ public class WallPair : MonoBehaviour
             otherWall.GetComponent<Collider>().isTrigger = false;
             GetComponent<Collider>().isTrigger = true;
             otherWall.isOn = 1f;
-            isOn = 0.1f;
+            isOn = 0.3f;
+            otherWall.Switch();
+            Switch();
+        }
+    }
+
+    public void ResetWallPair()
+    {
+        if (isFirst)
+        {
+            GetComponent<Collider>().isTrigger = false;
+            otherWall.GetComponent<Collider>().isTrigger = true;
+            isOn = 1f;
+            otherWall.isOn = 0.3f;
             otherWall.Switch();
             Switch();
         }
