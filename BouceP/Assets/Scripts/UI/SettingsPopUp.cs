@@ -29,9 +29,6 @@ public class SettingsPopUp : MonoBehaviour
         prevMasterSliderValue = masterSlider.value;
         prevMusicSliderValue = musicSlider.value;
         prevSFXSliderValue = SFXSlider.value;
-
-        
-        
     }
 
     private void OnEnable()

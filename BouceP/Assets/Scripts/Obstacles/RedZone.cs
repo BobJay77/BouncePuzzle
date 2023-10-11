@@ -12,6 +12,8 @@ public class RedZone : MonoBehaviour
     [SerializeField] private float maxTimer = 3f;
     [SerializeField] private float fadeAwayMultiplyer = 10f;
 
+    public bool reset = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,12 @@ public class RedZone : MonoBehaviour
             //redZoneMaterial.color = newcolor;
             redZoneMaterial.SetColor("_BorderColor", newcolor);
             redZoneMaterial.SetColor("_HexColor", newcolor);
+        }
+
+        if(reset)
+        {
+            ResetRedZone();
+            reset = false;
         }
     }
 
