@@ -64,7 +64,5 @@ public class RedZone : MonoBehaviour
             redzone.redZoneMaterial.SetColor("_BorderColor", newcolor);
             redzone.redZoneMaterial.SetColor("_HexColor", newcolor);
         }
-
-        
     }
 }
