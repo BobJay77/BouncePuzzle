@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 955afb884dcdd82448ad31346dcc50cc, type: 3}
-  m_Name: 18
+  m_Name: 39
   m_EditorClassIdentifier: 
-  levelID: 18
-  numOfBouncesToWin: 6
-  locked: 0
+  levelID: 39
+  numOfBouncesToWin: 1
+  locked: 1
   unlockSkinOnLevel: 0
   backgroundMusicIndex: 2
   hasTutorial: 0

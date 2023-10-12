@@ -17,5 +17,5 @@ MonoBehaviour:
   locked: 1
   unlockSkinOnLevel: 0
   backgroundMusicIndex: 2
-  hasTutorial: 0
+  hasTutorial: 1
   _startingGameStates: []

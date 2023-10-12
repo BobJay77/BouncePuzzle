@@ -19,14 +19,17 @@ public class WallPair : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Projectile")
+        if (GameSystem.instance.GetState().ToString() == "Resolution")
         {
-            otherWall.GetComponent<Collider>().isTrigger = false;
-            GetComponent<Collider>().isTrigger = true;
-            otherWall.isOn = 1f;
-            isOn = 0.3f;
-            otherWall.Switch();
-            Switch();
+            if (collision.transform.tag == "Projectile")
+            {
+                otherWall.GetComponent<Collider>().isTrigger = false;
+                GetComponent<Collider>().isTrigger = true;
+                otherWall.isOn = 1f;
+                isOn = 0.3f;
+                otherWall.Switch();
+                Switch();
+            }
         }
     }
 
