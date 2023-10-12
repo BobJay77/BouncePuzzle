@@ -21,14 +21,11 @@ public class StartGame : State
         }
         
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         //TODO: if exit diring yield wait you will have 2 projectiles in main screen
         if (SceneSwitcher.instance.WorldSceneIndex == 0)
             yield break;
-
-        if (GameSystem.CurrentLevelInfo.hasTutorial)
-            GameSystem.actionTextParent.SetActive(false);
 
         GameSystem.bouncesGoal = GameSystem.CurrentLevelInfo.numOfBouncesToWin;
         GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
