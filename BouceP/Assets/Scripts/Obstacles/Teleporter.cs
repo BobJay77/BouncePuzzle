@@ -8,6 +8,7 @@ public class Teleporter : MonoBehaviour
     public Teleporter otherPortal;
     public BoxCollider parentCollider;
     public bool isTeleporting = false;
+    private Vector3 currentVel = Vector3.zero;
 
     private void TeleportObject(Transform objToTeleport)
     {
@@ -16,7 +17,7 @@ public class Teleporter : MonoBehaviour
         if (otherPortal.transform.rotation.x != 0) axis = Vector3.up;
         else axis = Vector3.down;
 
-        Vector3 offset = (objToTeleport.position - transform.position) + (axis * otherPortal.transform.localScale.y * 0.6f);
+        Vector3 offset = (objToTeleport.position - transform.position) + (axis * otherPortal.transform.localScale.y * 1f);
 
         // Calculate the exit position and rotation
         Vector3 exitPosition = otherPortal.transform.position;
@@ -39,9 +40,25 @@ public class Teleporter : MonoBehaviour
             parentCollider.isTrigger = true;
             otherPortal.parentCollider.isTrigger = true;
 
-            // Teleport the Projectile that enters the portal
             otherPortal.GetComponent<Teleporter>().isTeleporting = true;
-            TeleportObject(other.transform);
+
+            // Save velocity and set to zero
+            currentVel = other.gameObject.GetComponent<Rigidbody>().velocity;
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+            other.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = false;
+
+           LeanTween.scale(other.gameObject, new Vector3(0, 0, 0), 0.2f).setOnComplete(delegate () 
+            { 
+                TeleportObject(other.transform);
+            
+                LeanTween.scale(other.gameObject, new Vector3(1, 1, 1), 0.2f).setOnComplete(delegate ()
+                {
+                    other.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = true;
+                    other.gameObject.GetComponent<Rigidbody>().velocity = currentVel;
+                });
+            });
+
         }
     }
 

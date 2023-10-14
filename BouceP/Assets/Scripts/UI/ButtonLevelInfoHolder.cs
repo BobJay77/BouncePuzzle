@@ -48,7 +48,8 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         else
         {
             GameSystem.instance.CurrentLevelInfo = GameSystem.instance.LevelInfos[levelInfoIndex];  
-            LeanTween.moveLocalY(gameObject, 5000, 0.5f).setEase(LeanTweenType.easeInOutQuint).setOnComplete(delegate() { SceneSwitcher.instance.LoadGameLevel(GameSystem.instance.LevelInfos[levelInfoIndex].levelID); });
+            LeanTween.moveLocalY(gameObject, 5000, 0.5f).setEase(LeanTweenType.easeInOutQuint).setOnComplete(delegate() { SceneSwitcher.instance.LoadGameLevel(GameSystem.instance.LevelInfos[levelInfoIndex].levelID);
+            });
         }
     }
 

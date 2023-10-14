@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthPercentage: 16
+  widthPercentage: 25
   heightPercentage: 2
   depthScale: 1
   xPosPercentage: 50
@@ -228,4 +228,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 0}
+  parentCollider: {fileID: 0}
   isTeleporting: 0

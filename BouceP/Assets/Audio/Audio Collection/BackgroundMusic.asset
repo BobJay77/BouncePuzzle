@@ -26,6 +26,6 @@ MonoBehaviour:
   - Clips:
     - {fileID: 8300000, guid: db4e9059edd14534c9cd04c8238b35b6, type: 3}
   - Clips:
-    - {fileID: 8300000, guid: 606a095c1cd0b9c43ab320ad25b2c81c, type: 3}
-  - Clips:
     - {fileID: 8300000, guid: 9c8084b1b91bd71489a7a08503e58a88, type: 3}
+  - Clips:
+    - {fileID: 8300000, guid: 606a095c1cd0b9c43ab320ad25b2c81c, type: 3}

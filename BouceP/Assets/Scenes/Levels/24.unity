@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3066,7 +3066,7 @@ MonoBehaviour:
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 60
+  m_fontSizeMin: 10
   m_fontSizeMax: 1000
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -4622,7 +4622,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use this to take a shot from a different angle, it only has one charge.
+  m_text: Black holes will stop you in your tracks but allows you to redo your shot.
+    It will disappeat after the shot has been taken
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 997d35d6ebf9c1341bd4397272802334, type: 2}
   m_sharedMaterial: {fileID: -5373989340224717713, guid: 997d35d6ebf9c1341bd4397272802334, type: 2}
@@ -4653,7 +4654,7 @@ MonoBehaviour:
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 60
+  m_fontSizeMin: 10
   m_fontSizeMax: 1000
   m_fontStyle: 0
   m_HorizontalAlignment: 2

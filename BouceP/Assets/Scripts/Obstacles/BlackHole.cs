@@ -20,9 +20,17 @@ public class BlackHole : MonoBehaviour
                 GameSystem.instance.blackHoleShot = true;
                 GameSystem.instance.SetState(GameSystem.instance.playerTurnState);
                 GameSystem.instance.currentBounces = currentBouncesInLevel;
-                gameObject.GetComponent<Collider>().enabled = false;
-                //Set a gamesystem bool that checks if it has gone tru a black hole then set the playerturn state
+                
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "Projectile" && GameSystem.instance.GetState().ToString() != "PlayerTurn")
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            this.gameObject.GetComponent<ScaleToScreenSize>().enabled = false;
+            LeanTween.scale(gameObject, new Vector3(0, 0, 0), 1f);
         }
     }
 
@@ -32,6 +40,9 @@ public class BlackHole : MonoBehaviour
 
         foreach (var blackhole in blackholes)
         {
+
+            LeanTween.scale(blackhole.gameObject, new Vector3(1, 1, 1), 1f).setOnComplete(delegate () { blackhole.gameObject.GetComponent<ScaleToScreenSize>().enabled = true; });
+            
             blackhole.GetComponent<Collider>().enabled = true;
         }
     }

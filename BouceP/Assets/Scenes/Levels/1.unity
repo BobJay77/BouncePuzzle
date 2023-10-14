@@ -2608,7 +2608,7 @@ MonoBehaviour:
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 60
+  m_fontSizeMin: 10
   m_fontSizeMax: 1000
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -2962,7 +2962,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1171007187 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1111239391298606433, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1171007188, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
   m_PrefabInstance: {fileID: 1171007185}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -3976,7 +3976,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Tap once and hold to move. Tap twice and hold to initiate a shot. Match
-    bounces to activate the portal. Collide it to  progress.
+    bounces to activate the portal and collide it to progress.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 997d35d6ebf9c1341bd4397272802334, type: 2}
   m_sharedMaterial: {fileID: -5373989340224717713, guid: 997d35d6ebf9c1341bd4397272802334, type: 2}
@@ -4003,11 +4003,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 52.55
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 60
+  m_fontSizeMin: 10
   m_fontSizeMax: 1000
   m_fontStyle: 0
   m_HorizontalAlignment: 2
