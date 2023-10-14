@@ -50,6 +50,9 @@ public class Resolution : State
             }
             else
             {
+                Debug.Log("Current Bounces " +  GameSystem.currentBounces);
+
+                Debug.Log("Level Bounces" + GameSystem.CurrentLevelInfo.numOfBouncesToWin);
                 GameSystem.bouncesText.text = "You Lost!";
           
                 // Change to winLose state

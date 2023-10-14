@@ -14,9 +14,12 @@ public class BlackHole : MonoBehaviour
 
                 //other.transform.position = transform.position;
 
+                int currentBouncesInLevel = GameSystem.instance.currentBounces;
+
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GameSystem.instance.blackHoleShot = true;
                 GameSystem.instance.SetState(GameSystem.instance.playerTurnState);
+                GameSystem.instance.currentBounces = currentBouncesInLevel;
                 gameObject.GetComponent<Collider>().enabled = false;
                 //Set a gamesystem bool that checks if it has gone tru a black hole then set the playerturn state
             }
