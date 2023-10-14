@@ -414,8 +414,6 @@ GameObject:
   - component: {fileID: 9085653864154972153}
   - component: {fileID: 9085653864154972152}
   - component: {fileID: 1171007190}
-  - component: {fileID: 6273757133661846556}
-  - component: {fileID: 276865190166404514}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -562,7 +560,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 276865190166404514}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -586,37 +584,55 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SpriteToImage, Assembly-CSharp
+        m_MethodName: ActivateGifAnim
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1171007190}
+        m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
+        m_MethodName: ResetBlackHoleShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RedZone, Assembly-CSharp
+        m_MethodName: ResetRedZone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BlackHole, Assembly-CSharp
+        m_MethodName: ResetBlackHoles
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1171007190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9085653864154972154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelInfoIndex: 0
-  lockImage: {fileID: 0}
-  numberImage: {fileID: 0}
---- !u!114 &6273757133661846556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9085653864154972154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelInfoIndex: 0
-  lockImage: {fileID: 0}
-  numberImage: {fileID: 0}
---- !u!114 &276865190166404514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -644,8 +660,6 @@ GameObject:
   - component: {fileID: 9085653864160561850}
   - component: {fileID: 9085653864160561853}
   - component: {fileID: 1171007188}
-  - component: {fileID: 4597192300191954271}
-  - component: {fileID: 1111239391298606433}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -768,7 +782,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1111239391298606433}
+      - m_Target: {fileID: 1171007188}
         m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
         m_MethodName: ButtonClicked
         m_Mode: 6
@@ -792,37 +806,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1171007188}
+        m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
+        m_MethodName: ResetBlackHoleShot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1171007188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9085653864160561855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelInfoIndex: 0
-  lockImage: {fileID: 0}
-  numberImage: {fileID: 0}
---- !u!114 &4597192300191954271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9085653864160561855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1844e72151a4d0442b433822e61b9db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelInfoIndex: 0
-  lockImage: {fileID: 0}
-  numberImage: {fileID: 0}
---- !u!114 &1111239391298606433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -45,7 +45,13 @@ public class PlayerTurn : State
         GameSystem.ghostBallSceneCopy.transform.position = GameSystem.projectilePrefabSceneCopy.transform.position;
         GameSystem.ghostBallSceneCopy.SetActive(false);
         GameSystem.projectilePrefabSceneCopy.SetActive(true);
+
+        if (GameSystem.bouncesGoal >= 0) 
         GameSystem.roundEnded = false;
+
+        else if(GameSystem.bouncesGoal < 0)
+            GameSystem.roundEnded = true;
+
         GameSystem.hitGoal = false;
 
         // Play projectile loop sfx

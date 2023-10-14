@@ -40,6 +40,7 @@ public class BallManager : MonoBehaviour
     {
         if (GameSystem.instance.roundEnded) return;
         if (GameSystem.instance.GetState().ToString() != "Resolution") return;
+        if(GameSystem.instance.blackHoleShot) return;
 
         if (collision.gameObject.tag == "Goal") // Goal object collision
         {

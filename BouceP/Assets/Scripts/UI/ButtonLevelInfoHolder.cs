@@ -86,4 +86,9 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         GameSystem.instance.DeleteBallsInGameScene(); 
         GameSystem.instance.SetState(GameSystem.instance.startGameState);
     }
+
+    public void ResetBlackHoleShot()
+    {
+        GameSystem.instance.blackHoleShot = false;
+    }
 }

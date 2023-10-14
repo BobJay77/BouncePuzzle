@@ -5254,7 +5254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2089784776}
+      - m_Target: {fileID: 593806845}
         m_TargetAssemblyTypeName: ButtonLevelInfoHolder, Assembly-CSharp
         m_MethodName: ButtonClicked
         m_Mode: 6
