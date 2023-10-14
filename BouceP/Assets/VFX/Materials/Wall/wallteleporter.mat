@@ -75,6 +75,6 @@ Material:
     - _BorderColor: {r: 0.0017074822, g: 0.0017074822, b: 0.0028895852, a: 1}
     - _HexColor: {r: 0.78653026, g: 0.5950722, b: 0.2794252, a: 1}
     - _HexTiling: {r: 100, g: 100, b: 0, a: 0}
-    - _IntersectionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _IntersectionColor: {r: 0, g: 0, b: 0, a: 0}
     - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

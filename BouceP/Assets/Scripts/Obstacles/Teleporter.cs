@@ -5,50 +5,41 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Teleporter : MonoBehaviour
 {
-    public GameObject otherPortal;
-    private Vector3 portalNormal;
+    public Teleporter otherPortal;
+    public BoxCollider parentCollider;
     public bool isTeleporting = false;
-
-    private void Start()
-    {
-        CalculatePortalNormal();
-    }
-
-    private void CalculatePortalNormal()
-    {
-        // Calculate the normal vector of the portal plane
-        portalNormal = transform.up;
-    }
 
     private void TeleportObject(Transform objToTeleport)
     {
-        Vector3 offset = objToTeleport.position - transform.position;
+        // Change axis based on rotation
+        Vector3 axis = Vector3.one;
+        if (otherPortal.transform.rotation.x != 0) axis = Vector3.up;
+        else axis = Vector3.down;
+
+        Vector3 offset = (objToTeleport.position - transform.position) + (axis * otherPortal.transform.localScale.y * 0.6f);
 
         // Calculate the exit position and rotation
         Vector3 exitPosition = otherPortal.transform.position;
         Quaternion rotationChange = Quaternion.FromToRotation(transform.up, otherPortal.transform.up);
 
-        // Teleport the object to the exit portal
         objToTeleport.position = exitPosition + rotationChange * offset;
-
-        // Apply the appropriate rotation
         objToTeleport.rotation = rotationChange * objToTeleport.rotation;
 
-        // Calculate the new velocity direction after teleportation
-        Vector3 originalVelocity = objToTeleport.GetComponent<Rigidbody>().velocity; // Assuming you have a Rigidbody on the object
+        // Calculate new velocity direction after teleportation
+        Vector3 originalVelocity = objToTeleport.GetComponent<Rigidbody>().velocity; 
         Vector3 newVelocity = rotationChange * originalVelocity;
 
-        objToTeleport.GetComponent<Rigidbody>().velocity = newVelocity; // Update the velocity
+        objToTeleport.GetComponent<Rigidbody>().velocity = newVelocity;
     }
-
-
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Projectile") && !isTeleporting)
         {
+            parentCollider.isTrigger = true;
+            otherPortal.parentCollider.isTrigger = true;
 
-            // Teleport the object that enters the portal
+            // Teleport the Projectile that enters the portal
             otherPortal.GetComponent<Teleporter>().isTeleporting = true;
             TeleportObject(other.transform);
         }
@@ -56,6 +47,7 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        parentCollider.isTrigger = false;
         isTeleporting = false;
     }
 }

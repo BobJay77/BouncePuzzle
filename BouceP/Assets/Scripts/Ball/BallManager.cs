@@ -48,6 +48,8 @@ public class BallManager : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Wall") // Wall colllision
         {
+
+            Debug.Log(collision.gameObject.ToString());
             GameSystem.instance.currentBounces++;
             GameSystem.instance.bouncesGoal--;
 
