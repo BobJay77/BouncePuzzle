@@ -11,6 +11,9 @@ public class BlackHole : MonoBehaviour
             if (other.transform.tag == "Projectile")
             {
                 other.transform.position = new Vector3(transform.position.x, transform.position.y, -0.2f);
+
+                //other.transform.position = transform.position;
+
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GameSystem.instance.blackHoleShot = true;
                 GameSystem.instance.SetState(GameSystem.instance.playerTurnState);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5094247793031701726}
   - component: {fileID: 7881784807048733513}
   - component: {fileID: 3485098918952822311}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HeatDistortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4894,7 +4894,7 @@ GameObject:
   - component: {fileID: 2407038130661739081}
   - component: {fileID: 2407038130661739082}
   - component: {fileID: 2407038130661739083}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BlackHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 3072941740469935390}
   - component: {fileID: 8258356339993289746}
   - component: {fileID: 8905792572922298875}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: OrbitalParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5081,7 +5081,7 @@ GameObject:
   - component: {fileID: 2623328729492361243}
   - component: {fileID: 2623328729492361245}
   - component: {fileID: 2623328729492361244}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ParticlesAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9963,7 +9963,7 @@ GameObject:
   - component: {fileID: 778553131871129289}
   - component: {fileID: 1375268764451593979}
   - component: {fileID: 9063416451545674821}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ElectricParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10071,7 +10071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8859800639615777898}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: vfx_BlackHole_v4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10111,7 +10111,7 @@ GameObject:
   - component: {fileID: 824258332546720408}
   - component: {fileID: 808639669802690291}
   - component: {fileID: 7347952627049049752}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14993,7 +14993,7 @@ GameObject:
   - component: {fileID: 3425129252964067532}
   - component: {fileID: 5830264427707082481}
   - component: {fileID: 866092453449174455}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FlareAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19875,7 +19875,7 @@ GameObject:
   - component: {fileID: 555919113072742938}
   - component: {fileID: 330199118797458035}
   - component: {fileID: 4829585585105518814}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SwirlsAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
