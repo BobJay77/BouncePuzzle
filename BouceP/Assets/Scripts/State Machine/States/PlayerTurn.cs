@@ -80,9 +80,9 @@ public class PlayerTurn : State
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(pos);
 
-            if (Physics.Raycast(ray, out hit) && hit.collider.tag == draggingTag) 
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity) && hit.collider.tag == draggingTag) 
             {
-                    toDrag = hit.transform;
+                toDrag = hit.transform;
                     previousPosition = toDrag.position;
                     toDragRigidbody = toDrag.GetComponent<Rigidbody>();
 
