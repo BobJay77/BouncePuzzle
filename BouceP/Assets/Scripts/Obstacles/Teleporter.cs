@@ -1,71 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Teleporter : MonoBehaviour
 {
-    public Teleporter otherPortal;
-    public BoxCollider parentCollider;
-    public bool isTeleporting = false;
+    [SerializeField] private Teleporter exitTeleporter; // Reference to the exit teleporter
+    [SerializeField] private BoxCollider parentCollider;
+    private bool isTeleported = false; // Track whether the projectile has been teleported
     private Vector3 currentVel = Vector3.zero;
 
-    private void TeleportObject(Transform objToTeleport)
+    // This function is called when a projectile enters the teleporter
+    private void OnTriggerEnter(Collider projectile)
     {
-        // Change axis based on rotation
-        Vector3 axis = Vector3.one;
-        if (otherPortal.transform.rotation.x != 0) axis = Vector3.up;
-        else axis = Vector3.down;
-
-        Vector3 offset = (objToTeleport.position - transform.position) + (axis * otherPortal.transform.localScale.y * 1f);
-
-        // Calculate the exit position and rotation
-        Vector3 exitPosition = otherPortal.transform.position;
-        Quaternion rotationChange = Quaternion.FromToRotation(transform.up, otherPortal.transform.up);
-
-        objToTeleport.position = exitPosition + rotationChange * offset;
-        objToTeleport.rotation = rotationChange * objToTeleport.rotation;
-
-        // Calculate new velocity direction after teleportation
-        Vector3 originalVelocity = objToTeleport.GetComponent<Rigidbody>().velocity; 
-        Vector3 newVelocity = rotationChange * originalVelocity;
-
-        objToTeleport.GetComponent<Rigidbody>().velocity = newVelocity;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Projectile") && !isTeleporting)
+        // Check if not already teleported
+        if (!isTeleported && projectile.CompareTag("Projectile")) 
         {
+            Debug.LogError("ONTRIGGERENTER " + gameObject.ToString());
+            // Mark the projectile as teleported
+            isTeleported = true; 
+            exitTeleporter.isTeleported = true;
             parentCollider.isTrigger = true;
-            otherPortal.parentCollider.isTrigger = true;
-
-            otherPortal.GetComponent<Teleporter>().isTeleporting = true;
+            exitTeleporter.parentCollider.isTrigger = true;
 
             // Save velocity and set to zero
-            currentVel = other.gameObject.GetComponent<Rigidbody>().velocity;
-            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            currentVel = projectile.gameObject.GetComponent<Rigidbody>().velocity;
+            projectile.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-            other.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = false;
+            Vector3 originalScale = projectile.gameObject.transform.localScale;
 
-           LeanTween.scale(other.gameObject, new Vector3(0, 0, 0), 0.2f).setOnComplete(delegate () 
-            { 
-                TeleportObject(other.transform);
-            
-                LeanTween.scale(other.gameObject, new Vector3(1, 1, 1), 0.2f).setOnComplete(delegate ()
+            projectile.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = false;
+
+            projectile.GetComponent<Collider>().isTrigger = true;
+
+            LeanTween.scale(projectile.gameObject, new Vector3(0, 0, 0), 0.3f).setOnComplete(delegate ()
+            {
+                projectile.transform.position = exitTeleporter.transform.position;
+
+                LeanTween.scale(projectile.gameObject, originalScale, 0.3f).setOnComplete(delegate ()
                 {
-                    other.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = true;
-                    other.gameObject.GetComponent<Rigidbody>().velocity = currentVel;
+                    projectile.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = true;
+
+                    Vector3 exitDirection = exitTeleporter.transform.up;
+                    Vector3 exitVelocity = exitDirection.normalized * currentVel.magnitude;
+                    projectile.GetComponent<Rigidbody>().velocity = exitVelocity;
                 });
             });
-
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider projectile)
     {
-        parentCollider.isTrigger = false;
-        isTeleporting = false;
+        if (!exitTeleporter.isTeleported && projectile.CompareTag("Projectile"))
+        {
+            projectile.GetComponent<Collider>().isTrigger = false;
+        }
+            parentCollider.isTrigger = false;
+            isTeleported = false;
+        Debug.LogError("ONTRIGGER EXIT " + gameObject.ToString());
     }
 }
 

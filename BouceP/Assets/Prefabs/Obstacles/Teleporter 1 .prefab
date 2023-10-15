@@ -94,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479053052692055928}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -111,11 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthPercentage: 25
+  widthPercentage: 10
   heightPercentage: 2
   depthScale: 1
   xPosPercentage: 50
-  yPosPercentage: 71.74
+  yPosPercentage: 66.3
   onlyPosition: 0
 --- !u!1 &2923403267519252550
 GameObject:
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1231864434882384104}
   - component: {fileID: 5428440962106697193}
   m_Layer: 0
-  m_Name: Teleport
+  m_Name: Teleport 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,6 +227,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674d69cd7461523408aa27deea3ae4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherPortal: {fileID: 0}
-  parentCollider: {fileID: 0}
-  isTeleporting: 0
+  exitTeleporter: {fileID: 0}
