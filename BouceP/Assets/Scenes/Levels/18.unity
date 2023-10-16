@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2943,7 +2943,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -2967,7 +2967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_Mode
@@ -3000,7 +3000,7 @@ PrefabInstance:
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Target
       value: 
-      objectReference: {fileID: 1193488993}
+      objectReference: {fileID: 40114326}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_Target
       value: 
@@ -3043,7 +3043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_MethodName
-      value: MakeActive
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_MethodName
@@ -3063,7 +3063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_TargetAssemblyTypeName
-      value: OneTapWall, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_TargetAssemblyTypeName

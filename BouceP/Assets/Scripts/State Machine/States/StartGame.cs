@@ -23,21 +23,25 @@ public class StartGame : State
 
         yield return new WaitForSeconds(1f);
 
-        //TODO: if exit diring yield wait you will have 2 projectiles in main screen
         if (SceneSwitcher.instance.WorldSceneIndex == 0)
             yield break;
 
         GameSystem.bouncesGoal = GameSystem.CurrentLevelInfo.numOfBouncesToWin;
         GameSystem.bouncesText.text = "Bounces: " + GameSystem.bouncesGoal.ToString();
 
-        // Instantiate projectile prefab
-        GameSystem.projectilePrefabSceneCopy = GameSystem.SpawnPrefab(GameSystem.loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
-        GameSystem.projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
+        if (GameObject.FindGameObjectWithTag("Projectile") == null)
+        {
+            // Instantiate projectile prefab
+            GameSystem.projectilePrefabSceneCopy = GameSystem.SpawnPrefab(GameSystem.loadedProjectilePrefab, GameObject.FindGameObjectWithTag("Ball").transform.position);
+            GameSystem.projectilePrefabSceneCopy.transform.SetParent(GameObject.FindGameObjectWithTag("Ball").transform);
 
-        // Instantiate ghost ball prefab
-        GameSystem.ghostBallSceneCopy = GameSystem.SpawnPrefab(GameSystem.ghostBall, GameObject.FindGameObjectWithTag("Ball").transform.position);
-        GameSystem.ghostBallSceneCopy.transform.position = GameObject.FindGameObjectWithTag("Ball").transform.position;
-        GameSystem.ghostBall.SetActive(false);
+            // Instantiate ghost ball prefab
+            GameSystem.ghostBallSceneCopy = GameSystem.SpawnPrefab(GameSystem.ghostBall, GameObject.FindGameObjectWithTag("Ball").transform.position);
+            GameSystem.ghostBallSceneCopy.transform.position = GameObject.FindGameObjectWithTag("Ball").transform.position;
+            GameSystem.ghostBall.SetActive(false);
+        }
+       
+       
         // Change state to player turn state
         GameSystem.SetState(GameSystem.playerTurnState);
     }

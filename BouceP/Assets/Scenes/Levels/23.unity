@@ -3169,7 +3169,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -3185,7 +3185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Mode
@@ -3218,7 +3218,7 @@ PrefabInstance:
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
-      objectReference: {fileID: 102372677}
+      objectReference: {fileID: 40114326}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_Target
       value: 
@@ -3261,7 +3261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_MethodName
-      value: ResetRedZone
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_MethodName
@@ -3281,7 +3281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[6].m_TargetAssemblyTypeName
-      value: RedZone, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9085653864154972152, guid: 258ddf13212aafd4fbc2ead5c4606ca1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[7].m_TargetAssemblyTypeName
