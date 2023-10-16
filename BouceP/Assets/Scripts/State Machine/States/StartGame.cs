@@ -19,7 +19,6 @@ public class StartGame : State
             go.transform.LeanSetPosY(5000);
             LeanTween.moveLocalY(go, 0, 0.2f).setEase(LeanTweenType.linear);
         }
-        
 
         yield return new WaitForSeconds(1f);
 
@@ -40,7 +39,6 @@ public class StartGame : State
             GameSystem.ghostBallSceneCopy.transform.position = GameObject.FindGameObjectWithTag("Ball").transform.position;
             GameSystem.ghostBall.SetActive(false);
         }
-       
        
         // Change state to player turn state
         GameSystem.SetState(GameSystem.playerTurnState);

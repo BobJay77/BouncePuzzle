@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 2
   intensity:
     m_OverrideState: 1
-    m_Value: 0.37
+    m_Value: 0.225
   clamp:
     m_OverrideState: 0
     m_Value: 0.05
@@ -56,13 +56,13 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.29758155, z: 0.8063462, w: -0.7622505}
+    m_Value: {x: 0.21572262, y: 0.5785056, z: 1, w: -0.443415}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.23497319, z: 0.6105814, w: 0.018148806}
+    m_Value: {x: 0.29482794, y: 0.4024986, z: 1, w: 0.09927212}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0, z: 0.20475817, w: 0.19056259}
+    m_Value: {x: 0.9892024, y: 0.6961077, z: 1, w: -0.46988755}
 --- !u!114 &-2106645342548859740
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -78,13 +78,13 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 6.76
+    m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 11
+    m_Value: 51.8
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 2.3984585, b: 20.443554, a: 1}
+    m_Value: {r: 6.498301, g: 9.54255, b: 11.181761, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
@@ -170,19 +170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   color:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.416
+    m_Value: 0.308
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.447
+    m_Value: 0.287
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -204,10 +204,10 @@ MonoBehaviour:
     m_Value: 0.35
   intensity:
     m_OverrideState: 1
-    m_Value: 51.35
+    m_Value: 0.1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.586
+    m_Value: 0.352
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -219,7 +219,7 @@ MonoBehaviour:
     m_Value: 0
   skipIterations:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 2800000, guid: 6a3d0b71596c85a41965760d778e6e1b, type: 3}
@@ -245,7 +245,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.55
+    m_Value: 0.423
   response:
     m_OverrideState: 1
     m_Value: 0.6

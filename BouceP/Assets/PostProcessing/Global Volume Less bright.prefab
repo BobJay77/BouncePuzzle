@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8644299408215404425}
   - component: {fileID: 8644299408215404426}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: Global Volume Less bright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,5 +47,5 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0.055
+  weight: 0.02
   sharedProfile: {fileID: 11400000, guid: d3d531a3bde53ba4c9f2687f8128d617, type: 2}
