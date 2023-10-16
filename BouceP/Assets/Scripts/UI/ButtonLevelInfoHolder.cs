@@ -84,7 +84,8 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
     public void RestartGame()
     {
-        GameSystem.instance.DeleteBallsInGameScene(); 
+        GameSystem.instance.DeleteBallsInGameScene();
+        GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);
         GameSystem.instance.SetState(GameSystem.instance.startGameState);
     }
 

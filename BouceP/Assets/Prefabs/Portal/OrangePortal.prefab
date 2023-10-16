@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 8223575640771321861}
   - component: {fileID: 8223575640771321859}
   - component: {fileID: 8223575640771321860}
+  - component: {fileID: -1622367570204483345}
+  - component: {fileID: 8644170230810231928}
+  - component: {fileID: 7950553960311361955}
   m_Layer: 0
   m_Name: OrangePortal
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8223575640771321858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 35.49}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,3 +108,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1622367570204483345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223575640771321858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac76dc02578679143b3d2a1af05c7d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCanvas: 0
+--- !u!65 &8644170230810231928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223575640771321858}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.61, y: 4.68, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7950553960311361955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223575640771321858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  widthPercentage: 2.4
+  heightPercentage: 1.2
+  depthScale: 1
+  xPosPercentage: 50
+  yPosPercentage: 92.7
+  onlyPosition: 0
