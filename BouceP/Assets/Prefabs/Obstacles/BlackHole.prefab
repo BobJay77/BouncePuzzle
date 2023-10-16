@@ -4891,9 +4891,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2407038130661739084}
-  - component: {fileID: 2407038130661739081}
   - component: {fileID: 2407038130661739082}
   - component: {fileID: 2407038130661739083}
+  - component: {fileID: 3843999252134921760}
   m_Layer: 2
   m_Name: BlackHole
   m_TagString: Untagged
@@ -4917,19 +4917,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2407038130661739081
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2407038130661739085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2407038130661739082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4960,6 +4947,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313adf9b037ed1b46b1420de7a80b298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3843999252134921760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407038130661739085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.57, y: 0.75, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2529747631095545892
 GameObject:
   m_ObjectHideFlags: 0
