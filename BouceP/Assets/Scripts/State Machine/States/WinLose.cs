@@ -51,6 +51,12 @@ public class WinLose : State //rename to win lose
                 }
             }
 
+            var redZones = GameObject.FindObjectsOfType<RedZone>();
+
+            foreach (var redZone in redZones)
+            {
+                redZone.gameObject.GetComponent<Collider>().enabled = false;
+            }
 
             yield break;
         }

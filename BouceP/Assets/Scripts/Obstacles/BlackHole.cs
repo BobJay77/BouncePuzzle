@@ -10,9 +10,9 @@ public class BlackHole : MonoBehaviour
         {
             if (other.transform.tag == "Projectile")
             {
-                other.transform.position = new Vector3(transform.position.x, transform.position.y, -0.2f);
 
-                //other.transform.position = transform.position;
+                LeanTween.move(other.gameObject, transform.position, .1f).setOnComplete(delegate () 
+                { GameSystem.instance.ghostBallSceneCopy.transform.position = transform.position; });
 
                 int currentBouncesInLevel = GameSystem.instance.currentBounces;
 
@@ -20,7 +20,6 @@ public class BlackHole : MonoBehaviour
                 GameSystem.instance.blackHoleShot = true;
                 GameSystem.instance.SetState(GameSystem.instance.playerTurnState);
                 GameSystem.instance.currentBounces = currentBouncesInLevel;
-
             }
         }
     }
@@ -28,6 +27,7 @@ public class BlackHole : MonoBehaviour
     {
         if (other.transform.tag == "Projectile" && (GameSystem.instance.GetState().ToString() != "PlayerTurn" || GameSystem.instance.playerTurnState.shootMode))
         {
+            GameSystem.instance.blackHoleShot = false;
             gameObject.GetComponent<Collider>().enabled = false;
             this.gameObject.GetComponent<ScaleToScreenSize>().enabled = false;
             LeanTween.scale(gameObject, new Vector3(0, 0, 0), 1f);

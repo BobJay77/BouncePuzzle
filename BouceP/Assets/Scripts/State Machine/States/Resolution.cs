@@ -12,6 +12,13 @@ public class Resolution : State
 
     public override IEnumerator OnEnter()
     {
+        var redZones = GameObject.FindObjectsOfType<RedZone>();
+
+        foreach (var redZone in redZones)
+        {
+            redZone.gameObject.GetComponent<Collider>().enabled = false;
+        }
+
         yield return null;
     }
 
