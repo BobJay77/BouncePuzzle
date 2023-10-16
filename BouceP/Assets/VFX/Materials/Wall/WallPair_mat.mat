@@ -61,7 +61,7 @@ Material:
     - _DstBlend: 10
     - _IntersectionDepth: 0.01
     - _MaskMultiplier: 0.54
-    - _MaskPower: 0
+    - _MaskPower: 1.29
     - _NoiseScale: 10
     - _QueueControl: 0
     - _QueueOffset: 0

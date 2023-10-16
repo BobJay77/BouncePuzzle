@@ -1702,7 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5050132077049241659, guid: 442dd4709d2c4cb429fb4ed26450aa07, type: 3}
       propertyPath: widthPercentage
-      value: 30
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5050132078590734197, guid: 442dd4709d2c4cb429fb4ed26450aa07, type: 3}
       propertyPath: xPosPercentage
@@ -4492,11 +4492,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: yPosPercentage
-      value: 20
+      value: 102.46
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: widthPercentage
-      value: 85.4
+      value: 72.37
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038881, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: m_Name

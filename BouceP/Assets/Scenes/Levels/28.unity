@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -297,7 +297,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: xPosPercentage
-      value: 33.3
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: yPosPercentage
@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: widthPercentage
-      value: 14.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: heightPercentage
@@ -1228,7 +1228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: xPosPercentage
-      value: 33.3
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: yPosPercentage
@@ -1236,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: widthPercentage
-      value: 14.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: heightPercentage
@@ -1699,7 +1699,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: xPosPercentage
-      value: 66
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: yPosPercentage
@@ -1707,7 +1707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: widthPercentage
-      value: 14.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: heightPercentage
@@ -4972,7 +4972,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: xPosPercentage
-      value: 66
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: yPosPercentage
@@ -4980,7 +4980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: widthPercentage
-      value: 14.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2447635414355038880, guid: b46da678cc8e1d84b9d8acb273048406, type: 3}
       propertyPath: heightPercentage

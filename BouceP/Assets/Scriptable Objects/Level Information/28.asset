@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 28
   m_EditorClassIdentifier: 
   levelID: 28
-  numOfBouncesToWin: 4
+  numOfBouncesToWin: 3
   locked: 0
   unlockSkinOnLevel: 0
   backgroundMusicIndex: 3
-  hasTutorial: 0
+  hasTutorial: 1
   _startingGameStates: []

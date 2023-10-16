@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e0eb233feba404c8f858d7262909c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widthPercentage: 10
+  widthPercentage: 20
   heightPercentage: 5
   depthScale: 1
   xPosPercentage: 23.8

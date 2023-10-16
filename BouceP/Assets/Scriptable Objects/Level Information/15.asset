@@ -15,7 +15,7 @@ MonoBehaviour:
   levelID: 15
   numOfBouncesToWin: 8
   locked: 0
-  unlockSkinOnLevel: 0
+  unlockSkinOnLevel: 5
   backgroundMusicIndex: 2
   hasTutorial: 0
   _startingGameStates: []
