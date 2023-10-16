@@ -39,6 +39,18 @@ public class AdMobAds : MonoBehaviour
         });
     }
 
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.L))
+    //    {
+    //        LoadInterstitialAd();
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        ShowInterstitialAd();
+    //    }
+    //}
+
     #region Banner
 
     public void LoadBannerAd()
