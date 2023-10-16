@@ -20,13 +20,13 @@ public class BlackHole : MonoBehaviour
                 GameSystem.instance.blackHoleShot = true;
                 GameSystem.instance.SetState(GameSystem.instance.playerTurnState);
                 GameSystem.instance.currentBounces = currentBouncesInLevel;
-                
+
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Projectile" && GameSystem.instance.GetState().ToString() != "PlayerTurn")
+        if (other.transform.tag == "Projectile" && (GameSystem.instance.GetState().ToString() != "PlayerTurn" || GameSystem.instance.playerTurnState.shootMode))
         {
             gameObject.GetComponent<Collider>().enabled = false;
             this.gameObject.GetComponent<ScaleToScreenSize>().enabled = false;

@@ -12,7 +12,7 @@ public class OneTapWall : MonoBehaviour
         oneTapWalls = GameObject.FindObjectsOfType<OneTapWall>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (isActive && collision.transform.tag == "Projectile" && GameSystem.instance.GetState().ToString() == "Resolution")
         {

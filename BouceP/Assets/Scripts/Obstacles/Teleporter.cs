@@ -10,10 +10,11 @@ public class Teleporter : MonoBehaviour
     // This function is called when a projectile enters the teleporter
     private void OnTriggerEnter(Collider projectile)
     {
+        if(GameSystem.instance.GetState().ToString() != "Resolution") return;
+
         // Check if not already teleported
         if (!isTeleported && projectile.CompareTag("Projectile")) 
         {
-            Debug.LogError("ONTRIGGERENTER " + gameObject.ToString());
             // Mark the projectile as teleported
             isTeleported = true; 
             exitTeleporter.isTeleported = true;
@@ -54,7 +55,6 @@ public class Teleporter : MonoBehaviour
         }
             parentCollider.isTrigger = false;
             isTeleported = false;
-        Debug.LogError("ONTRIGGER EXIT " + gameObject.ToString());
     }
 }
 
