@@ -27,8 +27,6 @@ public class Teleporter : MonoBehaviour
 
             Vector3 originalScale = projectile.gameObject.transform.localScale;
 
-            projectile.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = false;
-
             projectile.GetComponent<Collider>().isTrigger = true;
 
             LeanTween.scale(projectile.gameObject, new Vector3(0, 0, 0), 0.3f).setOnComplete(delegate ()
@@ -37,8 +35,6 @@ public class Teleporter : MonoBehaviour
 
                 LeanTween.scale(projectile.gameObject, originalScale, 0.3f).setOnComplete(delegate ()
                 {
-                    projectile.gameObject.GetComponentInParent<ScaleToScreenSize>().enabled = true;
-
                     Vector3 exitDirection = exitTeleporter.transform.up;
                     Vector3 exitVelocity = exitDirection.normalized * currentVel.magnitude;
                     projectile.GetComponent<Rigidbody>().velocity = exitVelocity;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlackHole : MonoBehaviour
 {
+    Vector3 originalScale = Vector3.one;
     private void OnTriggerEnter(Collider other)
     {
         if (GameSystem.instance.GetState().ToString() != "PlayerTurn")
@@ -29,7 +30,7 @@ public class BlackHole : MonoBehaviour
         {
             GameSystem.instance.blackHoleShot = false;
             gameObject.GetComponent<Collider>().enabled = false;
-            this.gameObject.GetComponent<ScaleToScreenSize>().enabled = false;
+            originalScale = gameObject.transform.localScale;
             LeanTween.scale(gameObject, new Vector3(0, 0, 0), 1f);
         }
     }
@@ -41,7 +42,7 @@ public class BlackHole : MonoBehaviour
         foreach (var blackhole in blackholes)
         {
 
-            LeanTween.scale(blackhole.gameObject, new Vector3(1, 1, 1), 1f).setOnComplete(delegate () { blackhole.gameObject.GetComponent<ScaleToScreenSize>().enabled = true; });
+            LeanTween.scale(blackhole.gameObject, originalScale, 1f);
             
             blackhole.GetComponent<Collider>().enabled = true;
         }
