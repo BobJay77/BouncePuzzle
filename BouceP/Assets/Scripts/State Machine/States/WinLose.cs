@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WinLose : State //rename to win lose
@@ -83,19 +84,11 @@ public class WinLose : State //rename to win lose
 
     }
 
-    public override void OnUpdate()
+    public override IEnumerator OnExit()
     {
-        if (won) 
-        {
-            //sceneSwitch and start game
-            
-        }
+        //Adding to the ad counter whenever we exit winlose state
+        AdMobAds.instance.LoadInterstitialAd();
 
-        else
-        {
-            
-        }
-        //if we win and press next game or restart level
-        //GameSystem.SetState(GameSystem.startGameState);
+        yield return null;
     }
 }

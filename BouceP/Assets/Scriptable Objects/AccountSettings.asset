@@ -63,3 +63,4 @@ MonoBehaviour:
     muzzleVfx: 1MuzzleOrb06Blue
     hitVfx: 1HitOrb06Blue
     isLocked: 0
+  _noAds: 0

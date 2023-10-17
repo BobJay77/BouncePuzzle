@@ -6,8 +6,9 @@ using System;
 
 public class AdMobAds : MonoBehaviour
 {
-    public string appId = "ca-app-pub-4801978686209652~7175642858"; //Real ID
+    public static AdMobAds instance;
 
+    private string appId = "ca-app-pub-4801978686209652~7175642858"; //Real ID
 
 #if UNITY_ANDROID
     string bannerId = "ca-app-pub-1385093244148841/2952458907"; //Test ID
@@ -23,14 +24,38 @@ public class AdMobAds : MonoBehaviour
 
 #endif
 
-    BannerView bannerView;
-    InterstitialAd interstitialAd;
-    RewardedAd rewardedAd;
+    private int adCounter = 0;
+    private const int adThreshold = 5;
+    private bool _noAds = false;
 
+    private BannerView bannerView;
+    private InterstitialAd interstitialAd;
+    private RewardedAd rewardedAd;
+
+    public bool NoAds
+    {
+        get
+        {
+            return _noAds;
+        }
+        set
+        {
+            _noAds = value;
+        }
+    }
 
     private void Start()
     {
-        //ShowCoins();
+        DontDestroyOnLoad(gameObject);
+
+        if (instance == null)
+            instance = this;
+
+        else
+            Destroy(gameObject);
+
+        _noAds = GameSystem.instance.AccountSettings.NoAds;
+
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         MobileAds.Initialize(initStatus => {
 
@@ -39,17 +64,14 @@ public class AdMobAds : MonoBehaviour
         });
     }
 
-    //private void Update()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.L))
-    //    {
-    //        LoadInterstitialAd();
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.S))
-    //    {
-    //        ShowInterstitialAd();
-    //    }
-    //}
+    public void NoAdsBought()
+    {
+        _noAds = true;//setting the no ads bool to true for this instance
+        GameSystem.instance.AccountSettings.NoAds = _noAds; //updating it in the account settings
+
+        //saving the account settings
+        GameSystem.instance.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.instance.AccountSettings, GameSystem.instance.EncryptionEnabled);
+    }
 
     #region Banner
 
@@ -139,32 +161,47 @@ public class AdMobAds : MonoBehaviour
 
     public void LoadInterstitialAd()
     {
+        if(_noAds) { return; }
 
-        if (interstitialAd != null)
-        {
-            interstitialAd.Destroy();
-            interstitialAd = null;
-        }
-        var adRequest = new AdRequest();
-        adRequest.Keywords.Add("unity-admob-sample");
+        //Adding 1 to the counter
+        adCounter++;
 
-        InterstitialAd.Load(interId, adRequest, (InterstitialAd ad, LoadAdError error) =>
+        //Checking if ads threshold met 
+        if (adCounter >= adThreshold)
         {
-            if (error != null || ad == null)
+            //This region is where the loading of the ad happens
+            #region LoadingAd 
+            if (interstitialAd != null)
             {
-                print("Interstitial ad failed to load" + error);
-                return;
+                interstitialAd.Destroy();
+                interstitialAd = null;
             }
+            var adRequest = new AdRequest();
+            adRequest.Keywords.Add("unity-admob-sample");
 
-            print("Interstitial ad loaded !!" + ad.GetResponseInfo());
+            InterstitialAd.Load(interId, adRequest, (InterstitialAd ad, LoadAdError error) =>
+            {
+                if (error != null || ad == null)
+                {
+                    print("Interstitial ad failed to load" + error);
+                    return;
+                }
 
-            interstitialAd = ad;
-            InterstitialEvent(interstitialAd);
-        });
+                print("Interstitial ad loaded !!" + ad.GetResponseInfo());
 
+                interstitialAd = ad;
+                InterstitialEvent(interstitialAd);
+
+                ShowInterstitialAd();
+            });
+            #endregion
+
+            adCounter = 0;
+        }
     }
     public void ShowInterstitialAd()
     {
+        if(_noAds) { return; }
 
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
@@ -296,23 +333,4 @@ public class AdMobAds : MonoBehaviour
     }
 
     #endregion
-
-
-    #region extra 
-
-    //void GrantCoins(int coins)
-    //{
-    //    int crrCoins = PlayerPrefs.GetInt("totalCoins");
-    //    crrCoins += coins;
-    //    PlayerPrefs.SetInt("totalCoins", crrCoins);
-
-    //    ShowCoins();
-    //}
-    //void ShowCoins()
-    //{
-    //    totalCoinsTxt.text = PlayerPrefs.GetInt("totalCoins").ToString();
-    //}
-
-    #endregion
-
 }

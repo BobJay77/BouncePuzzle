@@ -84,6 +84,9 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
     public void RestartGame()
     {
+        //Adding to the ad counter whenever we exit winlose state
+        AdMobAds.instance.LoadInterstitialAd();
+
         GameSystem.instance.DeleteBallsInGameScene();
         GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);
         GameSystem.instance.SetState(GameSystem.instance.startGameState);
