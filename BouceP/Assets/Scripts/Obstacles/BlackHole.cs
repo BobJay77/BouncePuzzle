@@ -5,6 +5,8 @@ using UnityEngine;
 public class BlackHole : MonoBehaviour
 {
     Vector3 originalScale = Vector3.one;
+    public bool isShooting = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (GameSystem.instance.GetState().ToString() != "PlayerTurn")
@@ -19,6 +21,7 @@ public class BlackHole : MonoBehaviour
 
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 GameSystem.instance.blackHoleShot = true;
+                isShooting = true;
                 GameSystem.instance.SetState(GameSystem.instance.playerTurnState);
                 GameSystem.instance.currentBounces = currentBouncesInLevel;
             }
@@ -26,9 +29,10 @@ public class BlackHole : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Projectile" && (GameSystem.instance.GetState().ToString() != "PlayerTurn" || GameSystem.instance.playerTurnState.shootMode))
+        if (other.transform.tag == "Projectile" && isShooting == true)
         {
             GameSystem.instance.blackHoleShot = false;
+            isShooting = false;
             gameObject.GetComponent<Collider>().enabled = false;
             originalScale = gameObject.transform.localScale;
             LeanTween.scale(gameObject, new Vector3(0, 0, 0), 1f);
@@ -37,6 +41,7 @@ public class BlackHole : MonoBehaviour
 
     public void ResetBlackHoles()
     {
+        GameSystem.instance.blackHoleShot = false;
         var blackholes = GameObject.FindObjectsOfType<BlackHole>();
 
         foreach (var blackhole in blackholes)

@@ -11,6 +11,7 @@ public class RedZone : MonoBehaviour
 
     [SerializeField] private float maxTimer = 3f;
     [SerializeField] private float fadeAwayMultiplyer = 10f;
+    private RedZone[] redzones;
 
 
     public bool reset = false;
@@ -19,6 +20,7 @@ public class RedZone : MonoBehaviour
     void Start()
     {
         redZoneMaterial = gameObject.GetComponent<MeshRenderer>().material;
+        redzones = GameObject.FindObjectsOfType<RedZone>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,18 @@ public class RedZone : MonoBehaviour
             ResetRedZone();
             reset = false;
         }
+
+        if (GameSystem.instance.GetState().ToString() == "PlayerTurn")
+        {
+            if(redzones != null)
+            {
+                foreach (RedZone redzone in redzones)
+                {
+                    redzone.GetComponent<Collider>().enabled = true;
+                }
+            }
+            
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,6 +71,7 @@ public class RedZone : MonoBehaviour
 
         foreach (RedZone redzone in redzones)
         {
+            redzone.GetComponent<Collider>().enabled = true;
             redzone.GetComponent<BoxCollider>().isTrigger = false;
             Color newcolor = redzone.redZoneMaterial.GetColor("_BorderColor");
             redzone.timer = 0;

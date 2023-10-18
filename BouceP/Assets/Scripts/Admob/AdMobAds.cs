@@ -25,7 +25,7 @@ public class AdMobAds : MonoBehaviour
 #endif
 
     private int adCounter = 0;
-    private const int adThreshold = 5;
+    private const int adThreshold = 8;
     private bool _noAds = false;
 
     private BannerView bannerView;
