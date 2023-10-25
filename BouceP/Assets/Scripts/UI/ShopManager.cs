@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
 
     public ShopManager smanager;
 
-    private void Awake()
+    private void Start()
     {
         smanager = this;
         SetupBuilder();
@@ -118,10 +118,13 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
     {
         if(m_storeController != null)
         {
+            
             var product = m_storeController.products.WithID(id);
+
             if(product != null)
             {
-                if(product.hasReceipt)
+                
+                if (product.hasReceipt)
                 {
                     AdMobAds.instance.NoAds = true;
                     GameSystem.instance.AccountSettings.NoAds = AdMobAds.instance.NoAds; //updating it in the account settings
@@ -131,6 +134,7 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
                     AdMobAds.instance.NoAds = false;
                     GameSystem.instance.AccountSettings.NoAds = AdMobAds.instance.NoAds; //updating it in the account settings
                 }
+                
             }
         }
     }

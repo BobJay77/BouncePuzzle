@@ -44,7 +44,7 @@ public class AdMobAds : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
 
@@ -90,7 +90,7 @@ public class AdMobAds : MonoBehaviour
         }
 
         var adRequest = new AdRequest();
-        adRequest.Keywords.Add("unity-admob-sample");
+        adRequest.Keywords.Add("unity-admob-game");
 
         print("Loading banner Ad !!");
         bannerView.LoadAd(adRequest);//show the banner on the screen

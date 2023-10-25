@@ -1943,6 +1943,7 @@ MonoBehaviour:
     Id: no_ad
     desc: Remove all Ads
     price: 1.49
+  smanager: {fileID: 0}
 --- !u!4 &178525688
 Transform:
   m_ObjectHideFlags: 0
