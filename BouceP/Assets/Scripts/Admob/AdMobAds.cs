@@ -24,9 +24,9 @@ public class AdMobAds : MonoBehaviour
 
 #endif
 
-    private int adCounter = 0;
+    [ SerializeField]private int adCounter = 0;
     private const int adThreshold = 8;
-    private bool _noAds = false;
+    [SerializeField]private bool _noAds = false;
 
     private BannerView bannerView;
     private InterstitialAd interstitialAd;

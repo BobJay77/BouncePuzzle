@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 559266327}
   - component: {fileID: 559266330}
   m_Layer: 5
-  m_Name: Portal Gif
+  m_Name: Tutorial Gif
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,10 +1609,10 @@ RectTransform:
   m_Father: {fileID: 1461941692}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.30413553, y: 0.25800002}
-  m_AnchorMax: {x: 0.708, y: 0.54560816}
-  m_AnchoredPosition: {x: -5, y: 5.2}
-  m_SizeDelta: {x: 2, y: 30}
+  m_AnchorMin: {x: 0.3102372, y: 0.27}
+  m_AnchorMax: {x: 0.69200003, y: 0.5983919}
+  m_AnchoredPosition: {x: -0.9667053, y: 0.19999695}
+  m_SizeDelta: {x: -13.096802, y: -0.9640007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559266327
 MonoBehaviour:
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1369132789, guid: cb052de51aefa0748b251b2f9bf61dbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 503113274382fc446bedb9299b268e97, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1662,7 +1662,7 @@ Animator:
   m_GameObject: {fileID: 559266324}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bbbe57e73e0884f42b083fb11a16aa7c, type: 2}
+  m_Controller: {fileID: 9100000, guid: e70a8d2ff6b418b4681ca0a36e2a1180, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1726,7 +1726,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1369132789, guid: cb052de51aefa0748b251b2f9bf61dbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 503113274382fc446bedb9299b268e97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2315,6 +2315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global Volume
       objectReference: {fileID: 0}
+    - target: {fileID: 8644299408215404424, guid: 049462ac831b8334c970a614141f41ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8644299408215404425, guid: 049462ac831b8334c970a614141f41ec, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2549,6 +2553,10 @@ PrefabInstance:
     - target: {fileID: 6778374608186313184, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
       propertyPath: m_Name
       value: PurplePortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778374608186313184, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6778374608186313191, guid: c9d271df60d3e064d97a4dcddd24faed, type: 3}
       propertyPath: m_RootOrder
@@ -4395,6 +4403,10 @@ PrefabInstance:
     - target: {fileID: 1197089371, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
       propertyPath: yPosPercentage
       value: 94.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553314663, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1553314664, guid: fca7cf7dc0a19724792758824b2c8b0b, type: 3}
       propertyPath: m_LocalPosition.x
