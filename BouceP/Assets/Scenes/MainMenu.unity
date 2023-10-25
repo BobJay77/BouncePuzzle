@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009343528, g: 0.011165031, b: 0.02523054, a: 1}
+  m_IndirectSpecularColor: {r: 0.009344884, g: 0.0111686485, b: 0.025242599, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1943,7 +1943,6 @@ MonoBehaviour:
     Id: no_ad
     desc: Remove all Ads
     price: 1.49
-  smanager: {fileID: 0}
 --- !u!4 &178525688
 Transform:
   m_ObjectHideFlags: 0
@@ -25223,6 +25222,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1725616252}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1188806085}
+        m_TargetAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+        m_MethodName: set_interactable
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -23,17 +23,9 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
 
     public NonConsumableItem ncItem;
 
-    public ShopManager smanager;
-
     private void Start()
     {
-        smanager = this;
         SetupBuilder();
-    }
-
-    private void Update()
-    {
-        //print("controller " + m_storeController);
     }
 
     //opens the specified popup based on whether they bought the no ads option
