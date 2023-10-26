@@ -86,8 +86,7 @@ public class WinLose : State //rename to win lose
 
     public override IEnumerator OnExit()
     {
-        //Adding to the ad counter whenever we exit winlose state
-        AdMobAds.instance.LoadInterstitialAd();
+        
 
         yield return null;
     }
