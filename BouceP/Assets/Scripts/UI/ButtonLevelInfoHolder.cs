@@ -23,10 +23,11 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         {
             if (lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
             if (numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
-            if (!GameSystem.instance.LevelInfos[levelInfoIndex].locked) starImage.SetActive(true);
+            
 
             if (isALevelButton)
             {
+                if (!GameSystem.instance.LevelInfos[levelInfoIndex].locked) starImage.SetActive(true);
                 var stars = GameSystem.instance.LevelInfos[levelInfoIndex].stars;
                 Image[] images = this.GetComponentsInChildren<Image>(); // stars are index 2, 3, 4
 
@@ -62,15 +63,6 @@ public class ButtonLevelInfoHolder : MonoBehaviour
                                 images[3].sprite = starUnlocked;
                                 images[4].sprite = starUnlocked;
                             }
-                        }
-                    }
-                    else // No stars
-                    {
-                        if (images[2].sprite != starLocked && images[3].sprite != starLocked && images[4].sprite != starLocked)
-                        {
-                            images[2].sprite = starLocked;
-                            images[3].sprite = starLocked;
-                            images[4].sprite = starLocked;
                         }
                     }
                 }

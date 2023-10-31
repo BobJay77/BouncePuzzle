@@ -442,7 +442,7 @@ MonoBehaviour:
   starImage: {fileID: 119717247}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &12956340
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +610,7 @@ MonoBehaviour:
   starImage: {fileID: 867915483}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &31517370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   starImage: {fileID: 1587618235}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &56596603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   starImage: {fileID: 1649717160}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &90018369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   starImage: {fileID: 1682015398}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &93674929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1832,7 @@ MonoBehaviour:
   starImage: {fileID: 452152361}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &131875502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4632,7 +4632,7 @@ MonoBehaviour:
   starImage: {fileID: 1058807556}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &314928058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5818,7 +5818,7 @@ MonoBehaviour:
   starImage: {fileID: 449893597}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &407230214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6360,7 +6360,7 @@ MonoBehaviour:
   starImage: {fileID: 121347824}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &415056545
 GameObject:
   m_ObjectHideFlags: 0
@@ -8304,7 +8304,7 @@ MonoBehaviour:
   starImage: {fileID: 1735079904}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &593806846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11595,7 +11595,7 @@ MonoBehaviour:
   starImage: {fileID: 743086830}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &780531615
 GameObject:
   m_ObjectHideFlags: 0
@@ -12424,7 +12424,7 @@ MonoBehaviour:
   starImage: {fileID: 915767665}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &824821672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12783,7 +12783,7 @@ MonoBehaviour:
   starImage: {fileID: 275710360}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &836574333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13027,7 +13027,7 @@ MonoBehaviour:
   starImage: {fileID: 1304996495}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &842541833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13510,7 +13510,7 @@ MonoBehaviour:
   starImage: {fileID: 723426512}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &860219854
 GameObject:
   m_ObjectHideFlags: 0
@@ -13983,7 +13983,7 @@ MonoBehaviour:
   starImage: {fileID: 1529817874}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &886672158
 GameObject:
   m_ObjectHideFlags: 0
@@ -14493,7 +14493,7 @@ MonoBehaviour:
   starImage: {fileID: 1167170804}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &907996724
 GameObject:
   m_ObjectHideFlags: 0
@@ -14661,7 +14661,7 @@ MonoBehaviour:
   starImage: {fileID: 1718751366}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &909373912
 GameObject:
   m_ObjectHideFlags: 0
@@ -15729,7 +15729,7 @@ MonoBehaviour:
   starImage: {fileID: 2049585122}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &943946770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16003,7 +16003,7 @@ MonoBehaviour:
   starImage: {fileID: 374395592}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &948412471
 GameObject:
   m_ObjectHideFlags: 0
@@ -18613,7 +18613,7 @@ MonoBehaviour:
   starImage: {fileID: 1671370281}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1123668017
 GameObject:
   m_ObjectHideFlags: 0
@@ -19096,7 +19096,7 @@ MonoBehaviour:
   starImage: {fileID: 1130613782}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1150016154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21548,7 +21548,7 @@ MonoBehaviour:
   starImage: {fileID: 2038024408}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1281552358
 GameObject:
   m_ObjectHideFlags: 0
@@ -22511,7 +22511,7 @@ MonoBehaviour:
   starImage: {fileID: 1169406307}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1321359865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22679,7 +22679,7 @@ MonoBehaviour:
   starImage: {fileID: 987795381}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1325966542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23603,7 +23603,7 @@ MonoBehaviour:
   starImage: {fileID: 1253973461}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1380973003
 GameObject:
   m_ObjectHideFlags: 0
@@ -25397,7 +25397,7 @@ MonoBehaviour:
   starImage: {fileID: 1237773499}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1467518080
 GameObject:
   m_ObjectHideFlags: 0
@@ -25888,7 +25888,7 @@ MonoBehaviour:
   starImage: {fileID: 1331418559}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1504906603
 GameObject:
   m_ObjectHideFlags: 0
@@ -26580,7 +26580,7 @@ MonoBehaviour:
   starImage: {fileID: 1913703142}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1538965898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28244,7 +28244,7 @@ MonoBehaviour:
   starImage: {fileID: 472249121}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1640138335
 GameObject:
   m_ObjectHideFlags: 0
@@ -29031,7 +29031,7 @@ MonoBehaviour:
   starImage: {fileID: 1089402231}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1689475224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29848,7 +29848,7 @@ MonoBehaviour:
   starImage: {fileID: 540374166}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!1 &1720872996
 GameObject:
   m_ObjectHideFlags: 0
@@ -32270,7 +32270,7 @@ MonoBehaviour:
   starImage: {fileID: 1603176373}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1877419420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32642,7 +32642,7 @@ MonoBehaviour:
   starImage: {fileID: 825907994}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1893484093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33772,7 +33772,7 @@ MonoBehaviour:
   starImage: {fileID: 1893790539}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1923712999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34676,7 +34676,7 @@ MonoBehaviour:
   starImage: {fileID: 1158221877}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &1982798228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36384,7 +36384,7 @@ MonoBehaviour:
   starImage: {fileID: 270880485}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &2062044467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36894,7 +36894,7 @@ MonoBehaviour:
   starImage: {fileID: 645684894}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &2089784777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37875,7 +37875,7 @@ MonoBehaviour:
   starImage: {fileID: 808125945}
   starLocked: {fileID: 1732290697, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
   starUnlocked: {fileID: -1353701813, guid: 5f47d374c8e41b847acb4f3facc90f8a, type: 3}
-  isALevelButton: 0
+  isALevelButton: 1
 --- !u!114 &2143139640
 MonoBehaviour:
   m_ObjectHideFlags: 0
