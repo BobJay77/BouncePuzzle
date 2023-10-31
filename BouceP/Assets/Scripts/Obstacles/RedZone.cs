@@ -44,7 +44,7 @@ public class RedZone : MonoBehaviour
             reset = false;
         }
 
-        if (GameSystem.instance.GetState().ToString() == "PlayerTurn")
+        if (GameSystem.instance.GetState().ToString() == "WinLose")
         {
             if(redzones != null)
             {

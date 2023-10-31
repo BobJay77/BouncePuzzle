@@ -17,5 +17,21 @@ public class WinLoseUIParent : MonoBehaviour
         GameSystem.instance.DeleteBallsInGameScene();
         GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);
         GameSystem.instance.SetState(GameSystem.instance.startGameState);
+
+        #region Star Handling
+        GameObject[] starObjects = GameObject.FindGameObjectsWithTag("Star");
+
+        // Iterate through the found objects and access a component (e.g., Collider)
+        foreach (GameObject starObject in starObjects)
+        {
+            Star star = starObject.GetComponent<Star>();
+
+            // Check if the component exists before using it
+            if (star != null)
+            {
+                star.Restart();
+            }
+        }
+        #endregion
     }
 }

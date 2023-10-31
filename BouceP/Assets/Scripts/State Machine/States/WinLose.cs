@@ -39,6 +39,9 @@ public class WinLose : State //rename to win lose
                                                    AudioManager.instance.winLoseSounds.spatialBlend,
                                                    AudioManager.instance.winLoseSounds.priority);
 
+            // Update stars
+            GameSystem.instance.LevelInfos[GameSystem.CurrentLevelInfo.levelID - 1].stars = GameSystem.instance.StarCounter;
+
             // Unlock next level and save the data in the Account settings
             if (GameSystem.LevelInfos.Count >= GameSystem.CurrentLevelInfo.levelID)
             {

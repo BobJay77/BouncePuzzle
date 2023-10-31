@@ -44,7 +44,7 @@ public class AdMobAds : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         DontDestroyOnLoad(gameObject);
 
@@ -177,7 +177,7 @@ public class AdMobAds : MonoBehaviour
                 interstitialAd = null;
             }
             var adRequest = new AdRequest();
-            adRequest.Keywords.Add("unity-admob-sample");
+            //adRequest.Keywords.Add("unity-admob-sample");
 
             InterstitialAd.Load(interId, adRequest, (InterstitialAd ad, LoadAdError error) =>
             {

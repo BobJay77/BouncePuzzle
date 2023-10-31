@@ -23,7 +23,7 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
 
     public NonConsumableItem ncItem;
 
-    private void Start()
+    private void Awake()
     {
         SetupBuilder();
     }
@@ -103,10 +103,10 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
     {
         print("Success");
         m_storeController = controller;
-        CheckNonConsumable(ncItem.Id);
+        StartCoroutine(CheckNonConsumable(ncItem.Id));
     }
 
-    void CheckNonConsumable(string id)
+    private IEnumerator CheckNonConsumable(string id)
     {
         if(m_storeController != null)
         {
@@ -115,7 +115,9 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
 
             if(product != null)
             {
-                
+
+                yield return new WaitForSeconds(1f);
+
                 if (product.hasReceipt)
                 {
                     AdMobAds.instance.NoAds = true;
@@ -129,5 +131,7 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
                 
             }
         }
+
+        yield return null;
     }
 }

@@ -10,6 +10,10 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     [SerializeField] private int    levelInfoIndex;
     [SerializeField] GameObject     lockImage;
     [SerializeField] GameObject     numberImage;
+    [SerializeField] GameObject     starImage;
+    [SerializeField] Sprite         starLocked;
+    [SerializeField] Sprite         starUnlocked;
+    [SerializeField] bool           isALevelButton = false;
 
     private void Update()
     {
@@ -19,6 +23,59 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         {
             if (lockImage != null) lockImage.SetActive(GameSystem.instance.LevelInfos[levelInfoIndex].locked);
             if (numberImage != null) numberImage.SetActive(!GameSystem.instance.LevelInfos[levelInfoIndex].locked);
+            if (!GameSystem.instance.LevelInfos[levelInfoIndex].locked) starImage.SetActive(true);
+
+            if (isALevelButton)
+            {
+                var stars = GameSystem.instance.LevelInfos[levelInfoIndex].stars;
+                Image[] images = this.GetComponentsInChildren<Image>(); // stars are index 2, 3, 4
+
+                if (images != null)
+                {
+                    Debug.Log(stars);
+                    // At least 1 star has been earned
+                    if (stars > 0)
+                    {
+                        if (stars == 1)
+                        {
+                            if(images[2].sprite != starUnlocked)
+                            {
+                                images[2].sprite = starUnlocked;
+                                images[3].sprite = starLocked;
+                                images[4].sprite = starLocked;
+                            }
+                        }
+                        else if (stars == 2)
+                        {
+                            if (images[2].sprite != starUnlocked && images[3].sprite != starUnlocked)
+                            {
+                                images[2].sprite = starUnlocked;
+                                images[3].sprite = starUnlocked;
+                                images[4].sprite = starLocked;
+                            }
+                        }
+                        else if (stars == 3)
+                        {
+                            if (images[2].sprite != starUnlocked && images[3].sprite != starUnlocked && images[4].sprite != starUnlocked)
+                            {
+                                images[2].sprite = starUnlocked;
+                                images[3].sprite = starUnlocked;
+                                images[4].sprite = starUnlocked;
+                            }
+                        }
+                    }
+                    else // No stars
+                    {
+                        if (images[2].sprite != starLocked && images[3].sprite != starLocked && images[4].sprite != starLocked)
+                        {
+                            images[2].sprite = starLocked;
+                            images[3].sprite = starLocked;
+                            images[4].sprite = starLocked;
+                        }
+                    }
+                }
+                
+            }
 
             if (GameSystem.instance.LevelInfos.Count >= GameSystem.instance.LevelInfos[levelInfoIndex].levelID)
             {
@@ -90,6 +147,22 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         GameSystem.instance.DeleteBallsInGameScene();
         GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);
         GameSystem.instance.SetState(GameSystem.instance.startGameState);
+
+        #region Star Handling
+        GameObject[] starObjects = GameObject.FindGameObjectsWithTag("Star");
+
+        // Iterate through the found objects and access a component (e.g., Collider)
+        foreach (GameObject starObject in starObjects)
+        {
+            Star star = starObject.GetComponent<Star>();
+
+            // Check if the component exists before using it
+            if (star != null)
+            {
+                star.Restart();
+            }
+        }
+        #endregion
     }
 
     public void ResetBlackHoleShot()
