@@ -2407,6 +2407,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1810351522}
     m_Modifications:
+    - target: {fileID: 2457679453796919464, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
+      propertyPath: yPosPercentage
+      value: 62.93
+      objectReference: {fileID: 0}
     - target: {fileID: 2821174169588181506, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
       propertyPath: m_Name
       value: Star (2)
@@ -2469,6 +2473,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1810351522}
     m_Modifications:
+    - target: {fileID: 2457679453796919464, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
+      propertyPath: xPosPercentage
+      value: 85.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457679453796919464, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
+      propertyPath: yPosPercentage
+      value: 78.82
+      objectReference: {fileID: 0}
     - target: {fileID: 2821174169588181506, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
       propertyPath: m_Name
       value: Star
@@ -4551,6 +4563,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1810351522}
     m_Modifications:
+    - target: {fileID: 2457679453796919464, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
+      propertyPath: xPosPercentage
+      value: 15.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457679453796919464, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
+      propertyPath: yPosPercentage
+      value: 47.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2821174169588181506, guid: 150a1184f17c6de4dafb2d96c4338232, type: 3}
       propertyPath: m_Name
       value: Star (1)
