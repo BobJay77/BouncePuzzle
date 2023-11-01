@@ -9,7 +9,7 @@ public class ScaleToScreenSize : MonoBehaviour
     [SerializeField] private float yPosPercentage = 0.5f; // Percentage of screen height for Y position
     [SerializeField] private bool  onlyPosition = false;
 
-    void Start()
+    void Update()
     {
         float distanceToWalls = Mathf.Abs(transform.position.z - Camera.main.transform.position.z);
         float screenHeight = 2.0f * distanceToWalls * Mathf.Tan(Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad);
