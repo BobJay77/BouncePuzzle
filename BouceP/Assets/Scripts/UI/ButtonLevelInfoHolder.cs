@@ -33,7 +33,6 @@ public class ButtonLevelInfoHolder : MonoBehaviour
 
                 if (images != null)
                 {
-                    Debug.Log(stars);
                     // At least 1 star has been earned
                     if (stars > 0)
                     {
@@ -136,7 +135,10 @@ public class ButtonLevelInfoHolder : MonoBehaviour
         //Adding to the ad counter whenever we exit winlose state
         AdMobAds.instance.LoadInterstitialAd();
 
-        GameObject.FindObjectOfType<RedZone>().ResetRedZone();
+        // Reset redzone if available
+        RedZone[] redzone = GameObject.FindObjectsOfType<RedZone>();
+        if(redzone.Length != 0) redzone[0].ResetRedZone();
+        
 
         GameSystem.instance.DeleteBallsInGameScene();
         GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);

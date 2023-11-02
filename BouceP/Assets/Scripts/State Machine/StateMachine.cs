@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
@@ -16,7 +17,9 @@ public abstract class StateMachine : MonoBehaviour
 
         State = state;
 
-        if(State.ToString() != "WinLose")
+        if (State == null) return;
+
+        if (State.ToString() != "WinLose")
             Debug.Log("Current State: " + State.ToString());
 
         StartCoroutine(State.OnEnter());

@@ -32,6 +32,8 @@ public class SceneSwitcher : MonoBehaviour
 
     public IEnumerator LoadWorldScene()
     {
+        GameSystem.instance.SetState(null);
+
         //IF YOU JUST WANT 1 WORLD SCENE USE THIS
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(worldSceneIndex);
 

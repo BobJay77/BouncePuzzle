@@ -1123,6 +1123,7 @@ MonoBehaviour:
   levelInfoIndex: 0
   lockImage: {fileID: 0}
   numberImage: {fileID: 0}
+  starImage: {fileID: 0}
   starLocked: {fileID: 0}
   starUnlocked: {fileID: 0}
   isALevelButton: 0
@@ -1431,6 +1432,7 @@ MonoBehaviour:
   levelInfoIndex: 0
   lockImage: {fileID: 0}
   numberImage: {fileID: 0}
+  starImage: {fileID: 0}
   starLocked: {fileID: 0}
   starUnlocked: {fileID: 0}
   isALevelButton: 0
@@ -1636,6 +1638,7 @@ MonoBehaviour:
   levelInfoIndex: 0
   lockImage: {fileID: 0}
   numberImage: {fileID: 0}
+  starImage: {fileID: 0}
   starLocked: {fileID: 0}
   starUnlocked: {fileID: 0}
   isALevelButton: 0
@@ -2296,6 +2299,7 @@ MonoBehaviour:
   levelInfoIndex: 0
   lockImage: {fileID: 0}
   numberImage: {fileID: 0}
+  starImage: {fileID: 0}
   starLocked: {fileID: 0}
   starUnlocked: {fileID: 0}
   isALevelButton: 0
@@ -2568,6 +2572,7 @@ MonoBehaviour:
   levelInfoIndex: 1
   lockImage: {fileID: 0}
   numberImage: {fileID: 0}
+  starImage: {fileID: 0}
   starLocked: {fileID: 0}
   starUnlocked: {fileID: 0}
   isALevelButton: 0
@@ -3862,6 +3867,7 @@ MonoBehaviour:
   levelInfoIndex: 0
   lockImage: {fileID: 0}
   numberImage: {fileID: 0}
+  starImage: {fileID: 0}
   starLocked: {fileID: 0}
   starUnlocked: {fileID: 0}
   isALevelButton: 0
@@ -4516,7 +4522,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.55
+  m_fontSize: 55.6
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1

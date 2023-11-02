@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009344884, g: 0.0111686485, b: 0.025242599, a: 1}
+  m_IndirectSpecularColor: {r: 0.009343528, g: 0.011165031, b: 0.02523054, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26274,12 +26274,12 @@ MonoBehaviour:
   tweenTime: 0.3
   tweenType: 1
   barImage:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 915225642}
+  - {fileID: 1881539720}
   barClosed: {fileID: -1385745935, guid: 8cc9728c2eca7bf478d8d55ccd4ff820, type: 3}
   barOpen: {fileID: -323955295, guid: 8cc9728c2eca7bf478d8d55ccd4ff820, type: 3}
-  previousBtn: {fileID: 0}
-  nextBtn: {fileID: 0}
+  previousBtn: {fileID: 1524209508}
+  nextBtn: {fileID: 1332227137}
 --- !u!114 &1474964864
 MonoBehaviour:
   m_ObjectHideFlags: 0
