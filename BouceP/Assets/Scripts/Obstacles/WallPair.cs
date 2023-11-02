@@ -24,11 +24,12 @@ public class WallPair : MonoBehaviour
             if (collision.transform.tag == "Projectile")
             {
                 otherWall.GetComponent<Collider>().isTrigger = false;
-                GetComponent<Collider>().isTrigger = true;
+                //GetComponent<Collider>().isTrigger = true;
                 otherWall.isOn = 1f;
                 isOn = 0.3f;
                 otherWall.Switch();
-                Switch();
+                LeanTween.move(gameObject, gameObject.transform.position, 0.1f).setEase(LeanTweenType.linear).setOnComplete(() => { Switch(); });
+
             }
         }
     }

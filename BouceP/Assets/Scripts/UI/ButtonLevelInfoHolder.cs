@@ -39,29 +39,29 @@ public class ButtonLevelInfoHolder : MonoBehaviour
                     {
                         if (stars == 1)
                         {
-                            if(images[2].sprite != starUnlocked)
+                            if(images[1].sprite != starUnlocked)
                             {
-                                images[2].sprite = starUnlocked;
+                                images[1].sprite = starUnlocked;
+                                images[2].sprite = starLocked;
                                 images[3].sprite = starLocked;
-                                images[4].sprite = starLocked;
                             }
                         }
                         else if (stars == 2)
                         {
-                            if (images[2].sprite != starUnlocked && images[3].sprite != starUnlocked)
+                            if (images[1].sprite != starUnlocked && images[2].sprite != starUnlocked)
                             {
+                                images[1].sprite = starUnlocked;
                                 images[2].sprite = starUnlocked;
-                                images[3].sprite = starUnlocked;
-                                images[4].sprite = starLocked;
+                                images[3].sprite = starLocked;
                             }
                         }
                         else if (stars == 3)
                         {
-                            if (images[2].sprite != starUnlocked && images[3].sprite != starUnlocked && images[4].sprite != starUnlocked)
+                            if (images[1].sprite != starUnlocked && images[2].sprite != starUnlocked && images[3].sprite != starUnlocked)
                             {
+                                images[1].sprite = starUnlocked;
                                 images[2].sprite = starUnlocked;
                                 images[3].sprite = starUnlocked;
-                                images[4].sprite = starUnlocked;
                             }
                         }
                     }
@@ -135,6 +135,8 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     {
         //Adding to the ad counter whenever we exit winlose state
         AdMobAds.instance.LoadInterstitialAd();
+
+        GameObject.FindObjectOfType<RedZone>().ResetRedZone();
 
         GameSystem.instance.DeleteBallsInGameScene();
         GameObject.FindGameObjectWithTag("Goal").GetComponent<Animator>().SetBool("activated", false);

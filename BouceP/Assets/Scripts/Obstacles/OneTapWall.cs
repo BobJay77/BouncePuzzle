@@ -12,13 +12,17 @@ public class OneTapWall : MonoBehaviour
         oneTapWalls = GameObject.FindObjectsOfType<OneTapWall>();
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (isActive && collision.transform.tag == "Projectile" && GameSystem.instance.GetState().ToString() == "Resolution")
         {
             // Deactivate the object
-            gameObject.SetActive(false);
-            isActive = false;
+
+            LeanTween.move(gameObject, gameObject.transform.position, 0.1f).setEase(LeanTweenType.linear).setOnComplete(() =>
+            {
+                gameObject.SetActive(false);
+                isActive = false;
+            });
         }
     }
 
