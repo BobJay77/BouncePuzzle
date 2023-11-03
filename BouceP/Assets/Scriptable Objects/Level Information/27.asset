@@ -15,7 +15,7 @@ MonoBehaviour:
   levelID: 27
   numOfBouncesToWin: 5
   stars: 0
-  locked: 0
+  locked: 1
   unlockSkinOnLevel: 9
   backgroundMusicIndex: 3
   hasTutorial: 0

@@ -4440,6 +4440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meteor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6078438750733257668, guid: 7d7a17610fb03bb47baabeb646964aa3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6078438750733257670, guid: 7d7a17610fb03bb47baabeb646964aa3, type: 3}
       propertyPath: xPosPercentage
       value: 40.62
@@ -5298,7 +5302,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 74.65
+  m_fontSize: 80.2
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1

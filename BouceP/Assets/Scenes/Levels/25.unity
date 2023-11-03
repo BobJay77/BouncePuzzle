@@ -5154,7 +5154,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.2
+  m_fontSize: 45.85
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5535,6 +5535,10 @@ PrefabInstance:
     - target: {fileID: 479053052692055928, guid: 36fd8a43f40c32546addaf90b2101ec1, type: 3}
       propertyPath: m_Name
       value: 'Teleporter 1 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794363809697394745, guid: 36fd8a43f40c32546addaf90b2101ec1, type: 3}
+      propertyPath: yPosPercentage
+      value: 71.13
       objectReference: {fileID: 0}
     - target: {fileID: 4566094524720372791, guid: 36fd8a43f40c32546addaf90b2101ec1, type: 3}
       propertyPath: m_RootOrder
