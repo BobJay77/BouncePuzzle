@@ -45,7 +45,7 @@ public class SceneSwitcher : MonoBehaviour
         if (loadOperation.isDone)  
         {
             //Adding to the ad counter
-            AdMobAds.instance.LoadInterstitialAd();
+            //AdMobAds.instance.LoadInterstitialAd();
 
             // Not main menu switch
             if (worldSceneIndex > 0)

@@ -31,19 +31,19 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
     //opens the specified popup based on whether they bought the no ads option
     public void OpenShop()
     {
-        if (AdMobAds.instance == null)
-            return;
+        //if (AdMobAds.instance == null)
+        //    return;
 
-        if (AdMobAds.instance.NoAds)
-        {
-            thankYouPopup.SetActive(true);
-            purchaseNoAdsShopPopup.SetActive(false);
-        }
-        else
-        {
-            purchaseNoAdsShopPopup.SetActive(true);
-            thankYouPopup.SetActive(false);
-        }
+        //if (AdMobAds.instance.NoAds)
+        //{
+        //    thankYouPopup.SetActive(true);
+        //    purchaseNoAdsShopPopup.SetActive(false);
+        //}
+        //else
+        //{
+        //    purchaseNoAdsShopPopup.SetActive(true);
+        //    thankYouPopup.SetActive(false);
+        //}
     }
 
     void SetupBuilder()
@@ -71,7 +71,7 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
 
         if (product.definition.id == ncItem.Id) // Nonconsumable
         {
-            AdMobAds.instance.NoAdsBought();
+            //AdMobAds.instance.NoAdsBought();
 
             OpenShop();
         }
@@ -118,16 +118,16 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
 
                 yield return new WaitForSeconds(1f);
 
-                if (product.hasReceipt)
-                {
-                    AdMobAds.instance.NoAds = true;
-                    GameSystem.instance.AccountSettings.NoAds = AdMobAds.instance.NoAds; //updating it in the account settings
-                }
-                else
-                {
-                    AdMobAds.instance.NoAds = false;
-                    GameSystem.instance.AccountSettings.NoAds = AdMobAds.instance.NoAds; //updating it in the account settings
-                }
+                //if (product.hasReceipt)
+                //{
+                //    AdMobAds.instance.NoAds = true;
+                //    GameSystem.instance.AccountSettings.NoAds = AdMobAds.instance.NoAds; //updating it in the account settings
+                //}
+                //else
+                //{
+                //    AdMobAds.instance.NoAds = false;
+                //    GameSystem.instance.AccountSettings.NoAds = AdMobAds.instance.NoAds; //updating it in the account settings
+                //}
                 
             }
         }
