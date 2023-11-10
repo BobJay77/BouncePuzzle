@@ -49,11 +49,15 @@ public class WinLose : State //rename to win lose
                 GameSystem.LevelInfos[GameSystem.CurrentLevelInfo.levelID].locked = false;
                 GameSystem.DataService.SaveData<List<LevelInfo>>("/levels.json", GameSystem.LevelInfos, GameSystem.EncryptionEnabled);
 
+                GameSystem.AccountSettings.LatestLevelUnlocked = GameSystem.CurrentLevelInfo.levelID;
+
                 if (GameSystem.LevelInfos[GameSystem.CurrentLevelInfo.levelID].unlockSkinOnLevel > 0) 
                 {
                     GameSystem.AccountSettings.Skins[GameSystem.LevelInfos[GameSystem.CurrentLevelInfo.levelID].unlockSkinOnLevel].isLocked = false;
                     GameSystem.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.AccountSettings, GameSystem.EncryptionEnabled);
                 }
+
+                FirestoreDataManager.Instance.SavaData();
             }
 
             var redZones = GameObject.FindObjectsOfType<RedZone>();

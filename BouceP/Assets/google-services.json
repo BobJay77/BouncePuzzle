@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "156787981443",
+    "project_id": "cosmicbouncefb",
+    "storage_bucket": "cosmicbouncefb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156787981443:android:58b44d0c82e8cded92afb6",
+        "android_client_info": {
+          "package_name": "com.BreadandButter.CosmicBounce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIN8JFvhjIwH4NDfGBSs9buuXjofwFofQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,9 +14,17 @@ public class AdsManager : MonoBehaviour
     string appKey = "unexpected_platform";
 #endif
 
+
     [SerializeField] private int adCounter = 0;
     [SerializeField] private bool _noAds = false;
     private const int adThreshold = 8;
+
+    private static AdsManager instance;
+
+    public static AdsManager Instance
+    {
+        get { return instance; }
+    }
 
     public bool NoAds
     {
@@ -32,6 +40,17 @@ public class AdsManager : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
 
         IronSource.Agent.validateIntegration();
         IronSource.Agent.init(appKey);
@@ -132,8 +151,8 @@ public class AdsManager : MonoBehaviour
     public void LoadInt()
     {
         IronSource.Agent.loadInterstitial();
-
     }
+
     public void LoadInterstitial()
     {
         if (_noAds) { return; }

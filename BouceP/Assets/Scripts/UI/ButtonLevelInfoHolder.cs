@@ -133,7 +133,7 @@ public class ButtonLevelInfoHolder : MonoBehaviour
     public void RestartGame()
     {
         //Adding to the ad counter whenever we exit winlose state
-        //AdMobAds.instance.LoadInterstitialAd();
+        AdsManager.Instance.LoadInterstitial();
 
         // Reset redzone if available
         RedZone[] redzone = GameObject.FindObjectsOfType<RedZone>();

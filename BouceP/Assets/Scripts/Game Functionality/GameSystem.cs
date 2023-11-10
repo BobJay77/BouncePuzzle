@@ -171,12 +171,16 @@ public class GameSystem : StateMachine
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
 
+        FirestoreDataManager.Instance.StartPlayLogin();
+
         // Accessing data or writing new one if it is the first time
         try
         {
             //Load previous data
             _levelInfos = _dataService.LoadData<List<LevelInfo>>("/levels.json", _encryptionEnabled);
             AccountSettings = _dataService.LoadData<AccountSettings>("/acc.json", _encryptionEnabled);
+
+            FirestoreDataManager.Instance.LoadData();
         }
         catch (Exception e)
         {
@@ -184,8 +188,14 @@ public class GameSystem : StateMachine
 
             //First time saving
             AccountSettings.ActiveSkin = AccountSettings.Skins[0];
+
+            FirestoreDataManager.Instance.LoadData();
+
             _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, _encryptionEnabled);
             _dataService.SaveData<AccountSettings>("/acc.json", AccountSettings, _encryptionEnabled);
+
+            FirestoreDataManager.Instance.SavaData();
+            
         }
     }
 
