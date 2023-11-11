@@ -15,7 +15,7 @@ public class AccountSettings : ScriptableObject
 
     [SerializeField] private List<Skin> _skins;         // List of all available skins in the game
     [SerializeField] private Skin       _activeSkin;    // Current active skin that is being used
-    [SerializeField] private int        _latestLevelUnlocked = 1;
+    //[SerializeField] private int        _latestLevelUnlocked = 1;
     [SerializeField] private bool       _noAds = false;
 
     // Properties
@@ -35,9 +35,9 @@ public class AccountSettings : ScriptableObject
         set { _noAds = value; }
     }
 
-    public int LatestLevelUnlocked
-    {
-        get { return _latestLevelUnlocked; }
-        set { _latestLevelUnlocked = value; }
-    }
+    //public int LatestLevelUnlocked
+    //{
+    //    get { return _latestLevelUnlocked; }
+    //    set { _latestLevelUnlocked = value; }
+    //}
 }

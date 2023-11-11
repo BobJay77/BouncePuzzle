@@ -171,16 +171,48 @@ public class GameSystem : StateMachine
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
 
+        //starts coroutine for the firestore and google play services for fix race condition issue
+            StartCoroutine(LoadFirestore());
+    }
+
+
+    private IEnumerator LoadFirestore()
+    {
+        bool isready = false;
+
+        float startTime = Time.time;
+
+        //put this into a courtine
         FirestoreDataManager.Instance.StartPlayLogin();
+
+        while (!isready)
+        {
+            Debug.Log("in while loop ");
+            if (FirestoreDataManager.Instance != null && FirestoreDataManager.Instance.IsConnected)
+            {
+                isready = true;
+                yield break;
+            }
+
+            else if (Time.time - startTime >= 5.0f)
+            {
+                isready = true;
+                yield break;
+            }
+
+            yield return null;
+        }
 
         // Accessing data or writing new one if it is the first time
         try
         {
+            Debug.Log($"Could read files");
             //Load previous data
             _levelInfos = _dataService.LoadData<List<LevelInfo>>("/levels.json", _encryptionEnabled);
             AccountSettings = _dataService.LoadData<AccountSettings>("/acc.json", _encryptionEnabled);
 
             FirestoreDataManager.Instance.LoadData();
+            Debug.Log($"Finshed read files");
         }
         catch (Exception e)
         {
@@ -195,8 +227,10 @@ public class GameSystem : StateMachine
             _dataService.SaveData<AccountSettings>("/acc.json", AccountSettings, _encryptionEnabled);
 
             FirestoreDataManager.Instance.SavaData();
-            
+            Debug.Log($"Finish not read file.");
         }
+
+        yield return null;
     }
 
     private void Start()

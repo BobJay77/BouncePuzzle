@@ -31,19 +31,19 @@ public class ShopManager : MonoBehaviour, IDetailedStoreListener
     //opens the specified popup based on whether they bought the no ads option
     public void OpenShop()
     {
-        //if (AdMobAds.instance == null)
-        //    return;
+        if (AdsManager.Instance == null)
+            return;
 
-        //if (AdMobAds.instance.NoAds)
-        //{
-        //    thankYouPopup.SetActive(true);
-        //    purchaseNoAdsShopPopup.SetActive(false);
-        //}
-        //else
-        //{
-        //    purchaseNoAdsShopPopup.SetActive(true);
-        //    thankYouPopup.SetActive(false);
-        //}
+        if (AdsManager.Instance.NoAds)
+        {
+            thankYouPopup.SetActive(true);
+            purchaseNoAdsShopPopup.SetActive(false);
+        }
+        else
+        {
+            purchaseNoAdsShopPopup.SetActive(true);
+            thankYouPopup.SetActive(false);
+        }
     }
 
     void SetupBuilder()

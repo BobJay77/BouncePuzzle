@@ -53,6 +53,7 @@ public class SceneSwitcher : MonoBehaviour
                 GameSystem.instance.winOrLoseParent = GameObject.FindObjectOfType<WinLoseUIParent>().gameObject;
                 GameSystem.instance.winOrLoseParent.SetActive(false);
 
+                //if the level has a tutorial popup that needs to be shown
                 if (GameSystem.instance.CurrentLevelInfo.hasTutorial)
                 {
                     GameSystem.instance.actionText = GameObject.Find("Action Text").GetComponent<TMP_Text>();

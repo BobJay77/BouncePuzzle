@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-using UnityEngine.SocialPlatforms;
-using System.Threading;
-using TMPro;
 using Firebase.Firestore;
 using Firebase.Extensions;
-using System;
-using UnityEngine.Networking;
-using System.Text.RegularExpressions;
 
 public class FirestoreDataManager : MonoBehaviour
 {
@@ -23,6 +17,11 @@ public class FirestoreDataManager : MonoBehaviour
     public static FirestoreDataManager Instance
     {
         get { return instance; }
+    }
+
+    public bool IsConnected
+    {
+        get { return isConnected; }
     }
 
     private void Awake()
@@ -54,11 +53,24 @@ public class FirestoreDataManager : MonoBehaviour
         if (isConnected)
         {
             FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-            
+
             Dictionary<string, object> data = new Dictionary<string, object>()
             {
-                {"AccountSettings", GameSystem.instance.AccountSettings.NoAds },
+               // {"AccountSettings: LatestLevelUnlocked", GameSystem.instance.AccountSettings.LatestLevelUnlocked },
+                {"AccountSettings: NoAds", GameSystem.instance.AccountSettings.NoAds }
             };
+
+            foreach(Skin skin in GameSystem.instance.AccountSettings.Skins)
+            {
+                data.Add("Skin: " + skin.projectileVfx.ToString() + " isLocked", skin.isLocked);
+            }
+
+            foreach(LevelInfo level in GameSystem.instance.LevelInfos)
+            {
+                // Format "Level: + levelID.toString() + Locked"
+                data.Add("Level: " + level.levelID.ToString() + " Locked", level.locked);
+                data.Add("Level: " + level.levelID.ToString() + " Stars", level.stars);
+            }
 
             DocumentReference docRef = db.Collection("PlayerData").Document(userID);
             docRef.SetAsync(data).ContinueWithOnMainThread(task =>
@@ -96,11 +108,30 @@ public class FirestoreDataManager : MonoBehaviour
 
                 if (snapshot.Exists)
                 {
-                    GameSystem.instance.AccountSettings.NoAds = snapshot.GetValue<bool>("AccountSettings");
-                    //if (snapshot.GetValue<AccountSettings>("AccountSettings").LatestLevelUnlocked >= GameSystem.instance.AccountSettings.LatestLevelUnlocked)
+                   // GameSystem.instance.AccountSettings.LatestLevelUnlocked = snapshot.GetValue<int>("AccountSettings: LatestLevelUnlocked");
+                    GameSystem.instance.AccountSettings.NoAds = snapshot.GetValue<bool>("AccountSettings: NoAds");
+
+                    foreach (Skin skin in GameSystem.instance.AccountSettings.Skins)
+                    {
+                        skin.isLocked = snapshot.GetValue<bool>("Skin: " + skin.projectileVfx.ToString() + " isLocked"); 
+                    }
+
+                    foreach (LevelInfo level in GameSystem.instance.LevelInfos)
+                    {
+                        level.locked = snapshot.GetValue<bool>("Level: " + level.levelID.ToString() + " Locked");
+                        level.stars = snapshot.GetValue<int>("Level: " + level.levelID.ToString() + " Stars");
+                    }
+
+                    //if (GameSystem.instance.AccountSettings.LatestLevelUnlocked > 1)
                     //{
-                    //    GameSystem.instance.AccountSettings = snapshot.GetValue<AccountSettings>("AccountSettings");
-                    //    GameSystem.instance.LevelInfos = snapshot.GetValue<List<LevelInfo>>("LevelInfos");
+                    //    for (int i = 0; i < GameSystem.instance.AccountSettings.LatestLevelUnlocked; i++)
+                    //    {
+                    //        //Skin unlocks every 3 lvls
+                    //        if (i % 3 == 0)
+                    //        {
+
+                    //        }
+                    //    }
                     //}
                 }
 
