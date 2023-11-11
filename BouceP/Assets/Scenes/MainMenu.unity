@@ -3285,7 +3285,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 141.95
+  m_fontSize: 117.3
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3926,8 +3926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058ee26c31bce4641ab88ae2562ad632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gpgsStatusText: {fileID: 0}
-  firebaseStatusText: {fileID: 0}
 --- !u!4 &257121131
 Transform:
   m_ObjectHideFlags: 0
@@ -20603,7 +20601,7 @@ MonoBehaviour:
   fitType: 4
   rows: 2
   columns: 3
-  cellSize: {x: 235.07658, y: 349.85938}
+  cellSize: {x: 235.07658, y: 190.88745}
   spacing: {x: 50, y: 50}
   fitX: 1
   fitY: 1
@@ -23598,7 +23596,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 145.65
+  m_fontSize: 121.05
   m_fontSizeBase: 190
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29468,6 +29466,18 @@ PrefabInstance:
     - target: {fileID: 684582928808132615, guid: e0cc78992b394ac43be9451be06bafe0, type: 3}
       propertyPath: FontSize
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 684582928808132615, guid: e0cc78992b394ac43be9451be06bafe0, type: 3}
+      propertyPath: LogWarnings
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 684582928808132615, guid: e0cc78992b394ac43be9451be06bafe0, type: 3}
+      propertyPath: StackTraceMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 684582928808132615, guid: e0cc78992b394ac43be9451be06bafe0, type: 3}
+      propertyPath: StackTraceWarnings
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 684582928808132616, guid: e0cc78992b394ac43be9451be06bafe0, type: 3}
       propertyPath: m_RootOrder

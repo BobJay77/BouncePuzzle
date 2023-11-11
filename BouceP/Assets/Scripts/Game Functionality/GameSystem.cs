@@ -154,9 +154,17 @@ public class GameSystem : StateMachine
         DontDestroyOnLoad(gameObject);
 
         if (instance == null)
+        {
             instance = this;
+            
+            //starts coroutine for the firestore and google play services for fix race condition issue
+            StartCoroutine(LoadFirestore());
+        }
+
         else
             Destroy(gameObject);
+
+        Debug.Log("In GameSystem Awake");
 
         // Initialize the game states
         if (startGameState == null)
@@ -171,8 +179,6 @@ public class GameSystem : StateMachine
         if (winLoseState == null)
             winLoseState = new WinLose(instance);
 
-        //starts coroutine for the firestore and google play services for fix race condition issue
-            StartCoroutine(LoadFirestore());
     }
 
 
@@ -187,17 +193,16 @@ public class GameSystem : StateMachine
 
         while (!isready)
         {
-            Debug.Log("in while loop ");
             if (FirestoreDataManager.Instance != null && FirestoreDataManager.Instance.IsConnected)
             {
                 isready = true;
-                yield break;
+                break;
             }
 
             else if (Time.time - startTime >= 5.0f)
             {
                 isready = true;
-                yield break;
+                break;
             }
 
             yield return null;
@@ -229,8 +234,6 @@ public class GameSystem : StateMachine
             FirestoreDataManager.Instance.SavaData();
             Debug.Log($"Finish not read file.");
         }
-
-        yield return null;
     }
 
     private void Start()
