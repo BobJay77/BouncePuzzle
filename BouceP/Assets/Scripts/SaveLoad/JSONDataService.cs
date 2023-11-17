@@ -109,7 +109,7 @@ public class JSONDataService : IDataService
         using StreamReader reader = new StreamReader(cryptoStream);
         string result = reader.ReadToEnd();
 
-        Debug.Log($"Decrypted result (if the following is not legible, probably wrong key or IV): {result}");
+        //Debug.Log($"Decrypted result (if the following is not legible, probably wrong key or IV): {result}");
 
         return JsonConvert.DeserializeObject<T>(result);
     }

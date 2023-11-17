@@ -1,9 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id,@string/default_web_client_id">
   <string name="gcm_defaultSenderId" translatable="false">156787981443</string>
   <string name="google_storage_bucket" translatable="false">cosmicbouncefb.appspot.com</string>
   <string name="project_id" translatable="false">cosmicbouncefb</string>
   <string name="google_api_key" translatable="false">AIzaSyBIN8JFvhjIwH4NDfGBSs9buuXjofwFofQ</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBIN8JFvhjIwH4NDfGBSs9buuXjofwFofQ</string>
   <string name="google_app_id" translatable="false">1:156787981443:android:58b44d0c82e8cded92afb6</string>
+  <string name="default_android_client_id" translatable="false">156787981443-brrmas7a3sc9m6ratj14ahi0ttp0atbh.apps.googleusercontent.com</string>
+  <string name="default_web_client_id" translatable="false">156787981443-rvd8u6kj84c4p890qr3cr0224a577kpi.apps.googleusercontent.com</string>
 </resources>

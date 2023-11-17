@@ -47,7 +47,6 @@ public class FirestoreDataManager : MonoBehaviour
         PlayGamesPlatform.Activate();
         GPGSLogin();
     }
-
     public void SavaData()
     {
         if (isConnected)
@@ -77,12 +76,12 @@ public class FirestoreDataManager : MonoBehaviour
             {
                 if (task.IsCompleted)
                 {
-                    Debug.Log("Save completed");
+                    Debug.Log("(SavaData) Save completed");
                 }
 
                 else
                 {
-                    Debug.Log("Error saving data");
+                    Debug.Log("(SavaData) Error saving data");
                 }
             });
         }
@@ -156,22 +155,28 @@ public class FirestoreDataManager : MonoBehaviour
         {
             if (success == SignInStatus.Success)
             {
-                Debug.Log("Logged in");
+                Debug.Log("(GPGS) Logged in");
 
                 Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
                 {
                     if (task.Result == Firebase.DependencyStatus.Available)
                     {
                         //No Dependancy issue with firebase continue with login
+                        Debug.Log("(GPGS) Firebase Task Result: " + task.Result);
                         ConnectToFireBase();
                     }
 
                     else
                     {
                         //error fixing firebase dependency check plugin
-                        Debug.Log("Dependency error");
+                        Debug.Log("(GPGS) Dependency error");
                     }
                 });
+            }
+
+            else
+            {
+                Debug.Log("(GPGS) Login failed" + success);
             }
         });
     }
@@ -188,11 +193,11 @@ public class FirestoreDataManager : MonoBehaviour
             {
                 if(task.IsCanceled)
                 {
-                    Debug.Log("Sign in Cancelled");
+                    Debug.Log("(ConnectToFireBase) Sign in Cancelled");
                 }
                 if(task.IsFaulted)
                 {
-                    Debug.Log("Error " + task.Result);
+                    Debug.Log("(ConnectToFireBase) Error " + task.Result);
                 }
 
                 Firebase.Auth.FirebaseUser user = FBAuth.CurrentUser;
@@ -200,13 +205,13 @@ public class FirestoreDataManager : MonoBehaviour
                 if(user != null)
                 {
                     userID = user.UserId;
-                    Debug.Log("Signed in as " + user.DisplayName);
+                    Debug.Log("(ConnectToFireBase) Signed in as " + user.DisplayName);
                     isConnected = true;
                 }
 
                 else
                 {
-                    //error getting user
+                    Debug.Log("(ConnectToFireBase) User null returned:" + user.ToString());
                 }
             });
         });

@@ -12,7 +12,20 @@
           "package_name": "com.BreadandButter.CosmicBounce"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "156787981443-brrmas7a3sc9m6ratj14ahi0ttp0atbh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.BreadandButter.CosmicBounce",
+            "certificate_hash": "80f561e0673d45f9957a9eded623e48b2e4a142b"
+          }
+        },
+        {
+          "client_id": "156787981443-rvd8u6kj84c4p890qr3cr0224a577kpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBIN8JFvhjIwH4NDfGBSs9buuXjofwFofQ"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156787981443-rvd8u6kj84c4p890qr3cr0224a577kpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
