@@ -164,7 +164,7 @@ public class GameSystem : StateMachine
         else
             Destroy(gameObject);
 
-        Debug.Log("In GameSystem Awake");
+        //Debug.Log("In GameSystem Awake");
 
         // Initialize the game states
         if (startGameState == null)
@@ -184,40 +184,40 @@ public class GameSystem : StateMachine
 
     private IEnumerator LoadFirestore()
     {
-        bool isready = false;
+        //bool isready = false;
 
-        float startTime = Time.time;
+        //float startTime = Time.time;
 
-        //put this into a courtine
-        FirestoreDataManager.Instance.StartPlayLogin();
+        ////put this into a courtine
+        //FirestoreDataManager.Instance.StartPlayLogin();
 
-        while (!isready)
-        {
-            if (FirestoreDataManager.Instance != null && FirestoreDataManager.Instance.IsConnected)
-            {
-                isready = true;
-                break;
-            }
+        //while (!isready)
+        //{
+        //    if (FirestoreDataManager.Instance != null && FirestoreDataManager.Instance.IsConnected)
+        //    {
+        //        isready = true;
+        //        break;
+        //    }
 
-            else if (Time.time - startTime >= 5.0f)
-            {
-                isready = true;
-                break;
-            }
+        //    else if (Time.time - startTime >= 5.0f)
+        //    {
+        //        isready = true;
+        //        break;
+        //    }
 
-            yield return null;
-        }
+        //    yield return null;
+        //}
 
         // Accessing data or writing new one if it is the first time
         try
         {
-            Debug.Log($"Could read files");
+            //Debug.Log($"Could read files");
             //Load previous data
             _levelInfos = _dataService.LoadData<List<LevelInfo>>("/levels.json", _encryptionEnabled);
             AccountSettings = _dataService.LoadData<AccountSettings>("/acc.json", _encryptionEnabled);
 
-            FirestoreDataManager.Instance.LoadData();
-            Debug.Log($"Finshed read files");
+            //FirestoreDataManager.Instance.LoadData();
+            //Debug.Log($"Finshed read files");
         }
         catch (Exception e)
         {
@@ -226,14 +226,16 @@ public class GameSystem : StateMachine
             //First time saving
             AccountSettings.ActiveSkin = AccountSettings.Skins[0];
 
-            FirestoreDataManager.Instance.LoadData();
+            //FirestoreDataManager.Instance.LoadData();
 
             _dataService.SaveData<List<LevelInfo>>("/levels.json", _levelInfos, _encryptionEnabled);
             _dataService.SaveData<AccountSettings>("/acc.json", AccountSettings, _encryptionEnabled);
 
-            FirestoreDataManager.Instance.SavaData();
+            //FirestoreDataManager.Instance.SavaData();
             Debug.Log($"Finish not read file.");
         }
+
+        yield return null;
     }
 
     private void Start()

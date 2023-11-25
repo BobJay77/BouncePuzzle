@@ -31,6 +31,7 @@ public class FirestoreDataManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            PlayGamesPlatform.DebugLogEnabled = true;
         }
 
         else
@@ -45,6 +46,7 @@ public class FirestoreDataManager : MonoBehaviour
         isConnected = false;
 
         PlayGamesPlatform.Activate();
+       
         GPGSLogin();
     }
     public void SavaData()
@@ -151,6 +153,7 @@ public class FirestoreDataManager : MonoBehaviour
 
     public void GPGSLogin()
     {
+       
         PlayGamesPlatform.Instance.Authenticate((success) =>
         {
             if (success == SignInStatus.Success)

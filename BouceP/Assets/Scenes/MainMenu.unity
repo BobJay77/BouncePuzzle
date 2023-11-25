@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009344884, g: 0.0111686485, b: 0.025242599, a: 1}
+  m_IndirectSpecularColor: {r: 0.009343528, g: 0.011165031, b: 0.02523054, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3913,7 +3913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &257121130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11808,12 +11808,12 @@ GameObject:
   - component: {fileID: 773477956}
   - component: {fileID: 773477955}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Logger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &773477955
 MonoBehaviour:
   m_ObjectHideFlags: 0

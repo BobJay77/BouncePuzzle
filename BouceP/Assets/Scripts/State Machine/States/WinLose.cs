@@ -57,7 +57,7 @@ public class WinLose : State //rename to win lose
                     GameSystem.DataService.SaveData<AccountSettings>("/acc.json", GameSystem.AccountSettings, GameSystem.EncryptionEnabled);
                 }
 
-                FirestoreDataManager.Instance.SavaData();
+                //FirestoreDataManager.Instance.SavaData();
             }
 
             var redZones = GameObject.FindObjectsOfType<RedZone>();
